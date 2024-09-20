@@ -7,6 +7,15 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    enum PlayerType
+    {
+        Online,
+        Offline
+    }
+
+    [Header("Types")]
+    [SerializeField] private PlayerType playerType; 
+
     [Header("Preset")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpVelocity;
@@ -29,6 +38,11 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
+
+        if (playerType == PlayerType.Offline)
+        {
+            GetComponent<PlayerInput>().SwitchCurrentControlScheme(new[] { Keyboard.current });
+        }
     }
 
     private void Update()
