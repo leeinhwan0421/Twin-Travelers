@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class LoadSceneManager : MonoBehaviour
         yield return null;
 
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+
         op.allowSceneActivation = false;
         float timer = 0.0f;
 

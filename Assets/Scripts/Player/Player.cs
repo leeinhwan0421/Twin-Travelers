@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
     private float checkGroundDistance = 0.1f;
     private bool isGrounded;
 
-
     private void Awake()
     {
         animator = GetComponent<Animator>();
