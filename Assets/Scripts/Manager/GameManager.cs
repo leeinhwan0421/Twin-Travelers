@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void DefeatStage()
     {
+        SpawnManager.Instance.RemovePlayers();
         UIManager.Instance.DefeatPanel.Enable();
     }
 

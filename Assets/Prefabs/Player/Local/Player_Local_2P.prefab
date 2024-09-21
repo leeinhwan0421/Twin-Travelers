@@ -197,6 +197,7 @@ MonoBehaviour:
   playerType: 1
   moveSpeed: 8
   jumpVelocity: 20
+  deadEffect: {fileID: 888651480518953923, guid: fdb25c30b2dfc7d42bc0f5532c602f42, type: 3}
 --- !u!114 &2447160765975337133
 MonoBehaviour:
   m_ObjectHideFlags: 0

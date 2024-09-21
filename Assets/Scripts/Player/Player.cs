@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpVelocity;
 
+    [Header("Effect")]
+    [SerializeField] private GameObject deadEffect;
+
     // Private Values
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -44,6 +47,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        GameObject.Instantiate(deadEffect, transform.position, Quaternion.identity);
+    }
+
     private void Update()
     {
         SetAnimatorParameters();
@@ -53,6 +61,14 @@ public class Player : MonoBehaviour
     {
         Move();
         OnGrounded();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            Dead();
+        }
     }
 
     // 이동 및 여러가지 함수 
@@ -111,5 +127,11 @@ public class Player : MonoBehaviour
         if (!isGrounded) return;
 
         rigid.velocity = Vector2.up * jumpVelocity;
+    }
+
+    // 충돌 관련 함수
+    private void Dead()
+    {
+        GameManager.Instance.DefeatStage();
     }
 }
