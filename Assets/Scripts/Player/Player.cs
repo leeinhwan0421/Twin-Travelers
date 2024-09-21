@@ -47,11 +47,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        GameObject.Instantiate(deadEffect, transform.position, Quaternion.identity);
-    }
-
     private void Update()
     {
         SetAnimatorParameters();
@@ -133,5 +128,10 @@ public class Player : MonoBehaviour
     private void Dead()
     {
         GameManager.Instance.DefeatStage();
+    }
+
+    public void InstantiateDeadEffect()
+    {
+        GameObject.Instantiate(deadEffect, transform.position, Quaternion.identity);
     }
 }

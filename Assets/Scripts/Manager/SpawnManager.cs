@@ -59,6 +59,7 @@ public class SpawnManager : MonoBehaviour
         {
             if (iter != null)
             {
+                iter.GetComponent<Player>().InstantiateDeadEffect();
                 Destroy(iter);
             }
         }
