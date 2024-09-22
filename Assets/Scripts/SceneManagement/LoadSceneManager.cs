@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
-    public static int nextScene;
+    public static string nextScene;
 
     [SerializeField] private LoadingPanel panel;
 
@@ -15,9 +15,9 @@ public class LoadSceneManager : MonoBehaviour
         StartCoroutine(LoadScene());
     }
 
-    public static void LoadScene(int sceneNum)
+    public static void LoadScene(string sceneName)
     {
-        nextScene = sceneNum;
+        nextScene = sceneName;
         SceneManager.LoadScene("LoadScene");
     }
 

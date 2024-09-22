@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoadSceneButton : MonoBehaviour
 {
-    public void LoadScene(int sceneNum)
+    public void LoadScene(string sceneNum)
     {
 #if SHOW_DEBUG_MESSAGES
         Debug.Log($"Loaded Scene... Scene Number: {sceneNum}");
