@@ -21,12 +21,12 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Element")]
     [SerializeField] private TextMeshProUGUI timer;
-    [SerializeField] private ResultPanel defeatPanel;
-    [SerializeField] private ResultPanel victoryPanel;
+    [SerializeField] private Panel defeatPanel;
+    [SerializeField] private Panel victoryPanel;
 
     // Properties
-    public ResultPanel DefeatPanel { get { return defeatPanel; } }
-    public ResultPanel VictoryPanel { get { return victoryPanel; } }
+    public Panel DefeatPanel { get { return defeatPanel; } }
+    public Panel VictoryPanel { get { return victoryPanel; } }
 
     private void Awake()
     {

@@ -17,6 +17,10 @@ public class LoadSceneManager : MonoBehaviour
 
     public static void LoadScene(string sceneName)
     {
+#if SHOW_DEBUG_MESSAGES
+        Debug.Log($"Loading the scene: {sceneName}");
+#endif
+
         nextScene = sceneName;
         SceneManager.LoadScene("LoadScene");
     }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelectPanel : MonoBehaviour
+public sealed class LevelSelectPanel : Panel
 {
     [Header("Theme")]
     [SerializeField] private GameObject themeGroup;
@@ -12,32 +12,10 @@ public class LevelSelectPanel : MonoBehaviour
     private List<GameObject> themeList = new List<GameObject>();
     private int currentTheme = 0;
 
-    private Animator animator;
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
-
     private void Start()
     {
         SetThemePanel();
     }
-
-    public void Enable()
-    {
-        SetEnable();
-        animator.SetTrigger("Enable");
-    }
-
-    public void Disable()
-    {
-        animator.SetTrigger("Disable");
-    }
-
-    private void SetEnable() => gameObject.SetActive(true);
-
-    private void SetDisable() => gameObject.SetActive(false);
 
     private void SetThemePanel()
     {

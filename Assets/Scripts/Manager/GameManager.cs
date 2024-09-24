@@ -56,6 +56,15 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.SetTimer(playtime);
     }
 
+    #region Earned Coin
+    public void EarnCoin(int value)
+    {
+        earnedCoin += value;
+    }
+    
+    #endregion
+
+    #region Defeat, Victory, Restart
     public void DefeatStage()
     {
         SpawnManager.Instance.RemovePlayersWithDeadEffect();
@@ -86,4 +95,5 @@ public class GameManager : MonoBehaviour
 
         playtime = 0.0f;
     }
+    #endregion
 }
