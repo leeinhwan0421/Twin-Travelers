@@ -17,7 +17,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("stage settings")]
+    [SerializeField] private float timeLimit;
+    [SerializeField] private int coinLimit;
+
+    // private data..
     private float playtime;
+    private int earnedCoin;
 
     private void Awake()
     {
@@ -52,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void DefeatStage()
     {
-        SpawnManager.Instance.RemovePlayers();
+        SpawnManager.Instance.RemovePlayersWithDeadEffect();
         UIManager.Instance.DefeatPanel.Enable();
     }
 

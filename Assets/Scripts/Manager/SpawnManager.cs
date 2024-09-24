@@ -59,6 +59,19 @@ public class SpawnManager : MonoBehaviour
         {
             if (iter != null)
             {
+                Destroy(iter);
+            }
+        }
+
+        players.Clear();
+    }
+
+    public void RemovePlayersWithDeadEffect()
+    {
+        foreach (var iter in players)
+        {
+            if (iter != null)
+            {
                 iter.GetComponent<Player>().InstantiateDeadEffect();
                 Destroy(iter);
             }
