@@ -2,47 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public static class LevelManager
 {
-    private static LevelManager instance;
-    public static LevelManager Instance
-    {
-        get
-        {
-            if (instance == null)
-                return null;
+    /// <summary>
+    /// Theme, Stage settings
+    /// </summary>
+    private static int themeCount = 6;
+    private static int stageCount = 10;
 
-            return instance;
-        }
-    }
+    public static List<Theme> themes { get; private set; }
 
-    [Header("Levels")]
-    [SerializeField] private int themeCount = 6;
-    [SerializeField] private int stageCount = 10;
-
-    public List<Theme> themes { get; private set; }
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
-    private void Start()
+    static LevelManager()
     {
         InitializeTheme();
         LoadProgress();
     }
 
-    private void InitializeTheme()
+    private static void InitializeTheme()
     {
         themes = new List<Theme>();
 
@@ -66,7 +42,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void CompleteStage(int themeIndex, int stageIndex, int starCount)
+    public static void CompleteStage(int themeIndex, int stageIndex, int starCount)
     {
         if (themeIndex < themes.Count && stageIndex < themes[themeIndex].stages.Count)
         {
@@ -89,19 +65,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public bool ReturnStageUnlocked(int themeIndex, int stageIndex)
+    public static bool ReturnStageUnlocked(int themeIndex, int stageIndex)
     {
         return themes[themeIndex].stages[stageIndex].isUnlocked;
     }
 
-    public int ReturnStageStarCount(int themeIndex, int stageIndex)
+    public static int ReturnStageStarCount(int themeIndex, int stageIndex)
     {
         return themes[themeIndex].stages[stageIndex].starCount;
     }
 
 
-    #region SaveAndLoad
-    public void SaveProgress()
+    #region Save, Load, Reset
+    public static void SaveProgress()
     {
         for (int i = 0; i < themeCount; i++)
         {
@@ -113,7 +89,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void LoadProgress()
+    public static void LoadProgress()
     {
         for (int i = 0; i < themeCount; i++)
         {
@@ -126,6 +102,12 @@ public class LevelManager : MonoBehaviour
                     themes[i].stages[j].isUnlocked = true;
             }
         }
+    }
+
+    public static void ResetProgress()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
     #endregion
 }

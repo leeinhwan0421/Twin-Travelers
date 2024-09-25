@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int coinLimit;
 
     // private data..
+    private int theme;
+    private int stage;
+
     private float playtime;
     private int earnedCoin;
 
@@ -42,6 +47,11 @@ public class GameManager : MonoBehaviour
 
     private void InitializeStage()
     {
+        string[] parts = SceneManager.GetActiveScene().name.Split(' ');
+
+        theme = int.Parse(parts[1]) - 1;
+        stage = int.Parse(parts[3]) - 1;
+
         playtime = 0.0f;
         SpawnManager.Instance.SpawnPlayers();
         SpawnManager.Instance.SpawnCoins();
@@ -78,9 +88,13 @@ public class GameManager : MonoBehaviour
     {
         SpawnManager.Instance.RemovePlayers();
 
+        int starCount = ReturnStarCount();
+
         UIManager.Instance.VictoryPanel.Enable();
         UIManager.Instance.VictoryPanel.SetEarnedCoinText(earnedCoin);
-        UIManager.Instance.VictoryPanel.SetDisplayStarCount(ReturnStarCount());
+        UIManager.Instance.VictoryPanel.SetDisplayStarCount(starCount);
+
+        LevelManager.CompleteStage(theme, stage, starCount);
     }
 
     private int ReturnStarCount()

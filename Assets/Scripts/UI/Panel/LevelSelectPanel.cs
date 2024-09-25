@@ -19,7 +19,7 @@ public sealed class LevelSelectPanel : Panel
 
     private void SetThemePanel()
     {
-        var themes = LevelManager.Instance.themes;
+        var themes = LevelManager.themes;
 
         for (int i = 0; i < themes.Count; i++)
         {
