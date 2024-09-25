@@ -151,7 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4177305032749117404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2376206362623708964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3944206143032207411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -625,10 +625,10 @@ RectTransform:
   - {fileID: 702858995333781929}
   m_Father: {fileID: 3917929914499849033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -60}
-  m_SizeDelta: {x: 170, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1434932513026812215
 CanvasRenderer:
@@ -1024,10 +1024,10 @@ RectTransform:
   - {fileID: 2364585970778308752}
   m_Father: {fileID: 3917929914499849033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 190, y: -60}
-  m_SizeDelta: {x: 170, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6150413484902803634
 CanvasRenderer:
@@ -1234,10 +1234,10 @@ RectTransform:
   - {fileID: 3469962868614557248}
   m_Father: {fileID: 3917929914499849033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 380, y: -60}
-  m_SizeDelta: {x: 170, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3215690875501352996
 CanvasRenderer:
@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 6696030777682362453}
   - component: {fileID: 7549855706586509020}
   - component: {fileID: 6449084223829770045}
-  - component: {fileID: 3508093596254626174}
+  - component: {fileID: 7902389345642476690}
   m_Layer: 5
   m_Name: Victory
   m_TagString: Untagged
@@ -1957,7 +1957,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3508093596254626174
+--- !u!114 &7902389345642476690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1966,9 +1966,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7430511502700588502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9a2e678938639438e4ab3b94b09972, type: 3}
+  m_Script: {fileID: 11500000, guid: ccaa6a983b5fbfe42b21df55c0dc9e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stars:
+  - {fileID: 830005021090627528}
+  - {fileID: 1608144512241220727}
+  - {fileID: 342061909024732729}
+  earnedCoin: {fileID: 3905708963040925705}
 --- !u!1 &7541130079909979420
 GameObject:
   m_ObjectHideFlags: 0

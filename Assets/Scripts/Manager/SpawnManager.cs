@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    [Header("Spawn Points")]
+    [Header("Player Spawn Points")]
     [SerializeField] private Transform spawnPoint1P; // 1P SpawnPoint
     [SerializeField] private Transform spawnPoint2P; // 2P SpawnPoint
 
@@ -26,11 +26,26 @@ public class SpawnManager : MonoBehaviour
 
     // Instance
     private List<GameObject> players = new List<GameObject>();
-    public List<GameObject> Players 
+    public List<GameObject> Players
     {
         get
         {
             return players;
+        }
+    }
+
+    [Header("Coin Spawn Points")]
+    [SerializeField] private List<GameObject> coinsSpawnPoint;
+
+    [Header("Prefabs")]
+    [SerializeField] private GameObject coin;
+
+    private List<GameObject> coins = new List<GameObject>();
+    public List<GameObject> Coins
+    {
+        get
+        {
+            return coins;
         }
     }
 
@@ -39,6 +54,7 @@ public class SpawnManager : MonoBehaviour
         instance = this;
     }
 
+    #region Player
     public void SpawnPlayers()
     {
         if (players.Count > 0)
@@ -55,11 +71,11 @@ public class SpawnManager : MonoBehaviour
 
     public void RemovePlayers()
     {
-        foreach (var iter in players)
+        for (int i = 0; i < players.Count; i++)
         {
-            if (iter != null)
+            if (players[i] != null)
             {
-                Destroy(iter);
+                Destroy(players[i]);
             }
         }
 
@@ -68,15 +84,44 @@ public class SpawnManager : MonoBehaviour
 
     public void RemovePlayersWithDeadEffect()
     {
-        foreach (var iter in players)
+        for (int i = 0; i < players.Count; i++)
         {
-            if (iter != null)
+            if (players[i] != null)
             {
-                iter.GetComponent<Player>().InstantiateDeadEffect();
-                Destroy(iter);
+                players[i].GetComponent<Player>().InstantiateDeadEffect();
+                Destroy(players[i]);
             }
         }
 
         players.Clear();
     }
+    #endregion
+
+    #region Coin
+    public void SpawnCoins()
+    {
+        if (coins.Count > 0)
+        {
+            RemoveCoins();
+        }
+
+        for (int i = 0; i < coinsSpawnPoint.Count; i++)
+        {
+            Coins.Add(Instantiate(coin, coinsSpawnPoint[i].transform.position, Quaternion.identity));
+        }
+    }
+
+    public void RemoveCoins()
+    {
+        for (int i = 0; i < coins.Count; i++)
+        {
+            if (coins[i] != null)
+            {
+                Destroy(coins[i]);
+            }
+        }
+
+        coins.Clear();
+    }
+    #endregion
 }

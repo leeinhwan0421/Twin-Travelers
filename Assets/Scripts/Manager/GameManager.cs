@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         playtime = 0.0f;
         SpawnManager.Instance.SpawnPlayers();
+        SpawnManager.Instance.SpawnCoins();
     }
 
     private void UpdatePlaytime(float deltaTime)
@@ -68,14 +69,35 @@ public class GameManager : MonoBehaviour
     public void DefeatStage()
     {
         SpawnManager.Instance.RemovePlayersWithDeadEffect();
+
         UIManager.Instance.DefeatPanel.Enable();
+        UIManager.Instance.DefeatPanel.SetEarnedCoinText(earnedCoin);
     }
 
     public void VictoryStage()
     {
-        UIManager.Instance.VictoryPanel.Enable();
-
         SpawnManager.Instance.RemovePlayers();
+
+        UIManager.Instance.VictoryPanel.Enable();
+        UIManager.Instance.VictoryPanel.SetEarnedCoinText(earnedCoin);
+        UIManager.Instance.VictoryPanel.SetDisplayStarCount(ReturnStarCount());
+    }
+
+    private int ReturnStarCount()
+    {
+        int count = 1; // 클리어 시, 기본 1 지급.
+
+        if (timeLimit >= playtime) // 시간 제한보다 일찍 클리어
+        {
+            count++;
+        }
+
+        if (coinLimit <= earnedCoin) // 코인 제한보다 코인 많이 먹으면
+        {
+            count++;
+        }
+
+        return count;
     }
 
     public void RestartStage()
@@ -93,7 +115,11 @@ public class GameManager : MonoBehaviour
         SpawnManager.Instance.RemovePlayers();
         SpawnManager.Instance.SpawnPlayers();
 
+        SpawnManager.Instance.RemoveCoins();
+        SpawnManager.Instance.SpawnCoins();
+
         playtime = 0.0f;
+        earnedCoin = 0;
     }
     #endregion
 }
