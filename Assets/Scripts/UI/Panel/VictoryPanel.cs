@@ -5,7 +5,7 @@ using UnityEngine;
 
 public sealed class VictoryPanel : Panel
 {
-    [Header("preset")]
+    [Header("Preset")]
     [SerializeField] private List<GameObject> stars;
     [SerializeField] private TextMeshProUGUI earnedCoin;
 

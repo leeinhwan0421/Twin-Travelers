@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3074759441016336624}
   - component: {fileID: -3309155661054526746}
   m_Layer: 0
-  m_Name: Impact
+  m_Name: Death_Impact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 201
+  m_SortingOrder: 801
   m_Sprite: {fileID: 21300000, guid: 68a59c165aecbc142913dbe29b32bb6f, type: 3}
   m_Color: {r: 1, g: 0.8713543, b: 0.3066038, a: 1}
   m_FlipX: 0

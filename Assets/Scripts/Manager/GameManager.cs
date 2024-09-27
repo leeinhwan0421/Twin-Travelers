@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeLimit;
     [SerializeField] private int coinLimit;
 
-    // private data..
+    // private data...
     private int theme;
     private int stage;
 

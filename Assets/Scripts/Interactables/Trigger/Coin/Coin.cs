@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coin : InteractableTrigger
 {
-    [Header("preset")]
+    [Header("Preset")]
     [SerializeField] private GameObject earnEffect;
 
     private void InstantiateEarnEffect()

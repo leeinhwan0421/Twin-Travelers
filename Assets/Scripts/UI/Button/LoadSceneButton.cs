@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LoadSceneButton : MonoBehaviour
 {
-    public void LoadScene(string sceneNum)
+    public void LoadScene(string sceneName)
     {
-        LoadSceneManager.LoadScene(sceneNum);
+        LoadSceneManager.LoadScene(sceneName);
     }
 }

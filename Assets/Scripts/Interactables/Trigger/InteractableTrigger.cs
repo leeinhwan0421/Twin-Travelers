@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class InteractableTrigger : MonoBehaviour
 {
-    [Header("preset")]
+    [Header("Preset")]
     [SerializeField] private string interatableTag;
     
     protected abstract void Event();

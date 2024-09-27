@@ -112,8 +112,8 @@ public class CameraMovement : MonoBehaviour
             bounds.Encapsulate(players[i].transform.position);
         }
 
-        float sizeX = bounds.size.x / sizePreset;
-        float sizeY = bounds.size.y / sizePreset / cam.aspect;
+        float sizeX = bounds.size.x / sizePreset / cam.aspect;
+        float sizeY = bounds.size.y / sizePreset;
         float size = Mathf.Max(sizeX, sizeY);
 
         size = Mathf.Clamp(size, minSize, maxSize);

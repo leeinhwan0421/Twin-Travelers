@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DefeatPanel : Panel
 {
-    [Header("preset")]
+    [Header("Preset")]
     [SerializeField] private TextMeshProUGUI earnedCoin;
 
     public void SetEarnedCoinText(int earnedCoin)

@@ -6,7 +6,7 @@ using TMPro;
 
 public class ResolutionSettings : MonoBehaviour
 {
-    [Header("preset")]
+    [Header("Preset")]
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Toggle fullscreenToggle;
 

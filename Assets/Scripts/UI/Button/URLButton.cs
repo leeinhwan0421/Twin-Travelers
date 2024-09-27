@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class URLButton : MonoBehaviour
 {
-    [Header("preset")]
+    [Header("Preset")]
     [SerializeField] private string link;
 
     public void OnClick()
