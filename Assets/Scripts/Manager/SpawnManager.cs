@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform spawnPoint1P; // 1P SpawnPoint
     [SerializeField] private Transform spawnPoint2P; // 2P SpawnPoint
 
-    [Header("Prefabs")]
+    [Header("Player Prefabs")]
     [SerializeField] private GameObject player1P;    // 1P Prefab
     [SerializeField] private GameObject player2P;    // 2P Prefab
 
@@ -34,20 +34,30 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    // ======================================================== //
+
     [Header("Coin Spawn Points")]
     [SerializeField] private List<GameObject> coinsSpawnPoint;
 
-    [Header("Prefabs")]
+    [Header("Coin Prefabs")]
     [SerializeField] private GameObject coin;
 
     private List<GameObject> coins = new List<GameObject>();
-    public List<GameObject> Coins
-    {
-        get
-        {
-            return coins;
-        }
-    }
+
+    // ======================================================== //
+
+    [Header("Box Spawn Points")]
+    [SerializeField] private List<GameObject> boxSpawnPoint;
+
+    [Header("Box Prefabs")]
+    [SerializeField] private GameObject box;
+
+    private List<GameObject> boxs = new List<GameObject>();
+
+    // ======================================================== //
+
+    [Header("Gimmicks")]
+    [SerializeField] private List<Lever> levers;
 
     private void Awake()
     {
@@ -107,7 +117,7 @@ public class SpawnManager : MonoBehaviour
 
         for (int i = 0; i < coinsSpawnPoint.Count; i++)
         {
-            Coins.Add(Instantiate(coin, coinsSpawnPoint[i].transform.position, Quaternion.identity));
+            coins.Add(Instantiate(coin, coinsSpawnPoint[i].transform.position, Quaternion.identity));
         }
     }
 
@@ -124,4 +134,64 @@ public class SpawnManager : MonoBehaviour
         coins.Clear();
     }
     #endregion
+
+    #region Box
+    public void SpawnBoxs()
+    {
+        if (boxs.Count > 0)
+        {
+            RemoveBoxs();
+        }
+
+        for (int i = 0; i < boxSpawnPoint.Count; i++)
+        {
+            boxs.Add(Instantiate(box, boxSpawnPoint[i].transform.position, Quaternion.identity));
+        }
+    }
+
+    public void RemoveBoxs()
+    {
+        for (int i = 0; i < boxs.Count; i++)
+        {
+            if (boxs[i] != null)
+            {
+                Destroy(boxs[i]);
+            }
+        }
+
+        boxs.Clear();
+    }
+    #endregion
+
+    #region Gimmick
+    public void ResetLevers()
+    {
+        if (levers.Count <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < levers.Count; i++)
+        {
+            if (levers[i] != null)
+            {
+                levers[i].GetComponent<Lever>().ResetLever();
+            }
+        }
+    }
+    #endregion
+
+    public void ResetAll()
+    {
+        RemovePlayers();
+        SpawnPlayers();
+
+        RemoveCoins();
+        SpawnCoins();
+
+        RemoveBoxs();
+        SpawnBoxs();
+
+        ResetLevers();
+    }
 }

@@ -7,6 +7,8 @@ public class Coin : InteractableTrigger
     [Header("Preset")]
     [SerializeField] private GameObject earnEffect;
 
+    private bool isActivate = true;
+
     private void InstantiateEarnEffect()
     {
         Instantiate(earnEffect, transform.position, Quaternion.identity);
@@ -14,6 +16,11 @@ public class Coin : InteractableTrigger
 
     protected override void Event()
     {
+        if (!isActivate)
+            return;
+
+        isActivate = false;
+
         GameManager.Instance.EarnCoin(1);
         InstantiateEarnEffect();
         Destroy(gameObject);

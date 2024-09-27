@@ -46,18 +46,7 @@ public class GameManager : MonoBehaviour
         UpdatePlaytime(Time.deltaTime);
     }
 
-    private void InitializeStage()
-    {
-        string[] parts = SceneManager.GetActiveScene().name.Split(' ');
-
-        theme = int.Parse(parts[1]) - 1;
-        stage = int.Parse(parts[3]) - 1;
-
-        playtime = 0.0f;
-        SpawnManager.Instance.SpawnPlayers();
-        SpawnManager.Instance.SpawnCoins();
-    }
-
+    #region playtime
     private void UpdatePlaytime(float deltaTime)
     {
         if (UIManager.Instance.VictoryPanel.gameObject.activeSelf || 
@@ -65,18 +54,36 @@ public class GameManager : MonoBehaviour
             return;
             
         playtime += deltaTime;
-        UIManager.Instance.SetTimer(playtime);
+        UIManager.Instance.SetTimeText(playtime);
     }
+    #endregion
 
     #region Earned Coin
     public void EarnCoin(int value)
     {
         earnedCoin += value;
+        UIManager.Instance.SetEarnedCoinText(earnedCoin);
     }
-    
+
     #endregion
 
-    #region Defeat, Victory, Restart
+    #region Initialize, Defeat, Victory, Restart
+    private void InitializeStage()
+    {
+        string[] parts = SceneManager.GetActiveScene().name.Split(' ');
+
+        theme = int.Parse(parts[1]) - 1;
+        stage = int.Parse(parts[3]) - 1;
+
+        SpawnManager.Instance.ResetAll();
+
+        playtime = 0.0f;
+        earnedCoin = 0;
+
+        UIManager.Instance.SetEarnedCoinText(earnedCoin);
+        UIManager.Instance.SetTimeText(playtime);
+    }
+
     public void DefeatStage()
     {
         SpawnManager.Instance.RemovePlayersWithDeadEffect();
@@ -127,14 +134,13 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.DefeatPanel.Disable();
         }
 
-        SpawnManager.Instance.RemovePlayers();
-        SpawnManager.Instance.SpawnPlayers();
-
-        SpawnManager.Instance.RemoveCoins();
-        SpawnManager.Instance.SpawnCoins();
+        SpawnManager.Instance.ResetAll();
 
         playtime = 0.0f;
         earnedCoin = 0;
+
+        UIManager.Instance.SetEarnedCoinText(earnedCoin);
+        UIManager.Instance.SetTimeText(playtime);
     }
     #endregion
 }
