@@ -8416,6 +8416,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 387839227}
     m_Modifications:
+    - target: {fileID: 2972716296462168204, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972716296462168204, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972716296462168204, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6758600396869044632}
+    - target: {fileID: 2972716296462168204, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextStageScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972716296462168204, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadSceneButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972716296462168204, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5828131753752358565, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8512,6 +8536,17 @@ PrefabInstance:
 --- !u!114 &6758600396869044631 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5584731958413902033, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
+  m_PrefabInstance: {fileID: 6758600396869044630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fee608966e05aa4b960d682addb65eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6758600396869044632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4844602134475922201, guid: e1625bdf8cc00804e98f6f923f360a66, type: 3}
   m_PrefabInstance: {fileID: 6758600396869044630}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

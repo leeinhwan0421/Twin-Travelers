@@ -11,8 +11,6 @@ public class Press : Obstacle
     [SerializeField] private float pressSpeed = 10f;
     [SerializeField] private float returnSpeed = 2f;
 
-    private bool isPressing = false;
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

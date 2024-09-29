@@ -7,8 +7,8 @@ public static class LevelManager
     /// <summary>
     /// Theme, Stage settings
     /// </summary>
-    private static int themeCount = 6;
-    private static int stageCount = 10;
+    public const int themeCount = 6;
+    public const int stageCount = 10;
 
     public static List<Theme> themes { get; private set; }
 

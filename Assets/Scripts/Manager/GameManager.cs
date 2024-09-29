@@ -26,7 +26,10 @@ public class GameManager : MonoBehaviour
 
     // private data...
     private int theme;
+    public int Theme { get { return theme; } }
+
     private int stage;
+    public int Stage { get { return stage; } }
 
     private float playtime;
     private int earnedCoin;
