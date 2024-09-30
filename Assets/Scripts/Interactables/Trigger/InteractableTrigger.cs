@@ -7,13 +7,13 @@ public abstract class InteractableTrigger : MonoBehaviour
     [Header("Preset")]
     [SerializeField] private string interatableTag;
     
-    protected abstract void Event();
+    protected abstract void Event(Collider2D collision);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(interatableTag))
         {
-            Event();
+            Event(collision);
         }
     }
 }

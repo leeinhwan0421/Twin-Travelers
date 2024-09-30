@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : InteractableTrigger
 {
-    protected override void Event()
+    protected override void Event(Collider2D collision)
     {
         GameManager.Instance.DefeatStage();
     }

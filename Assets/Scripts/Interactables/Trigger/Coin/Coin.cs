@@ -14,7 +14,7 @@ public class Coin : InteractableTrigger
         Instantiate(earnEffect, transform.position, Quaternion.identity);
     }
 
-    protected override void Event()
+    protected override void Event(Collider2D collision)
     {
         if (!isActivate)
             return;
