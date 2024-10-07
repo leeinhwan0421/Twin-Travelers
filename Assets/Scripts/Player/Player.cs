@@ -20,6 +20,15 @@ public class Player : MonoBehaviour
     [Header("Preset")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpVelocity;
+    public float jumpMultiplier = 1.0f;
+
+    private float JumpVelocity
+    {
+        get
+        {
+            return this.jumpVelocity * jumpMultiplier;
+        }
+    }
 
     [Header("Effect")]
     [SerializeField] private GameObject deadEffect;
@@ -71,7 +80,7 @@ public class Player : MonoBehaviour
     {
         if (!isGrounded) return;
 
-        rigid.velocity = Vector2.up * jumpVelocity;
+        rigid.velocity = Vector2.up * JumpVelocity;
     }
     #endregion
 
