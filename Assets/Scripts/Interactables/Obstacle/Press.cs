@@ -15,8 +15,8 @@ public class Press : Obstacle
     {
         Gizmos.color = Color.red;
 
-        Vector2 from = new Vector2(transform.position.x, minY);
-        Vector2 to = new Vector2(transform.position.x, maxY);
+        Vector2 from = new Vector2(transform.position.x, transform.position.y + minY);
+        Vector2 to = new Vector2(transform.position.x, transform.position.y + maxY);
 
         Gizmos.DrawLine(from, to);
     }
