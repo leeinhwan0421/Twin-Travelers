@@ -36,23 +36,27 @@ public class SpawnManager : MonoBehaviour
 
     // ======================================================== //
 
-    [Header("Coin Spawn Points")]
+    [Header("Coins")]
     [SerializeField] private List<GameObject> coinsSpawnPoint;
-
-    [Header("Coin Prefabs")]
     [SerializeField] private GameObject coin;
 
     private List<GameObject> coins = new List<GameObject>();
 
     // ======================================================== //
 
-    [Header("Box Spawn Points")]
+    [Header("Boxs")]
     [SerializeField] private List<GameObject> boxSpawnPoint;
-
-    [Header("Box Prefabs")]
     [SerializeField] private GameObject box;
 
     private List<GameObject> boxs = new List<GameObject>();
+
+    // ======================================================== //
+
+    [Header("Barrels")]
+    [SerializeField] private List<GameObject> barrelSpawnPoint;
+    [SerializeField] private GameObject barrel;
+
+    private List<GameObject> barrels = new List<GameObject>();
 
     // ======================================================== //
 
@@ -163,6 +167,34 @@ public class SpawnManager : MonoBehaviour
     }
     #endregion
 
+    #region Barrel
+    public void SpawnBarrels()
+    {
+        if (barrels.Count > 0)
+        {
+            RemoveBarrels();
+        }
+
+        for (int i = 0; i < barrelSpawnPoint.Count; i++)
+        {
+            barrels.Add(Instantiate(barrel, barrelSpawnPoint[i].transform.position, Quaternion.identity));
+        }
+    }
+
+    public void RemoveBarrels()
+    {
+        for (int i = 0; i < barrels.Count; i++)
+        {
+            if (barrels[i] != null)
+            {
+                Destroy(barrels[i]);
+            }
+        }
+
+        barrels.Clear();
+    }
+    #endregion
+
     #region Gimmick
     public void ResetLevers()
     {
@@ -191,6 +223,9 @@ public class SpawnManager : MonoBehaviour
 
         RemoveBoxs();
         SpawnBoxs();
+
+        RemoveBarrels();
+        SpawnBarrels();
 
         ResetLevers();
     }

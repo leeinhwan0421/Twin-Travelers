@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : InteractableTrigger
+public class Breaker : InteractableTrigger
 {
     protected override void EnterEvent(Collider2D collision)
     {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.DefeatStage();
-        }
+        collision.GetComponent<Breakable>().Break();
     }
 
     protected override void ExitEvent(Collider2D collision)
     {
-        // Nothing!
+
     }
 }

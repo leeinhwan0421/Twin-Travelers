@@ -6,7 +6,7 @@ public class Lever : InteractableTrigger
 {
     // private properties...
     private Animator animator;
-    private bool isActivate = true;
+    private bool isActivate = false;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class Lever : InteractableTrigger
         if (isActivate) 
             return;
         
-        isActivate = false;
+        isActivate = true;
         animator.SetTrigger("Active");
     }
 
@@ -30,6 +30,6 @@ public class Lever : InteractableTrigger
     public void ResetLever()
     {
         animator.Rebind();
-        isActivate = true;
+        isActivate = false;
     }
 }

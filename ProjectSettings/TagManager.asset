@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Coin
   - Ground
+  - Breakable
   layers:
   - Default
   - TransparentFX
