@@ -149,10 +149,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16069105, y: 0.002216436}
+  m_Offset: {x: -0.45510292, y: 0.002216436}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.93378997, y: 0.5638098}
     oldSize: {x: 1.09, y: 0.27}
     newSize: {x: 1.09, y: 0.27}
     adaptiveTilingThreshold: 0.5
@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7686178, y: 0.07938714}
+  m_Size: {x: 0.72993565, y: 0.07938714}
   m_EdgeRadius: 0
 --- !u!114 &2938699588799471540
 MonoBehaviour:
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Ground
+  effect: {fileID: 1201888914307423518, guid: f181c252b83ad1a4da7d8fa35b6ee302, type: 3}
 --- !u!114 &6016518605294720150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +215,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Breakable
+  effect: {fileID: 1201888914307423518, guid: f181c252b83ad1a4da7d8fa35b6ee302, type: 3}

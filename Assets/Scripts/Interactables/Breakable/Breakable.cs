@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
+    [Header("Preset")]
+    [SerializeField] private GameObject effect;
+
     private Animator animator;
 
     private Collider2D coll;
@@ -18,6 +21,11 @@ public class Breakable : MonoBehaviour
 
     public void Break()
     {
+        if (effect != null)
+        {
+            Instantiate(effect, transform.position, Quaternion.identity);
+        }
+
         coll.enabled = false;
         Destroy(rigid);
 
