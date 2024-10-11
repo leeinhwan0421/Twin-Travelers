@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderGizmos : MonoBehaviour
+public class Collider2DGizmos : MonoBehaviour
 {
     private Collider2D coll;
 
