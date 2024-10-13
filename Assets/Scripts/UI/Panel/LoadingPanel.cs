@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,11 +37,11 @@ public class LoadingPanel : MonoBehaviour
 
     private string LoadTipsFromFile()
     {
-        TextAsset tip = Resources.Load<TextAsset>("Tips");
+        string tip = Encoding.UTF8.GetString(Resources.Load<TextAsset>("Tips").bytes);
 
         if (tip != null)
         {
-            string[] tips = tip.text.Split("\n");
+            string[] tips = tip.Split("\n");
 
             return tips[Random.Range(0, tips.Length)];
         }
