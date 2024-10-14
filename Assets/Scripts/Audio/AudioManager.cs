@@ -104,7 +104,9 @@ public class AudioManager : MonoBehaviour
     {
         if (!bgms.ContainsKey(name) || bgms[name] == null)
         {
+#if SHOW_DEBUG_MESSAGES
             Debug.LogWarning($"wrong background music: {name}");
+#endif
             return;
         }
 
@@ -128,7 +130,9 @@ public class AudioManager : MonoBehaviour
     {
         if (!sfxs.ContainsKey(name) || sfxs[name] == null)
         {
+#if SHOW_DEBUG_MESSAGES
             Debug.LogWarning($"wrong Sound FX: {name}");
+#endif
             return;
         }
 
