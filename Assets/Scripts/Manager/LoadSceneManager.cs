@@ -34,6 +34,8 @@ public class LoadSceneManager : MonoBehaviour
         op.allowSceneActivation = false;
         float timer = 0.0f;
 
+        AudioManager.Instance.StopBGM();
+
         while (!op.isDone)
         {
             yield return null;
@@ -55,11 +57,15 @@ public class LoadSceneManager : MonoBehaviour
 
                 if (panel.progressBar.fillAmount == 1.0f)
                 {
+                    AudioManager.Instance.ChangeWithPlay(nextScene);
                     op.allowSceneActivation = true;
+
                     yield break;
                 }
             }
         }
+
+        AudioManager.Instance.ChangeWithPlay(nextScene);
 
         yield break;
     }

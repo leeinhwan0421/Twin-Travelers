@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1dcc0a5e05c0b245969e0f5b56285cd, type: 3}
+  m_Name: earnCoin
+  m_EditorClassIdentifier: 
+  soundName: earnCoin
+  clip:
+  - {fileID: 8300000, guid: a17c77289a0ad9244b0c57a8d0f156cc, type: 3}
+  - {fileID: 8300000, guid: 81e31fdf5a6dfdf41b89271d55fd9eab, type: 3}
+  - {fileID: 8300000, guid: c3b4dd88f5f37a1438f8f7f1e326a1d4, type: 3}
+  - {fileID: 8300000, guid: 36696e319d7637a4bb717f0a2b764793, type: 3}
+  - {fileID: 8300000, guid: e23bf7c051044084fbb96945e4c0a406, type: 3}
+  - {fileID: 8300000, guid: 651835b9a2fdcb74b832232d2f86fdb2, type: 3}
+  - {fileID: 8300000, guid: 550cec945a791d345834731cec9a9d06, type: 3}
+  - {fileID: 8300000, guid: f65d5566f088b5d4fb6f09e61bcd34e8, type: 3}
+  - {fileID: 8300000, guid: db6e4ea141f633b4fbc4210d8dc93580, type: 3}
+  - {fileID: 8300000, guid: a9cca964e34a7bc4a8a749d78f62eb4a, type: 3}
+  - {fileID: 8300000, guid: d8177f08a0d287b4f99a2695929cd14d, type: 3}
+  - {fileID: 8300000, guid: 19b5b0649b7181648832c1b805b6c9f4, type: 3}
+  - {fileID: 8300000, guid: ef58247fe81cbc24ca5c62701f2b77ff, type: 3}
+  - {fileID: 8300000, guid: b8c66dd4325913f48a74dff35be0a534, type: 3}
+  - {fileID: 8300000, guid: 787b2f80c3a121149b7105d7d416f29b, type: 3}

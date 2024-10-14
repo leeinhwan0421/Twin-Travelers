@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void EarnCoin(int value)
     {
         earnedCoin += value;
+        AudioManager.Instance.PlaySFX("earnCoin");
         uiManager.SetEarnedCoinText(earnedCoin);
     }
 
