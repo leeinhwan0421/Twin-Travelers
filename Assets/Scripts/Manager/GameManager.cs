@@ -20,9 +20,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("Managers")]
+    public UIManager uiManager;
+    public SpawnManager spawnManager;
+
     [Header("stage settings")]
     [SerializeField] private float timeLimit;
     [SerializeField] private int coinLimit;
+
+    // public properties
+    public List<GameObject> Player
+    {
+        get { return spawnManager.Players; }
+    }
 
     // private data...
     private int theme;
@@ -52,12 +62,12 @@ public class GameManager : MonoBehaviour
     #region playtime
     private void UpdatePlaytime(float deltaTime)
     {
-        if (UIManager.Instance.VictoryPanel.gameObject.activeSelf || 
-            UIManager.Instance.DefeatPanel.gameObject.activeSelf) 
+        if (uiManager.VictoryPanel.gameObject.activeSelf || 
+            uiManager.DefeatPanel.gameObject.activeSelf) 
             return;
             
         playtime += deltaTime;
-        UIManager.Instance.SetTimeText(playtime);
+        uiManager.SetTimeText(playtime);
     }
     #endregion
 
@@ -65,7 +75,7 @@ public class GameManager : MonoBehaviour
     public void EarnCoin(int value)
     {
         earnedCoin += value;
-        UIManager.Instance.SetEarnedCoinText(earnedCoin);
+        uiManager.SetEarnedCoinText(earnedCoin);
     }
 
     #endregion
@@ -78,32 +88,32 @@ public class GameManager : MonoBehaviour
         theme = int.Parse(parts[1]) - 1;
         stage = int.Parse(parts[3]) - 1;
 
-        SpawnManager.Instance.ResetAll();
+        spawnManager.ResetAll();
 
         playtime = 0.0f;
         earnedCoin = 0;
 
-        UIManager.Instance.SetEarnedCoinText(earnedCoin);
-        UIManager.Instance.SetTimeText(playtime);
+        uiManager.SetEarnedCoinText(earnedCoin);
+        uiManager.SetTimeText(playtime);
     }
 
     public void DefeatStage()
     {
-        SpawnManager.Instance.RemovePlayersWithDeadEffect();
+        spawnManager.RemovePlayersWithDeadEffect();
 
-        UIManager.Instance.DefeatPanel.Enable();
-        UIManager.Instance.DefeatPanel.SetEarnedCoinText(earnedCoin);
+        uiManager.DefeatPanel.Enable();
+        uiManager.DefeatPanel.SetEarnedCoinText(earnedCoin);
     }
 
     public void VictoryStage()
     {
-        SpawnManager.Instance.RemovePlayers();
+        spawnManager.RemovePlayers();
 
         int starCount = ReturnStarCount();
 
-        UIManager.Instance.VictoryPanel.Enable();
-        UIManager.Instance.VictoryPanel.SetEarnedCoinText(earnedCoin);
-        UIManager.Instance.VictoryPanel.SetDisplayStarCount(starCount);
+        uiManager.VictoryPanel.Enable();
+        uiManager.VictoryPanel.SetEarnedCoinText(earnedCoin);
+        uiManager.VictoryPanel.SetDisplayStarCount(starCount);
 
         LevelManager.CompleteStage(theme, stage, starCount);
     }
@@ -127,23 +137,23 @@ public class GameManager : MonoBehaviour
 
     public void RestartStage()
     {
-        if (UIManager.Instance.VictoryPanel.gameObject.activeSelf)
+        if (uiManager.VictoryPanel.gameObject.activeSelf)
         {
-            UIManager.Instance.VictoryPanel.Disable();
+            uiManager.VictoryPanel.Disable();
         }
 
-        if (UIManager.Instance.DefeatPanel.gameObject.activeSelf)
+        if (uiManager.DefeatPanel.gameObject.activeSelf)
         {
-            UIManager.Instance.DefeatPanel.Disable();
+            uiManager.DefeatPanel.Disable();   
         }
 
-        SpawnManager.Instance.ResetAll();
+        spawnManager.ResetAll();
 
         playtime = 0.0f;
         earnedCoin = 0;
 
-        UIManager.Instance.SetEarnedCoinText(earnedCoin);
-        UIManager.Instance.SetTimeText(playtime);
+        uiManager.SetEarnedCoinText(earnedCoin);
+        uiManager.SetTimeText(playtime);
     }
     #endregion
 }

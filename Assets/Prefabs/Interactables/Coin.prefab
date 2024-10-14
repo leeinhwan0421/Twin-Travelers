@@ -240,3 +240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interatableTag: Player
   earnEffect: {fileID: 7179007682882853440, guid: 2a5f0baebe62cfb41bc6870830a7edae, type: 3}
+  earnedEvent:
+    m_PersistentCalls:
+      m_Calls: []

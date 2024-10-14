@@ -4600,6 +4600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee9af190480bab45973ff24d6584d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 387839228}
+  spawnManager: {fileID: 947762686}
   timeLimit: 60
   coinLimit: 5
 --- !u!1 &947762684

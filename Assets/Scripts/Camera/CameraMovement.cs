@@ -75,7 +75,7 @@ public class CameraMovement : MonoBehaviour
 
     private void SetPositionAndZoom()
     {
-        List<GameObject> playerObjects = SpawnManager.Instance.Players;
+        List<GameObject> playerObjects = GameManager.Instance.Player;
 
         if (playerObjects == null || playerObjects.Count == 0)
             return;

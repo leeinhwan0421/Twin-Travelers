@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    private static SpawnManager instance;
-    public static SpawnManager Instance
-    {
-        get
-        {
-            if (instance == null)
-                return null;
-
-            return instance;
-        }
-    }
-
     [Header("Player Spawn Points")]
     [SerializeField] private Transform spawnPoint1P; // 1P SpawnPoint
     [SerializeField] private Transform spawnPoint2P; // 2P SpawnPoint
@@ -62,11 +50,6 @@ public class SpawnManager : MonoBehaviour
 
     [Header("Gimmicks")]
     [SerializeField] private List<Lever> levers;
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     #region Player
     public void SpawnPlayers()
