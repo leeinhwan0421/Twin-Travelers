@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6501008771794072986}
   - component: {fileID: 5250971704822631676}
   - component: {fileID: -7517553804622777509}
+  - component: {fileID: 7905913824145543635}
   - component: {fileID: 4525602209069074135}
   m_Layer: 6
   m_Name: Player_Local_1P
@@ -229,6 +230,36 @@ MonoBehaviour:
   m_DefaultActionMap: Player_Local_1P
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7905913824145543635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047770059207094632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.28478384, y: -0.6497791, z: 0}
+  - {x: -0.27589276, y: 0.8552408, z: 0}
+  - {x: 0.20387971, y: 0.85186774, z: 0}
+  - {x: 0.22323388, y: -0.6516949, z: 0}
+  m_ShapePathHash: -1632850532
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 35524
+  m_LocalBounds:
+    m_Center: {x: -0.03077498, y: 0.101772964, z: 0}
+    m_Extent: {x: 0.25400886, y: 0.75346786, z: 0}
 --- !u!114 &4525602209069074135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +339,7 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
