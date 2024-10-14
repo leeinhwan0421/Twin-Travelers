@@ -33,6 +33,8 @@ public class Bird : MonoBehaviour
 
         anim.SetBool("OnCursor", true);
 
+        AudioManager.Instance.PlaySFX("Bird");
+
         float x = Random.Range(min.x, max.x);
         float y = Random.Range(min.y, max.y);
         float z = Random.Range(min.z, max.z);

@@ -24,6 +24,8 @@ public class Teleport : InteractableTrigger
 
         target.recents.Add(collision);
 
+        AudioManager.Instance.PlaySFX("Teleport");
+
         Instantiate(teleportEffect, transform.position, Quaternion.identity);
         Instantiate(teleportEffect, target.transform.position, Quaternion.identity);
     }

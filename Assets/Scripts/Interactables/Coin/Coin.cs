@@ -22,7 +22,9 @@ public class Coin : InteractableTrigger
         isActivate = false;
 
         GameManager.Instance.EarnCoin(1);
+        AudioManager.Instance.PlaySFX("earnedCoin");
         InstantiateEarnEffect();
+
         Destroy(gameObject);
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,10 +15,17 @@ public class AudioManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<AudioManager>();
+                instance = FindObjectOfType<AudioManager>(); // 이래도 없다?
+
                 if (instance == null)
                 {
-                    Debug.LogError("AudioManager instance is null.");
+                    GameObject prefab = Resources.Load<GameObject>("AudioManger");
+
+                    if (prefab != null)
+                    {
+                        GameObject obj = Instantiate(prefab);
+                        instance = obj.GetComponent<AudioManager>();
+                    }
                 }
             }
             return instance;
@@ -31,7 +39,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<SFXData> sfxDatas = new List<SFXData>();
 
     [Header("SFX Pooling")]
-    private int poolSize = 10;
+    private int poolSize = 20;
     private Queue<AudioSource> sfxPool = new Queue<AudioSource>();
 
     private Dictionary<string, AudioClip> bgms = new Dictionary<string, AudioClip>();

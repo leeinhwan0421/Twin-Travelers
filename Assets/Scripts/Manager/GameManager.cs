@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
     public void EarnCoin(int value)
     {
         earnedCoin += value;
-        AudioManager.Instance.PlaySFX("earnCoin");
         uiManager.SetEarnedCoinText(earnedCoin);
     }
 
@@ -102,6 +101,8 @@ public class GameManager : MonoBehaviour
     {
         spawnManager.RemovePlayersWithDeadEffect();
 
+        AudioManager.Instance.PlaySFX("Defeat");
+
         uiManager.DefeatPanel.Enable();
         uiManager.DefeatPanel.SetEarnedCoinText(earnedCoin);
     }
@@ -111,6 +112,8 @@ public class GameManager : MonoBehaviour
         spawnManager.RemovePlayers();
 
         int starCount = ReturnStarCount();
+
+        AudioManager.Instance.PlaySFX("Victory");
 
         uiManager.VictoryPanel.Enable();
         uiManager.VictoryPanel.SetEarnedCoinText(earnedCoin);

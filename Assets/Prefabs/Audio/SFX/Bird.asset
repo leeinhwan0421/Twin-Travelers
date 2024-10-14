@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1dcc0a5e05c0b245969e0f5b56285cd, type: 3}
+  m_Name: Bird
+  m_EditorClassIdentifier: 
+  soundName: Bird
+  clip:
+  - {fileID: 8300000, guid: aba632dbd3656924388c1416f74a2658, type: 3}
+  - {fileID: 8300000, guid: 1863e565c16090543a6b95cc84217c7c, type: 3}
+  - {fileID: 8300000, guid: 219b2525fb9d9f740b7e500e5dd82e20, type: 3}
+  - {fileID: 8300000, guid: dba6bcafaafb49c4498facf44d011899, type: 3}
+  - {fileID: 8300000, guid: da7c35fd9ec9a7a42a32e43408b6732a, type: 3}
+  - {fileID: 8300000, guid: a62fd36e6aaf6bd47b1a8bb78b23e486, type: 3}
+  - {fileID: 8300000, guid: a85ea565405a5a940aa61baf11c13af6, type: 3}

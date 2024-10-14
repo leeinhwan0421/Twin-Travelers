@@ -601,8 +601,8 @@ GameObject:
   - component: {fileID: 6976198347961564601}
   - component: {fileID: 1434932513026812215}
   - component: {fileID: 8707575999872580394}
-  - component: {fileID: 7716424873645602126}
   - component: {fileID: 5584731958413902033}
+  - component: {fileID: 7624070525364347274}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -625,10 +625,10 @@ RectTransform:
   - {fileID: 702858995333781929}
   m_Father: {fileID: 3917929914499849033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -60}
+  m_SizeDelta: {x: 170, y: 120}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1434932513026812215
 CanvasRenderer:
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7716424873645602126
+--- !u!114 &5584731958413902033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,7 +677,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2478577546081190508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fee608966e05aa4b960d682addb65eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7624070525364347274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478577546081190508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6c3dbbc9f1d6a4e95bd4172f4104cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -719,23 +731,12 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TitleScene
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5584731958413902033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2478577546081190508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fee608966e05aa4b960d682addb65eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  buttonType: 1
 --- !u!1 &2550449882017228942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1002,7 @@ GameObject:
   - component: {fileID: 1536780450897822585}
   - component: {fileID: 6150413484902803634}
   - component: {fileID: 7336661102718670318}
-  - component: {fileID: 5828131753752358565}
+  - component: {fileID: 6414593349625923839}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -1024,10 +1025,10 @@ RectTransform:
   - {fileID: 2364585970778308752}
   m_Father: {fileID: 3917929914499849033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 190, y: -60}
+  m_SizeDelta: {x: 170, y: 120}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6150413484902803634
 CanvasRenderer:
@@ -1067,7 +1068,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5828131753752358565
+--- !u!114 &6414593349625923839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1076,7 +1077,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3701391031870996284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f6c3dbbc9f1d6a4e95bd4172f4104cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1123,6 +1124,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  buttonType: 0
 --- !u!1 &3774353369669298638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1212,7 @@ GameObject:
   - component: {fileID: 2847765740204023376}
   - component: {fileID: 3215690875501352996}
   - component: {fileID: 6408431858918360641}
-  - component: {fileID: 2972716296462168204}
+  - component: {fileID: 5134749515077644393}
   - component: {fileID: 4844602134475922201}
   m_Layer: 5
   m_Name: Next
@@ -1234,10 +1236,10 @@ RectTransform:
   - {fileID: 3469962868614557248}
   m_Father: {fileID: 3917929914499849033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 380, y: -60}
+  m_SizeDelta: {x: 170, y: 120}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3215690875501352996
 CanvasRenderer:
@@ -1277,7 +1279,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2972716296462168204
+--- !u!114 &5134749515077644393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1286,7 +1288,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4011563899473592544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f6c3dbbc9f1d6a4e95bd4172f4104cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1333,6 +1335,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  buttonType: 1
 --- !u!114 &4844602134475922201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6798844393675626384
 RectTransform:
   m_ObjectHideFlags: 0

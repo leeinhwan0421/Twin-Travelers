@@ -41,6 +41,7 @@ public class StageObject : MonoBehaviour
     private void Unlock()
     {
         GetComponent<Image>().sprite = unlockSprite;
+        GetComponent<SoundButton>().buttonType = Button_Type.Confirm;
 
         stageNumber.text = stage.stageName.Split(' ')[1];
         stageNumber.gameObject.SetActive(true);
@@ -63,10 +64,11 @@ public class StageObject : MonoBehaviour
     private void Lock()
     {
         GetComponent<Image>().sprite = lockSprite;
+        GetComponent<SoundButton>().buttonType = Button_Type.Block;
+
         closeIcon.SetActive(true);
         starGroup.SetActive(false);
     }
-
     public void OnClick()
     {
         if (!stage.isUnlocked)

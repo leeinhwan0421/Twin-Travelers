@@ -35,6 +35,8 @@ public class CrossBow : MonoBehaviour
     private void Shot()
     {
         animator.SetTrigger("Shot");
+
+        AudioManager.Instance.PlaySFX("Crossbow");
     }
 
     private void ShotArrow()

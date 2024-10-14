@@ -6,6 +6,7 @@ public class Breakable : MonoBehaviour
 {
     [Header("Preset")]
     [SerializeField] private GameObject effect;
+    [SerializeField] private string breakType;
 
     private Animator animator;
 
@@ -28,6 +29,8 @@ public class Breakable : MonoBehaviour
 
         coll.enabled = false;
         Destroy(rigid);
+
+        AudioManager.Instance.PlaySFX(breakType);
 
         animator.SetTrigger("Break");
     }

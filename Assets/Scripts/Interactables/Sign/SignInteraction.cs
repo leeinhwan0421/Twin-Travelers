@@ -16,6 +16,8 @@ public class SignInteraction : InteractableTrigger
     {
         if (playerCount == 0)
         {
+            AudioManager.Instance.PlaySFX("Sign");
+
             panel.Enable();
             textWriter.WriteText(text);
         }

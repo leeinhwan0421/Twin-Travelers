@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
     {
         if (!isGrounded) return;
 
+        AudioManager.Instance.PlaySFX("Jump");
+
         rigid.velocity = Vector2.up * JumpVelocity;
     }
     #endregion

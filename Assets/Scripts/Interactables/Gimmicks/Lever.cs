@@ -19,6 +19,8 @@ public class Lever : InteractableTrigger
             return;
         
         isActivate = true;
+
+        AudioManager.Instance.PlaySFX("Lever");
         animator.SetTrigger("Active");
     }
 
