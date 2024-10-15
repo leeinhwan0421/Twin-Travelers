@@ -147,6 +147,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5eef8a488d72af489998b0ca2e9f4f9, type: 2}
   - {fileID: 11400000, guid: 677217e1a9304c149adb903ddedcf1a4, type: 2}
   - {fileID: 11400000, guid: 3b5601f039ddff64689bfd59fc26838e, type: 2}
+  - {fileID: 11400000, guid: a4c3ba9b828491641b3ec4173aac74c6, type: 2}
   sfxDatas:
   - {fileID: 11400000, guid: 4f3ea742b69f8c446b8cc9b5bfc693fd, type: 2}
   - {fileID: 11400000, guid: d6ef8f098cdb5b84ebe2e931942f664f, type: 2}
