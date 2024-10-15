@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
 
         playtime = 0.0f;
         earnedCoin = 0;
+        coinLimit = spawnManager.coinCount;
 
         uiManager.SetEarnedCoinText(earnedCoin);
         uiManager.SetTimeText(playtime);

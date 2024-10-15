@@ -30,6 +30,14 @@ public class SpawnManager : MonoBehaviour
 
     private List<GameObject> coins = new List<GameObject>();
 
+    public int coinCount
+    {
+        get
+        {
+            return coins.Count;
+        }
+    } 
+
     // ======================================================== //
 
     [Header("Boxs")]
