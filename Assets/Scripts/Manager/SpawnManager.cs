@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     // ======================================================== //
 
     [Header("Coins")]
-    [SerializeField] private List<GameObject> coinsSpawnPoint;
+    [SerializeField] private Transform coinsSpawnPointsParent;
     [SerializeField] private GameObject coin;
 
     private List<GameObject> coins = new List<GameObject>();
@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
     // ======================================================== //
 
     [Header("Boxs")]
-    [SerializeField] private List<GameObject> boxSpawnPoint;
+    [SerializeField] private Transform boxSpawnPointsParent;
     [SerializeField] private GameObject box;
 
     private List<GameObject> boxs = new List<GameObject>();
@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
     // ======================================================== //
 
     [Header("Barrels")]
-    [SerializeField] private List<GameObject> barrelSpawnPoint;
+    [SerializeField] private Transform barrelSpawnPointsParent;
     [SerializeField] private GameObject barrel;
 
     private List<GameObject> barrels = new List<GameObject>();
@@ -102,9 +102,10 @@ public class SpawnManager : MonoBehaviour
             RemoveCoins();
         }
 
-        for (int i = 0; i < coinsSpawnPoint.Count; i++)
+        for (int i = 0; i < coinsSpawnPointsParent.childCount; i++)
         {
-            coins.Add(Instantiate(coin, coinsSpawnPoint[i].transform.position, Quaternion.identity));
+            Transform spawnPoint = coinsSpawnPointsParent.GetChild(i);
+            coins.Add(Instantiate(coin, spawnPoint.position, Quaternion.identity));
         }
     }
 
@@ -130,9 +131,10 @@ public class SpawnManager : MonoBehaviour
             RemoveBoxs();
         }
 
-        for (int i = 0; i < boxSpawnPoint.Count; i++)
+        for (int i = 0; i < boxSpawnPointsParent.childCount; i++)
         {
-            boxs.Add(Instantiate(box, boxSpawnPoint[i].transform.position, Quaternion.identity));
+            Transform spawnPoint = boxSpawnPointsParent.GetChild(i);
+            boxs.Add(Instantiate(box, spawnPoint.position, Quaternion.identity));
         }
     }
 
@@ -158,9 +160,10 @@ public class SpawnManager : MonoBehaviour
             RemoveBarrels();
         }
 
-        for (int i = 0; i < barrelSpawnPoint.Count; i++)
+        for (int i = 0; i < barrelSpawnPointsParent.childCount; i++)
         {
-            barrels.Add(Instantiate(barrel, barrelSpawnPoint[i].transform.position, Quaternion.identity));
+            Transform spawnPoint = barrelSpawnPointsParent.GetChild(i);
+            barrels.Add(Instantiate(barrel, spawnPoint.position, Quaternion.identity));
         }
     }
 
