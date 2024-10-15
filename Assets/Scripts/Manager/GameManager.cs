@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [Header("Managers")]
     public UIManager uiManager;
     public SpawnManager spawnManager;
+    public StageAllowPanel stageAllowPanel;
 
     [Header("stage settings")]
     [SerializeField] private float timeLimit;
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeStage();
+        stageAllowPanel.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -81,7 +82,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Initialize, Defeat, Victory, Restart
-    private void InitializeStage()
+    public void InitializeStage()
     {
         string[] parts = SceneManager.GetActiveScene().name.Split(' ');
 
@@ -122,7 +123,7 @@ public class GameManager : MonoBehaviour
         LevelManager.CompleteStage(theme, stage, starCount);
     }
 
-    private int ReturnStarCount()
+    public int ReturnStarCount()
     {
         int count = 1; // 클리어 시, 기본 1 지급.
 
