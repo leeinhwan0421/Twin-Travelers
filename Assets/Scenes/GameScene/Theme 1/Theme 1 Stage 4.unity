@@ -443,7 +443,20 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1697931467}
+  - {fileID: 1530789431}
+  - {fileID: 1828382074}
+  - {fileID: 1396852683}
+  - {fileID: 890465873}
+  - {fileID: 1383530895}
+  - {fileID: 202701889}
+  - {fileID: 891626597}
+  - {fileID: 1357694342}
+  - {fileID: 1995573425}
+  - {fileID: 210533399}
+  - {fileID: 1955917839}
+  - {fileID: 714293755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &139734065
@@ -8860,7 +8873,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8922,7 +8935,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9698,7 +9711,7 @@ Transform:
   m_GameObject: {fileID: 427852900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.4, y: 0, z: -10}
+  m_LocalPosition: {x: -17.2, y: -4.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9791,7 +9804,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 14.913225
+  orthographic size: 10.805203
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10736,7 +10749,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11174,7 +11187,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11236,7 +11249,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13200,19 +13213,6 @@ Transform:
   - {fileID: 1624463615}
   - {fileID: 139734066}
   - {fileID: 877255264}
-  - {fileID: 1697931467}
-  - {fileID: 1530789431}
-  - {fileID: 1828382074}
-  - {fileID: 1396852683}
-  - {fileID: 890465873}
-  - {fileID: 1383530895}
-  - {fileID: 202701889}
-  - {fileID: 891626597}
-  - {fileID: 1357694342}
-  - {fileID: 1995573425}
-  - {fileID: 210533399}
-  - {fileID: 1955917839}
-  - {fileID: 714293755}
   - {fileID: 455644484}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13553,7 +13553,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13615,7 +13615,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13708,7 +13708,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14166,7 +14166,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14815,7 +14815,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15415,7 +15415,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15981,7 +15981,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16247,7 +16247,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1225797762}
+    m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 1832343127634645098, guid: 38f8f56bc4740954390227076eafd564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16816,6 +16816,6 @@ SceneRoots:
   - {fileID: 113093428}
   - {fileID: 1225797762}
   - {fileID: 107859409}
-  - {fileID: 1106725433}
   - {fileID: 349178758}
   - {fileID: 319831448}
+  - {fileID: 1106725433}

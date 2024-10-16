@@ -893,6 +893,7 @@ MonoBehaviour:
   - {fileID: 2940479162310773828}
   - {fileID: 2470223731605740933}
   moveSpeed: 3
+  isCycle: 1
 --- !u!1 &8618457939439562928
 GameObject:
   m_ObjectHideFlags: 0

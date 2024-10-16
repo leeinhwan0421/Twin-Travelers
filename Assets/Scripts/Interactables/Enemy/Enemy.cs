@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
-    private void Awake()
+    private void Start()
     {
         animator = GetComponent<Animator>();
 
@@ -24,10 +24,7 @@ public class Enemy : MonoBehaviour
 
         drawFrom = min;
         drawTo = max;
-    }
 
-    private void Start()
-    {
         StartCoroutine(MoveCycle());
     }
 
@@ -63,6 +60,11 @@ public class Enemy : MonoBehaviour
     {
         Vector2 s = transform.position;
         Vector2 e = position;
+
+        if (s == e)
+        {
+            yield break;
+        }
 
         float distance  = Vector2.Distance(s, e);
         float time      = distance / speed;

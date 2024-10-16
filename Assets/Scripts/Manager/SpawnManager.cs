@@ -201,7 +201,7 @@ public class SpawnManager : MonoBehaviour
         {
             if (levers[i] != null)
             {
-                levers[i].GetComponent<Lever>().ResetLever();
+                levers[i].ResetLever();
             }
         }
     }

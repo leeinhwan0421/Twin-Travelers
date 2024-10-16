@@ -251,15 +251,15 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
   - {x: -0.28478384, y: -0.6497791, z: 0}
-  - {x: -0.27589276, y: 0.8552408, z: 0}
-  - {x: 0.20387971, y: 0.85186774, z: 0}
+  - {x: -0.27589276, y: -0.27886522, z: 0}
+  - {x: 0.22080672, y: -0.2737748, z: 0}
   - {x: 0.22323388, y: -0.6516949, z: 0}
-  m_ShapePathHash: -1632850532
+  m_ShapePathHash: -852217128
   m_Mesh: {fileID: 0}
-  m_InstanceId: 188952
+  m_InstanceId: 129534
   m_LocalBounds:
-    m_Center: {x: -0.03077498, y: 0.101772964, z: 0}
-    m_Extent: {x: 0.25400886, y: 0.75346786, z: 0}
+    m_Center: {x: -0.03077498, y: -0.46273485, z: 0}
+    m_Extent: {x: 0.25400886, y: 0.18896005, z: 0}
 --- !u!114 &4525602209069074135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,8 +273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 1
-  moveSpeed: 8
-  jumpVelocity: 20
+  moveSpeed: 9
+  jumpVelocity: 23
   jumpMultiplier: 1
   deadEffect: {fileID: 888651480518953923, guid: fdb25c30b2dfc7d42bc0f5532c602f42, type: 3}
 --- !u!1 &8171815459441227482

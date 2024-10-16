@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Theme 1/Theme 1 Stage 4.unity
     guid: ab7692a1586cdc143a4e20d963ea958e
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 1/Theme 1 Stage 5.unity
+    guid: fdbe2495150c2c64d808c565a6c23cd6
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 1/Theme 1 Stage 6.unity
+    guid: 2e48f984b7904f84290fe95636c7b16c
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 1/Theme 1 Stage 7.unity
+    guid: bd3ad94778b6bfc439e1016aed6e1473
   m_configObjects: {}

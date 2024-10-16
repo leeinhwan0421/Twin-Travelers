@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e6bceb54f69f2438da794b4be164b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 4
+  lerpSpeed: 10
   cycleTime: 3
   max: {x: 10, y: 0}
   min: {x: 0, y: 0}
