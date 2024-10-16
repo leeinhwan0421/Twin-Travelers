@@ -12578,6 +12578,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 113093428}
     m_Modifications:
     - target: {fileID: 524325550720356062, guid: 1580703d4e8328441ac4d1312d116ac0, type: 3}
+      propertyPath: max.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 524325550720356062, guid: 1580703d4e8328441ac4d1312d116ac0, type: 3}
+      propertyPath: min.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 524325550720356062, guid: 1580703d4e8328441ac4d1312d116ac0, type: 3}
       propertyPath: cycleTime
       value: 1
       objectReference: {fileID: 0}
@@ -12587,7 +12595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369406396723225852, guid: 1580703d4e8328441ac4d1312d116ac0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.56
+      value: 48.73
       objectReference: {fileID: 0}
     - target: {fileID: 8369406396723225852, guid: 1580703d4e8328441ac4d1312d116ac0, type: 3}
       propertyPath: m_LocalPosition.y
