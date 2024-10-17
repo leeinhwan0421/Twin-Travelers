@@ -2109,7 +2109,7 @@ MonoBehaviour:
   uiManager: {fileID: 387839228}
   spawnManager: {fileID: 947762686}
   stageAllowPanel: {fileID: 1563842995}
-  timeLimit: 30
+  timeLimit: 180
   coinLimit: 3
 --- !u!1 &947762684
 GameObject:
