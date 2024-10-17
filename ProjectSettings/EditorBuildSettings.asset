@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Theme 1/Theme 1 Stage 8.unity
     guid: 083e4284776d5e34a9a7201a01dee8d4
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 1/Theme 1 Stage 9.unity
+    guid: 911ca4a723631c847adc77d07d60210c
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 1/Theme 1 Stage 10.unity
+    guid: 8b088d1c12c74ad4981d8e1033f6567d
   m_configObjects: {}
