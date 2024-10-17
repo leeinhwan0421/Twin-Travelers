@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformAttachment : InteractableCollision
 {
-    private HashSet<Collision2D> colls = new HashSet<Collision2D>();
+    private HashSet<GameObject> colls = new HashSet<GameObject>();
     private Vector3 prev;
 
     private void Start()
@@ -16,9 +16,9 @@ public class PlatformAttachment : InteractableCollision
     {
         Vector3 cur = transform.position;
         
-        foreach(Collision2D coll in colls)
+        foreach(GameObject item in colls)
         {
-            coll.transform.position += (cur - prev);
+            item.transform.position += (cur - prev);
         } 
 
         prev = cur;
@@ -26,11 +26,11 @@ public class PlatformAttachment : InteractableCollision
 
     protected override void EnterEvent(Collision2D collision)
     {
-        colls.Add(collision);
+        colls.Add(collision.gameObject);
     }
 
     protected override void ExitEvent(Collision2D collision)
     {
-        colls.Remove(collision);
+        colls.Remove(collision.gameObject);
     }
 }
