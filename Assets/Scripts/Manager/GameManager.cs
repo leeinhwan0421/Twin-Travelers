@@ -107,6 +107,8 @@ public class GameManager : MonoBehaviour
 
         uiManager.DefeatPanel.Enable();
         uiManager.DefeatPanel.SetEarnedCoinText(earnedCoin);
+
+        uiManager.ResultBackgroundPanel.SetActive(true);
     }
 
     public void VictoryStage()
@@ -120,6 +122,8 @@ public class GameManager : MonoBehaviour
         uiManager.VictoryPanel.Enable();
         uiManager.VictoryPanel.SetEarnedCoinText(earnedCoin);
         uiManager.VictoryPanel.SetDisplayStarCount(starCount);
+
+        uiManager.ResultBackgroundPanel.SetActive(true);
 
         LevelManager.CompleteStage(theme, stage, starCount);
     }
@@ -152,6 +156,8 @@ public class GameManager : MonoBehaviour
         {
             uiManager.DefeatPanel.Disable();   
         }
+
+        uiManager.ResultBackgroundPanel.SetActive(false);
 
         spawnManager.ResetAll();
 

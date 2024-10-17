@@ -14,12 +14,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI earnedCoinText;
 
     [Header("UI Element")]
+    [SerializeField] private GameObject resultBackgroundPanel;
     [SerializeField] private DefeatPanel defeatPanel;
     [SerializeField] private VictoryPanel victoryPanel;
 
     // Properties
+    public GameObject ResultBackgroundPanel { get {return resultBackgroundPanel; } }
     public DefeatPanel DefeatPanel { get { return defeatPanel; } }
     public VictoryPanel VictoryPanel { get { return victoryPanel; } }
+
 
     public void SetTimeText(float playTime)
     {
