@@ -57,7 +57,8 @@ public class SpawnManager : MonoBehaviour
     // ======================================================== //
 
     [Header("Gimmicks")]
-    [SerializeField] private List<Lever> levers;
+    [SerializeField] private List<Lever_Door> lever_doors;
+    [SerializeField] private List<Button_Door> button_doors;
 
     #region Player
     public void SpawnPlayers()
@@ -190,18 +191,34 @@ public class SpawnManager : MonoBehaviour
     #endregion
 
     #region Gimmick
-    public void ResetLevers()
+    public void ResetLeverDoors()
     {
-        if (levers.Count <= 0)
+        if (lever_doors.Count <= 0)
         {
             return;
         }
 
-        for (int i = 0; i < levers.Count; i++)
+        for (int i = 0; i < lever_doors.Count; i++)
         {
-            if (levers[i] != null)
+            if (lever_doors[i] != null)
             {
-                levers[i].ResetLever();
+                lever_doors[i].ResetLeverDoor();
+            }
+        }
+    }
+
+    public void ResetButtonDoors()
+    {
+        if (button_doors.Count <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < button_doors.Count; i++)
+        {
+            if (button_doors[i] != null)
+            {
+                button_doors[i].ResetButtonDoor();
             }
         }
     }
@@ -221,6 +238,7 @@ public class SpawnManager : MonoBehaviour
         RemoveBarrels();
         SpawnBarrels();
 
-        ResetLevers();
+        ResetLeverDoors();
+        ResetButtonDoors();
     }
 }

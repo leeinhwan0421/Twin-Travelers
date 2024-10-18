@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -598, y: -1606}
+  m_AnchoredPosition: {x: 0, y: -1606}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &123412561
@@ -313,9 +313,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[Danil Chernyaev] 2D Platformer Tileset\n[Gamemaster Audio] Pro Sound
-    Collection\n[Unicaegames] Keyboard Soundpack #1\n[Photon Engine] PUN 2 - FREE\n[RixFont]
-    Rix X \uC218\uBC15\uC591\n\n"
+  m_text: "[Unity Assets Store]\n[Danil Chernyaev] 2D Platformer Tileset\n[Gamemaster
+    Audio] Pro Sound Collection\n[Photon Engine] PUN 2 - FREE\n\n[Opengameart]\n[Unicaegames]
+    Keyboard Soundpack #1\n\n[itch.io]\n[rubberduck] Firework SFX\n[SpikerMan] Animated
+    Arrows / Cursors\n\n[RixFont]\nRix X \uC218\uBC15\uC591\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3625e403d332ca94588f57858b1eb5e5, type: 2}
   m_sharedMaterial: {fileID: -5335019569137496598, guid: 3625e403d332ca94588f57858b1eb5e5, type: 2}
@@ -349,7 +350,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
