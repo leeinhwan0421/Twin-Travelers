@@ -59,6 +59,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Gimmicks")]
     [SerializeField] private List<Lever_Door> lever_doors;
     [SerializeField] private List<Button_Door> button_doors;
+    [SerializeField] private List<Key_Door> key_doors;
 
     #region Player
     public void SpawnPlayers()
@@ -222,6 +223,22 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
+
+    public void ResetKeyDoors()
+    {
+        if (key_doors.Count <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < key_doors.Count; i++)
+        {
+            if (key_doors[i] != null)
+            {
+                key_doors[i].ResetKeyDoor();
+            }
+        }
+    }
     #endregion
 
     public void ResetAll()
@@ -240,5 +257,6 @@ public class SpawnManager : MonoBehaviour
 
         ResetLeverDoors();
         ResetButtonDoors();
+        ResetKeyDoors();
     }
 }

@@ -13,8 +13,6 @@ public class Laser : Obstacle
     private LineRenderer lineRenderer;
     private EdgeCollider2D coll;
 
-    private float distance = 100f;
-
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -47,15 +45,14 @@ public class Laser : Obstacle
 
     private void Activate()
     {
+        AudioManager.Instance.PlaySFX("Laser");
         StartCoroutine(WidthAnimation(1.0f));
-
         coll.enabled = true;
     }
 
     private void Deactivate()
     {
         StartCoroutine(WidthAnimation(0.0f));
-
         coll.enabled = false;
     }
 
@@ -68,13 +65,13 @@ public class Laser : Obstacle
 
         while (true)
         {
-            Activate();
-
             yield return new WaitForSeconds(activeTime);
 
             Deactivate();
 
             yield return new WaitForSeconds(deactiveTime);
+
+            Activate();
         }
     }
 
