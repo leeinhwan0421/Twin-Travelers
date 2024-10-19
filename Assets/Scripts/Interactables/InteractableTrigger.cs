@@ -10,9 +10,20 @@ public abstract class InteractableTrigger : MonoBehaviour
     private void Start()
     {
 #if SHOW_DEBUG_MESSAGES
-        if (!GetComponent<Collider2D>().isTrigger)
+        if (TryGetComponent<Collider2D>(out Collider2D coll2D))
         {
-            Debug.Log($"{gameObject.name} Collider2D is not Trigger, this scripts need trigger mode");
+            if (coll2D.isTrigger == false)
+            {
+                Debug.Log($"{gameObject.name} Collider2D is not Trigger, this scripts need trigger mode");
+            }
+        }
+
+        if (TryGetComponent<Collider>(out Collider coll))
+        {
+            if (coll.isTrigger == false)
+            {
+                Debug.Log($"{gameObject.name} Collider is not Trigger, this scripts need trigger mode");
+            }
         }
 #endif
     }

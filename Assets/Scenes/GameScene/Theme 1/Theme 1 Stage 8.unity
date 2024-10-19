@@ -1219,6 +1219,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3340819541183442710, guid: d2221a5d58de3a443b551571be1409c9, type: 3}
   m_PrefabInstance: {fileID: 308865265}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &315282159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315282160}
+  - component: {fileID: 315282161}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &315282160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315282159}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2131385064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315282161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315282159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 75ecffbacb6cdf548aee118e18f53976, type: 2}
 --- !u!1001 &319831448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1574,7 +1623,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3138,7 +3187,8 @@ MonoBehaviour:
   box: {fileID: 7011032141672730163, guid: f6dcabe9ba9854f4b9399fcca8ebb800, type: 3}
   barrelSpawnPointsParent: {fileID: 39266216}
   barrel: {fileID: 3539082871747297433, guid: 609fe0c8ec90f9243ab6fa081f39b04a, type: 3}
-  levers: []
+  lever_doors: []
+  button_doors: []
 --- !u!1 &962518447
 GameObject:
   m_ObjectHideFlags: 0
@@ -6810,6 +6860,7 @@ Transform:
   - {fileID: 427852901}
   - {fileID: 947762685}
   - {fileID: 917381543}
+  - {fileID: 315282160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1425647797244681809 stripped
