@@ -30,7 +30,7 @@ public class FlashPlatform : MonoBehaviour
     private void Deactivate()
     {
         coll.enabled = false;
-        spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
     }
 
     private IEnumerator Cycle()

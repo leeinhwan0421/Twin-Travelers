@@ -41,6 +41,9 @@ public class Button_Door : InteractableTrigger
         {
             StopAllCoroutines();
             StartCoroutine(MoveDoor(openLocalPosition));
+
+            AudioManager.Instance.PlaySFX("ButtonClick");
+
             spriteRenderer.sprite = openSprite;
             isOpening = true;
         }
@@ -54,6 +57,9 @@ public class Button_Door : InteractableTrigger
         {
             StopAllCoroutines();
             StartCoroutine(MoveDoor(closeLocalPosition));
+
+            AudioManager.Instance.PlaySFX("ButtonEnd");
+
             spriteRenderer.sprite = closeSprite;
             isOpening = false;
         }

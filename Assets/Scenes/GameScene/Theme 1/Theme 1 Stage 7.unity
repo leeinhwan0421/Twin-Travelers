@@ -14891,6 +14891,7 @@ MonoBehaviour:
   barrel: {fileID: 3539082871747297433, guid: 609fe0c8ec90f9243ab6fa081f39b04a, type: 3}
   lever_doors: []
   button_doors: []
+  key_doors: []
 --- !u!1 &955110638
 GameObject:
   m_ObjectHideFlags: 0
@@ -15269,7 +15270,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
