@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Button_Door : InteractableTrigger
+public class Button_Door : MonoBehaviour
 {
     [Header("Presets")]
     [SerializeField] private Transform door;
@@ -33,8 +33,13 @@ public class Button_Door : InteractableTrigger
         StopAllCoroutines();
     }
 
-    protected override void EnterEvent(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
+        {
+            return;
+        }
+
         currentCount++;
 
         if (currentCount == 1 && !isOpening)
@@ -42,15 +47,20 @@ public class Button_Door : InteractableTrigger
             StopAllCoroutines();
             StartCoroutine(MoveDoor(openLocalPosition));
 
-            AudioManager.Instance.PlaySFX("ButtonClick");
+            AudioManager.Instance.PlaySFX("ButtonEnter");
 
             spriteRenderer.sprite = openSprite;
             isOpening = true;
         }
     }
 
-    protected override void ExitEvent(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
+        {
+            return;
+        }
+
         currentCount--;
 
         if (currentCount == 0 && isOpening)
@@ -58,7 +68,7 @@ public class Button_Door : InteractableTrigger
             StopAllCoroutines();
             StartCoroutine(MoveDoor(closeLocalPosition));
 
-            AudioManager.Instance.PlaySFX("ButtonEnd");
+            AudioManager.Instance.PlaySFX("ButtonExit");
 
             spriteRenderer.sprite = closeSprite;
             isOpening = false;

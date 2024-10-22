@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3895792923360498519}
   - component: {fileID: 266209995808672096}
   - component: {fileID: 312605638137411447}
+  - component: {fileID: 411476227544080998}
   m_Layer: 0
   m_Name: Range
   m_TagString: Untagged
@@ -189,6 +190,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interatableTag: Player
   windSpeed: 10
+--- !u!114 &411476227544080998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518734406858106570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a04a1eab5de018469193e0c0095378e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Moveable
+  windSpeed: 1
 --- !u!1 &6619188529274242574
 GameObject:
   m_ObjectHideFlags: 0

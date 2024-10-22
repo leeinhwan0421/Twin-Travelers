@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2896754042232454704}
   - component: {fileID: 4338250273338934537}
   - component: {fileID: 5416067458417564483}
+  - component: {fileID: 4416473166066074406}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -4893,6 +4894,21 @@ MonoBehaviour:
   interatableTag: Player
   target: {fileID: 1397697103370558120}
   teleportEffect: {fileID: 6769444947113106401, guid: fed1eb1524809c04bbdc566e17c535b9, type: 3}
+--- !u!114 &4416473166066074406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572413645872771397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c2502a66352e1429011a9fdaf4498f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Moveable
+  target: {fileID: 1397697103370558120}
+  teleportEffect: {fileID: 6769444947113106401, guid: fed1eb1524809c04bbdc566e17c535b9, type: 3}
 --- !u!1 &1519123434666266385
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5119,7 @@ GameObject:
   - component: {fileID: 1337901949624165219}
   - component: {fileID: 671320622057039213}
   - component: {fileID: 1397697103370558120}
+  - component: {fileID: 1337516723902890612}
   m_Layer: 0
   m_Name: B
   m_TagString: Untagged
@@ -9981,5 +9998,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  target: {fileID: 5416067458417564483}
+  teleportEffect: {fileID: 6769444947113106401, guid: fed1eb1524809c04bbdc566e17c535b9, type: 3}
+--- !u!114 &1337516723902890612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239837060224870633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c2502a66352e1429011a9fdaf4498f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Moveable
   target: {fileID: 5416067458417564483}
   teleportEffect: {fileID: 6769444947113106401, guid: fed1eb1524809c04bbdc566e17c535b9, type: 3}

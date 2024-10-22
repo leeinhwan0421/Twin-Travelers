@@ -360,5 +360,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e430e0371ee914b4bb168abceecf3139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Breakable
+  interatableTag: Moveable
   type: 0

@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: ButtonExit
   m_EditorClassIdentifier: 
   soundName: ButtonExit
-  clip: []
+  clip:
+  - {fileID: 8300000, guid: 7e8704952a0c61048b633091e3221030, type: 3}
+  - {fileID: 8300000, guid: b0d150795fac7564f9b4aa22a03b9e4f, type: 3}
+  - {fileID: 8300000, guid: 4a6126d7ac134b44aa1f7e03321a9f56, type: 3}
+  - {fileID: 8300000, guid: 460490a2fdb362040b3e7b60dbca9751, type: 3}
+  - {fileID: 8300000, guid: 30d8abcbcf1cdf54d8782cc7bb453490, type: 3}

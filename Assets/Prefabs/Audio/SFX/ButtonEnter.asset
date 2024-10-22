@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: ButtonEnter
   m_EditorClassIdentifier: 
   soundName: ButtonEnter
-  clip: []
+  clip:
+  - {fileID: 8300000, guid: bd56a52ec86d0d440bf581c3aa3eeab7, type: 3}
+  - {fileID: 8300000, guid: aa2694e67ecee15438ec0e51f9521688, type: 3}
+  - {fileID: 8300000, guid: ad43c279ec925a446a54eed8572b29ca, type: 3}
+  - {fileID: 8300000, guid: 1d7f143f000a14a4ebc3e709cbbc7fa4, type: 3}
+  - {fileID: 8300000, guid: 746ef8de93364ee47bc00d39e3a9d966, type: 3}

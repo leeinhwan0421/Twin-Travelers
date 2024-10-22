@@ -45,7 +45,7 @@ public class Laser : Obstacle
 
     private void Activate()
     {
-        AudioManager.Instance.PlaySFX("Laser");
+        // AudioManager.Instance.PlaySFX("Laser");
         StartCoroutine(WidthAnimation(1.0f));
         coll.enabled = true;
     }

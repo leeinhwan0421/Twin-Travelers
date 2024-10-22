@@ -8,8 +8,8 @@ TagManager:
   - Bullet
   - Coin
   - Ground
-  - Breakable
   - Sign
+  - Moveable
   layers:
   - Default
   - TransparentFX

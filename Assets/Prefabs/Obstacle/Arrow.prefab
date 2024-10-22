@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 5677309737277314792}
   - component: {fileID: 4002117471320243531}
   - component: {fileID: 2938699588799471540}
-  - component: {fileID: 8999729020070355177}
   - component: {fileID: 4601502855478535991}
-  - component: {fileID: 6016518605294720150}
+  - component: {fileID: 4888029163895139278}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Obstacle
@@ -175,19 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
---- !u!114 &8999729020070355177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2529333519811853211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c099be7526a75de449c62b581a901613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interatableTag: Breakable
 --- !u!114 &4601502855478535991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interatableTag: Ground
   effect: {fileID: 1201888914307423518, guid: f181c252b83ad1a4da7d8fa35b6ee302, type: 3}
---- !u!114 &6016518605294720150
+--- !u!114 &4888029163895139278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,5 +200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971c579df618c6441ab0c81ff79731f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Breakable
+  interatableTag: Moveable
   effect: {fileID: 1201888914307423518, guid: f181c252b83ad1a4da7d8fa35b6ee302, type: 3}
