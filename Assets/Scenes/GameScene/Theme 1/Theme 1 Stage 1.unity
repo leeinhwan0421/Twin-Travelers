@@ -3337,6 +3337,9 @@ MonoBehaviour:
   button_doors: []
   key_doors:
   - {fileID: 0}
+  trap_platforms:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &967175177
 GameObject:
   m_ObjectHideFlags: 0

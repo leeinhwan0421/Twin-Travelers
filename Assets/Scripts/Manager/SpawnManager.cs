@@ -60,6 +60,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private List<Lever_Door> lever_doors;
     [SerializeField] private List<Button_Door> button_doors;
     [SerializeField] private List<Key_Door> key_doors;
+    [SerializeField] private List<TrapPlatform> trap_platforms;
 
     #region Player
     public void SpawnPlayers()
@@ -239,6 +240,22 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
+
+    public void ResetTrapPlatforms()
+    {
+        if (trap_platforms.Count <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < trap_platforms.Count; i++)
+        {
+            if (trap_platforms[i] != null)
+            {
+                trap_platforms[i].ResetTrapPlatform();
+            }
+        }
+    }
     #endregion
 
     public void ResetAll()
@@ -258,5 +275,7 @@ public class SpawnManager : MonoBehaviour
         ResetLeverDoors();
         ResetButtonDoors();
         ResetKeyDoors();
+
+        ResetTrapPlatforms();
     }
 }
