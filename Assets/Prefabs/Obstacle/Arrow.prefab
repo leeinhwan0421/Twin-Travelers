@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2938699588799471540}
   - component: {fileID: 4601502855478535991}
   - component: {fileID: 4888029163895139278}
+  - component: {fileID: 6625200876263681585}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Obstacle
@@ -202,3 +203,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interatableTag: Moveable
   effect: {fileID: 1201888914307423518, guid: f181c252b83ad1a4da7d8fa35b6ee302, type: 3}
+--- !u!114 &6625200876263681585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2529333519811853211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272ee89ad66bc1341aba0b7f16425d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Balloon

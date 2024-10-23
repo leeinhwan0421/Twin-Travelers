@@ -3335,11 +3335,9 @@ MonoBehaviour:
   barrel: {fileID: 3539082871747297433, guid: 609fe0c8ec90f9243ab6fa081f39b04a, type: 3}
   lever_doors: []
   button_doors: []
-  key_doors:
-  - {fileID: 0}
-  trap_platforms:
-  - {fileID: 0}
-  - {fileID: 0}
+  two_button_doors: []
+  key_doors: []
+  trap_platforms: []
 --- !u!1 &967175177
 GameObject:
   m_ObjectHideFlags: 0

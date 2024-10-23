@@ -59,6 +59,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Gimmicks")]
     [SerializeField] private List<Lever_Door> lever_doors;
     [SerializeField] private List<Button_Door> button_doors;
+    [SerializeField] private List<Two_Button_Door> two_button_doors;
     [SerializeField] private List<Key_Door> key_doors;
     [SerializeField] private List<TrapPlatform> trap_platforms;
 
@@ -225,6 +226,22 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    public void ResetTwoButtonDoors()
+    {
+        if (two_button_doors.Count <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < two_button_doors.Count; i++)
+        {
+            if (two_button_doors[i] != null)
+            {
+                two_button_doors[i].ResetTwoButtonDoor();
+            }
+        }
+    }
+
     public void ResetKeyDoors()
     {
         if (key_doors.Count <= 0)
@@ -274,6 +291,7 @@ public class SpawnManager : MonoBehaviour
 
         ResetLeverDoors();
         ResetButtonDoors();
+        ResetTwoButtonDoors();
         ResetKeyDoors();
 
         ResetTrapPlatforms();

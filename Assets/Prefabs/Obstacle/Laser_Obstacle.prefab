@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 7322897711512653824}
   - component: {fileID: 7320334933262760111}
   - component: {fileID: 2487083982298139252}
+  - component: {fileID: 4085408380848226253}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -423,3 +424,16 @@ MonoBehaviour:
   isStatic: 0
   activeTime: 3
   deactiveTime: 1
+--- !u!114 &4085408380848226253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262813768119607232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272ee89ad66bc1341aba0b7f16425d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Balloon

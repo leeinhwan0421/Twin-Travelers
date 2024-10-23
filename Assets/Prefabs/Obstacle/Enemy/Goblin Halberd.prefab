@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 14877975229795854}
   - component: {fileID: 3777808476413843853}
   - component: {fileID: 924056947647769487}
+  - component: {fileID: -6712333149808650576}
   m_Layer: 0
   m_Name: Goblin Halberd
   m_TagString: Obstacle
@@ -266,3 +267,16 @@ MonoBehaviour:
   cycleTime: 5
   max: {x: 10, y: 0}
   min: {x: 0, y: 0}
+--- !u!114 &-6712333149808650576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624833689686109476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272ee89ad66bc1341aba0b7f16425d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Balloon

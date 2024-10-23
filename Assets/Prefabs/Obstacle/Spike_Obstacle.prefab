@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6299552830757638145}
   - component: {fileID: 3337529190151585797}
   - component: {fileID: 8264503142573276856}
+  - component: {fileID: -5408614534954040583}
   m_Layer: 0
   m_Name: Spike_Obstacle
   m_TagString: Obstacle
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+--- !u!114 &-5408614534954040583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033354553408363772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272ee89ad66bc1341aba0b7f16425d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Balloon

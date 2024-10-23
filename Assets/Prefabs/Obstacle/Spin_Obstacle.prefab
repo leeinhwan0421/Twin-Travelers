@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6084398853769486789}
   - component: {fileID: 5758509146022638613}
   - component: {fileID: 2388339404025883808}
+  - component: {fileID: -2665548346535540298}
   m_Layer: 0
   m_Name: Spin_Obstacle
   m_TagString: Obstacle
@@ -159,3 +160,16 @@ MonoBehaviour:
   interatableTag: Player
   rotationSpeed: 300
   isLeftRotation: 0
+--- !u!114 &-2665548346535540298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741033365465315398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272ee89ad66bc1341aba0b7f16425d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Balloon

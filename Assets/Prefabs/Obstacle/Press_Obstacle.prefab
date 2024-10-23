@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 6778087554049991109}
   - component: {fileID: 2448729289212582616}
   - component: {fileID: 7592940114874962767}
+  - component: {fileID: 6861939603659321617}
   m_Layer: 0
   m_Name: Press_Obstacle
   m_TagString: Obstacle
@@ -227,3 +228,16 @@ MonoBehaviour:
   cycleTime: 5
   pressSpeed: 20
   returnSpeed: 5
+--- !u!114 &6861939603659321617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625440994233034840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272ee89ad66bc1341aba0b7f16425d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interatableTag: Balloon
