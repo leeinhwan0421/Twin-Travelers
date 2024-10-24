@@ -2026,6 +2026,7 @@ Transform:
   - {fileID: 1441034715}
   - {fileID: 1075557673}
   - {fileID: 39266216}
+  - {fileID: 1909985377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &791550445
@@ -2361,8 +2362,13 @@ MonoBehaviour:
   box: {fileID: 7011032141672730163, guid: f6dcabe9ba9854f4b9399fcca8ebb800, type: 3}
   barrelSpawnPointsParent: {fileID: 39266216}
   barrel: {fileID: 3539082871747297433, guid: 609fe0c8ec90f9243ab6fa081f39b04a, type: 3}
+  eggSpawnPointsParent: {fileID: 1909985377}
+  egg: {fileID: 7518157524632940184, guid: 07873aca22280754ea8c03a866353514, type: 3}
   lever_doors: []
   button_doors: []
+  two_button_doors: []
+  key_doors: []
+  trap_platforms: []
 --- !u!1 &1075557672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,6 +4268,37 @@ MonoBehaviour:
   - {x: 2.6609216, y: -2.6068993, z: 0}
   - {x: 3.6333375, y: 0.9141766, z: 0}
   - {x: -0.77011585, y: 0.9501921, z: 0}
+--- !u!1 &1909985376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909985377}
+  m_Layer: 0
+  m_Name: Eggs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909985377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909985376}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 782280190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108811691
 GameObject:
   m_ObjectHideFlags: 0

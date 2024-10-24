@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Enemy : MonoBehaviour
 {
@@ -72,11 +73,11 @@ public class Enemy : MonoBehaviour
 
         if ((e - s).normalized.x == -1)
         {
-            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 180f, transform.localEulerAngles.z);
         }
         else if ((e - s).normalized.x == 1)
         {
-            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0f, transform.localEulerAngles.z);
         }
 
         animator.SetBool("IsMove", true);

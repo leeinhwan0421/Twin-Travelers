@@ -56,6 +56,14 @@ public class SpawnManager : MonoBehaviour
 
     // ======================================================== //
 
+    [Header("Eggs")]
+    [SerializeField] private Transform eggSpawnPointsParent;
+    [SerializeField] private GameObject egg;
+
+    private List<GameObject> eggs = new List<GameObject>();
+
+    // ======================================================== //
+
     [Header("Gimmicks")]
     [SerializeField] private List<Lever_Door> lever_doors;
     [SerializeField] private List<Button_Door> button_doors;
@@ -193,6 +201,35 @@ public class SpawnManager : MonoBehaviour
     }
     #endregion
 
+    #region Egg
+    public void SpawnEggs()
+    {
+        if (eggs.Count > 0)
+        {
+            RemoveEggs();
+        }
+
+        for (int i = 0; i < eggSpawnPointsParent.childCount; i++)
+        {
+            Transform spawnPoint = eggSpawnPointsParent.GetChild(i);
+            eggs.Add(Instantiate(egg, spawnPoint.position, Quaternion.identity));
+        }
+    }
+
+    public void RemoveEggs()
+    {
+        for (int i = 0; i < eggs.Count; i++)
+        {
+            if (eggs[i] != null)
+            {
+                Destroy(eggs[i]);
+            }
+        }
+
+        eggs.Clear();
+    }
+    #endregion
+
     #region Gimmick
     public void ResetLeverDoors()
     {
@@ -288,6 +325,9 @@ public class SpawnManager : MonoBehaviour
 
         RemoveBarrels();
         SpawnBarrels();
+
+        RemoveEggs();
+        SpawnEggs();
 
         ResetLeverDoors();
         ResetButtonDoors();
