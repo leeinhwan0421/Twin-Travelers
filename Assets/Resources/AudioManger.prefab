@@ -160,6 +160,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ba48f702e469eb41a124cfbaa74c812, type: 2}
   - {fileID: 11400000, guid: dccd9dff38cc7bc44b71260857af9b62, type: 2}
   - {fileID: 11400000, guid: 88eab073b9066e84e8f5b76249d2b223, type: 2}
+  - {fileID: 11400000, guid: 932b537b37738a1488413d7bb42ccf2a, type: 2}
+  - {fileID: 11400000, guid: 2f6be16a362936d42baa94113d1f3a48, type: 2}
+  - {fileID: 11400000, guid: 39bf917fe31ab1d4ca6b775043b2c529, type: 2}
+  - {fileID: 11400000, guid: 6c6a6288741e1444fb77a805ec694042, type: 2}
   sfxDatas:
   - {fileID: 11400000, guid: edaf89ed3fb33d641bd11da86beeb921, type: 2}
   - {fileID: 11400000, guid: 0565a404b9f9ceb49bbc7434374f9619, type: 2}

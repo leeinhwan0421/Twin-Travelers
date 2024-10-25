@@ -241,7 +241,7 @@ MonoBehaviour:
   - {x: 0.27522337, y: -0.833491, z: 0}
   m_ShapePathHash: -1464093223
   m_Mesh: {fileID: 0}
-  m_InstanceId: -214452
+  m_InstanceId: 305842
   m_LocalBounds:
     m_Center: {x: 0.01766646, y: -0.6593106, z: 0}
     m_Extent: {x: 0.25755692, y: 0.17418046, z: 0}
@@ -262,6 +262,7 @@ MonoBehaviour:
   jumpVelocity: 23
   jumpMultiplier: 1
   deadEffect: {fileID: 888651480518953923, guid: fdb25c30b2dfc7d42bc0f5532c602f42, type: 3}
+  playerBallon: {fileID: 4493955766365455784}
 --- !u!1 &3212467128422901477
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 5
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
@@ -444,8 +445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1260204812887663879}
   gravityScaleMultipler: 0.5
-  min: {x: -100, y: -11.5}
-  max: {x: 100, y: 20}
+  min: {x: -100, y: -5}
+  max: {x: 100, y: 50}
   effect: {fileID: 6609614915275225419, guid: 872ad24ded6aca44d8dbe73b32e1b3a5, type: 3}
 --- !u!58 &8736455884791755736
 CircleCollider2D:
@@ -476,7 +477,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.410306}

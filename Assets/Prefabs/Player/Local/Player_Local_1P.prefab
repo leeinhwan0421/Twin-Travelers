@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2047770059207094632}
   gravityScaleMultipler: 0.5
-  min: {x: -100, y: -11.5}
-  max: {x: 100, y: 20}
+  min: {x: -100, y: -5}
+  max: {x: 100, y: 50}
   effect: {fileID: 6609614915275225419, guid: 872ad24ded6aca44d8dbe73b32e1b3a5, type: 3}
 --- !u!58 &4832645465301677177
 CircleCollider2D:
@@ -132,7 +132,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.4103055}
@@ -395,7 +395,7 @@ MonoBehaviour:
   - {x: 0.22323388, y: -0.6516949, z: 0}
   m_ShapePathHash: -852217128
   m_Mesh: {fileID: 0}
-  m_InstanceId: -214584
+  m_InstanceId: 305916
   m_LocalBounds:
     m_Center: {x: -0.03077498, y: -0.46273485, z: 0}
     m_Extent: {x: 0.25400886, y: 0.18896005, z: 0}
@@ -416,6 +416,7 @@ MonoBehaviour:
   jumpVelocity: 23
   jumpMultiplier: 1
   deadEffect: {fileID: 888651480518953923, guid: fdb25c30b2dfc7d42bc0f5532c602f42, type: 3}
+  playerBallon: {fileID: 3529205952207064684}
 --- !u!1 &8171815459441227482
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +472,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 5
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3

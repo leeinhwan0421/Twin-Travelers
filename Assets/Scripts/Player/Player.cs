@@ -34,6 +34,17 @@ public class Player : MonoBehaviour
     [Header("Effect")]
     [SerializeField] private GameObject deadEffect;
 
+    [Header("Scripts")]
+    [SerializeField] private PlayerBalloon playerBallon;
+
+    public PlayerBalloon PlayerBalloon
+    {
+        get
+        {
+            return playerBallon;
+        }
+    }
+
     // Private Values
     private Animator animator;
     private SpriteRenderer spriteRenderer;
