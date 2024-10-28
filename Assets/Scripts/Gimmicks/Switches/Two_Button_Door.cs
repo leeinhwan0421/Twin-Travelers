@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Two_Button_Door : MonoBehaviour
+public class Two_Button_Door : InteractableTrigger
 {
     [Header("Presets")]
     [SerializeField] private Two_Button_Door other;
@@ -30,7 +30,7 @@ public class Two_Button_Door : MonoBehaviour
         door.Rebind();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void EnterEvent(Collider2D collision)
     {
         if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
         {
@@ -53,7 +53,7 @@ public class Two_Button_Door : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected override void ExitEvent(Collider2D collision)
     {
         if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
         {

@@ -164,4 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
   effect: {fileID: 9102850825598935689, guid: ab1f34e5ba16fe64abde3115123cae1f, type: 3}

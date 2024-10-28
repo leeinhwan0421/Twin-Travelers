@@ -529,6 +529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
   text: "\uC5C4\uCCAD\uB09C \uACE0\uD1B5\uC774 \uAE30\uB2E4\uB9AC\uACE0 \uC788\uC744\uAC83\uC774\uB2E4.."
   panel: {fileID: 1244272027286546639}
   textWriter: {fileID: 5694226678667322674}

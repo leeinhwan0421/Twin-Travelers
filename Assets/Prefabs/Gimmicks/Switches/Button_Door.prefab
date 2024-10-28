@@ -194,7 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d67f5b04694baf4a93ad69098824908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
+  interatableTag: 
+  selectedTags:
+  - Player
+  - Moveable
   door: {fileID: 230672031349125052}
   doorSpeed: 2
   openLocalPosition: {x: 0, y: 1.2, z: 0}

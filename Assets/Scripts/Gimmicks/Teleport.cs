@@ -11,18 +11,18 @@ public class Teleport : InteractableTrigger
     [SerializeField] private GameObject teleportEffect;
 
     // private value..
-    private HashSet<Collider2D> recents = new HashSet<Collider2D>();
+    private HashSet<GameObject> recents = new HashSet<GameObject>();
 
     protected override void EnterEvent(Collider2D collision)
     {
-        if (recents.Contains(collision))
+        if (recents.Contains(collision.gameObject))
         {
             return;
         }
 
         collision.transform.position = target.transform.position;
 
-        target.recents.Add(collision);
+        target.recents.Add(collision.gameObject);
 
         AudioManager.Instance.PlaySFX("Teleport");
 
@@ -32,6 +32,6 @@ public class Teleport : InteractableTrigger
 
     protected override void ExitEvent(Collider2D collision)
     {
-        recents.Remove(collision);
+        recents.Remove(collision.gameObject);
     }
 }

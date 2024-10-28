@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 8324724106368364016}
   - component: {fileID: 4395730272012495092}
   - component: {fileID: 2701605038306878907}
-  - component: {fileID: 8388222899513184078}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -266,18 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
-  pullSpeed: 5
---- !u!114 &8388222899513184078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8597185585373773380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6047a6ace490d4409a15f2d29fc5737, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interatableTag: Moveable
+  selectedTags:
+  - Player
+  - Obstacle
   pullSpeed: 5

@@ -1,20 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class InteractableTrigger : MonoBehaviour
 {
-    [Header("Preset")]
-    [SerializeField] private string interatableTag;
+    [HideInInspector] public List<string> selectedTags = new List<string>();
 
     private void Start()
     {
-#if SHOW_DEBUG_MESSAGES
+#if SHOW_DEBUG_MESSAGES 
         if (TryGetComponent<Collider2D>(out Collider2D coll2D))
         {
             if (coll2D.isTrigger == false)
             {
-                Debug.Log($"{gameObject.name} Collider2D is not Trigger, this scripts need trigger mode");
+                Debug.LogWarning($"{gameObject.name}: Collider2D is not set as a trigger. This script requires the Collider to be in trigger mode.");
             }
         }
 
@@ -22,8 +20,13 @@ public abstract class InteractableTrigger : MonoBehaviour
         {
             if (coll.isTrigger == false)
             {
-                Debug.Log($"{gameObject.name} Collider is not Trigger, this scripts need trigger mode");
+                Debug.LogWarning($"{gameObject.name}: Collider is not set as a trigger. This script requires the Collider to be in trigger mode.");
             }
+        }
+
+        if (selectedTags.Count == 0)
+        {
+            Debug.LogWarning($"{gameObject.name}: No tags specified in the InteractableTrigger component. This may cause unintended behavior.");
         }
 #endif
     }
@@ -33,7 +36,7 @@ public abstract class InteractableTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(interatableTag))
+        if (selectedTags.Contains(collision.tag))
         {
             EnterEvent(collision);
         }
@@ -41,7 +44,7 @@ public abstract class InteractableTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag(interatableTag))
+        if (selectedTags.Contains(collision.tag))
         {
             ExitEvent(collision);
         }

@@ -589,6 +589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
   text: "\uB358\uC804 \uC785\uAD6C"
   panel: {fileID: 4006744173575862394}
   textWriter: {fileID: 991744345350666217}

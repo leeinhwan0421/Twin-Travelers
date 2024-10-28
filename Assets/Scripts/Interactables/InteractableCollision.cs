@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class InteractableCollision : MonoBehaviour
 {
-    [Header("Preset")]
-    [SerializeField] private string interatableTag;
+    [HideInInspector] public List<string> selectedTags = new List<string>();
 
     private void Start()
     {
@@ -13,6 +12,11 @@ public abstract class InteractableCollision : MonoBehaviour
         if (GetComponent<Collider2D>().isTrigger)
         {
             Debug.Log($"{gameObject.name} Collider2D is Trigger, this scripts need off trigger mode");
+        }
+
+        if (selectedTags.Count == 0)
+        {
+            Debug.LogWarning($"{gameObject.name}: No tags specified in the InteractableTrigger component. This may cause unintended behavior.");
         }
 #endif
     }
@@ -22,7 +26,7 @@ public abstract class InteractableCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag(interatableTag))
+        if (selectedTags.Contains(collision.gameObject.tag))
         {
             EnterEvent(collision);
         }
@@ -30,7 +34,7 @@ public abstract class InteractableCollision : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag(interatableTag))
+        if (selectedTags.Contains(collision.gameObject.tag))
         {
             ExitEvent(collision);
         }

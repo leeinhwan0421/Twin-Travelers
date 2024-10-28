@@ -168,6 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
+  - Moveable
   velocity: {x: 0, y: 30}
 --- !u!1 &6343005740706785176
 GameObject:

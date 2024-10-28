@@ -165,6 +165,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39bf917fe31ab1d4ca6b775043b2c529, type: 2}
   - {fileID: 11400000, guid: 6c6a6288741e1444fb77a805ec694042, type: 2}
   - {fileID: 11400000, guid: 3a7db13ca6aa2ec419f442836a9bc589, type: 2}
+  - {fileID: 11400000, guid: 8f921937b79c767428cfac5736292f50, type: 2}
+  - {fileID: 11400000, guid: ce76237c39080c84e958a1886014645f, type: 2}
   sfxDatas:
   - {fileID: 11400000, guid: edaf89ed3fb33d641bd11da86beeb921, type: 2}
   - {fileID: 11400000, guid: 0565a404b9f9ceb49bbc7434374f9619, type: 2}

@@ -1098,7 +1098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a82910ab1506874a9e19a88680240ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
+  selectedTags:
+  - Player
+  - Moveable
 --- !u!114 &165971053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5002,7 +5004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 217271537}
   m_Layer: 0
-  m_Name: 8
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 56241fc2b63e1d649abe49dddf31607b, type: 3}
   m_NavMeshLayer: 0
@@ -6012,7 +6014,7 @@ Transform:
   m_GameObject: {fileID: 427852900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.4, y: 5.2, z: -10}
+  m_LocalPosition: {x: 6, y: -5.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6105,7 +6107,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 14
+  orthographic size: 24.272556
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7643,7 +7645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828796330}
   m_Layer: 0
-  m_Name: 10
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 56241fc2b63e1d649abe49dddf31607b, type: 3}
   m_NavMeshLayer: 0
@@ -10759,37 +10761,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6892980753751217910, guid: 04d299df8aba95b44946711be6877e04, type: 3}
   m_PrefabInstance: {fileID: 1226544918}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1226650117
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1226650118}
-  m_Layer: 0
-  m_Name: 5
-  m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: 56241fc2b63e1d649abe49dddf31607b, type: 3}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1226650118
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226650117}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.42, y: 6.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1441034715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1255860048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10899,7 +10870,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a82910ab1506874a9e19a88680240ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
+  selectedTags:
+  - Player
+  - Moveable
 --- !u!1 &1269847271
 GameObject:
   m_ObjectHideFlags: 0
@@ -11005,7 +10978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1302768606}
   m_Layer: 0
-  m_Name: 7
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 56241fc2b63e1d649abe49dddf31607b, type: 3}
   m_NavMeshLayer: 0
@@ -11199,7 +11172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1336909030}
   m_Layer: 0
-  m_Name: 6
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 56241fc2b63e1d649abe49dddf31607b, type: 3}
   m_NavMeshLayer: 0
@@ -11436,7 +11409,6 @@ Transform:
   - {fileID: 350497750}
   - {fileID: 656393064}
   - {fileID: 1595896603}
-  - {fileID: 1226650118}
   - {fileID: 1336909030}
   - {fileID: 1302768606}
   - {fileID: 217271537}
@@ -12120,7 +12092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663873815}
   m_Layer: 0
-  m_Name: 9
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 56241fc2b63e1d649abe49dddf31607b, type: 3}
   m_NavMeshLayer: 0
@@ -13889,7 +13861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a82910ab1506874a9e19a88680240ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
+  selectedTags:
+  - Player
+  - Moveable
 --- !u!114 &2024373360
 MonoBehaviour:
   m_ObjectHideFlags: 0

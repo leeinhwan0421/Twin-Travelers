@@ -421,6 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
   isStatic: 0
   activeTime: 3
   deactiveTime: 1
@@ -437,3 +439,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Balloon
+  selectedTags:
+  - Balloon

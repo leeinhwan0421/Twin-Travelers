@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
   rotationSpeed: 300
   isLeftRotation: 0
 --- !u!114 &-2665548346535540298
@@ -173,3 +175,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Balloon
+  selectedTags:
+  - Balloon

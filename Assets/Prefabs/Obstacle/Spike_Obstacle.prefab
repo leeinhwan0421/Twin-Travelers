@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
 --- !u!114 &-5408614534954040583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +160,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Balloon
+  selectedTags:
+  - Balloon

@@ -77,4 +77,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 1.unity
     guid: 7732305277e359742b69530cba42e251
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 2.unity
+    guid: e97a2e5f31b4a7243aa5dce9ebace60e
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 3.unity
+    guid: 02877d366b32e294eb5faa15b3405573
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 4.unity
+    guid: 236d12b9fe1d1a848b88d1df73809ece
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 5.unity
+    guid: 5c9d82e070a1199488d4396ccc3640c0
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 6.unity
+    guid: 46090792abdf408488849b9073f8d250
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 7.unity
+    guid: e6e6437911b7a3c4fa58170e98c56305
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 8.unity
+    guid: 0db05eebd3639404a92c8c9d8a207a5b
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 9.unity
+    guid: 189317100a92b38429ec7ce8da8780df
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 3/Theme 3 Stage 10.unity
+    guid: c437f4fa70e9b464881e21c7f9a7c16d
   m_configObjects: {}

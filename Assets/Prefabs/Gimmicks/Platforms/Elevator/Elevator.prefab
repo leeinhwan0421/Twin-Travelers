@@ -875,6 +875,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
+  - Moveable
 --- !u!114 &8310565519662086542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,7 +896,6 @@ MonoBehaviour:
   - {fileID: 2940479162310773828}
   - {fileID: 2470223731605740933}
   moveSpeed: 3
-  isCycle: 1
 --- !u!1 &8618457939439562928
 GameObject:
   m_ObjectHideFlags: 0

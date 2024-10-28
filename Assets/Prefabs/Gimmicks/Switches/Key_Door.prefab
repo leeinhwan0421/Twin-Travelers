@@ -535,5 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
   _door: {fileID: 540109159620843448}
   effect: {fileID: 341325817983473524, guid: 2c9adc86d41ca2c47b67da2718bd899f, type: 3}

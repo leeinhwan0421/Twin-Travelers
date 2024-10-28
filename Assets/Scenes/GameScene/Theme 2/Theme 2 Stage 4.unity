@@ -5916,7 +5916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min: {x: -21, y: -8}
   max: {x: 50, y: 30}
-  minSize: 9
+  minSize: 10
   maxSize: 10
   smoothTime: 0.2
   sizePreset: 1.25

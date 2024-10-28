@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Button_Door : MonoBehaviour
+public class Button_Door : InteractableTrigger
 {
     [Header("Presets")]
     [SerializeField] private Transform door;
@@ -33,13 +33,8 @@ public class Button_Door : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void EnterEvent(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
-        {
-            return;
-        }
-
         currentCount++;
 
         if (currentCount == 1 && !isOpening)
@@ -54,13 +49,8 @@ public class Button_Door : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected override void ExitEvent(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
-        {
-            return;
-        }
-
         currentCount--;
 
         if (currentCount == 0 && isOpening)

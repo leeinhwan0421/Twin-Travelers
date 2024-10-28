@@ -4892,6 +4892,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interatableTag: Player
+  selectedTags:
+  - Player
   jumpMultiplier: 2
 --- !u!1 &8834296705166738621
 GameObject:
