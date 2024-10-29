@@ -31,7 +31,7 @@ public class LoadingPanel : MonoBehaviour
         {
             loadingText.text = cycleText[cycleIndex];
             cycleIndex = (cycleIndex + 1) % cycleText.Count;
-            yield return new WaitForSeconds(cycleInterval);
+            yield return new WaitForSecondsRealtime(cycleInterval);
         }
     }
 

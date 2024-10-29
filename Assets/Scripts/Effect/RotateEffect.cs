@@ -10,6 +10,6 @@ public class RotateEffect : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(speed * Time.deltaTime * rotation.normalized);
+        transform.Rotate(speed * Time.unscaledDeltaTime * rotation.normalized);
     }
 }

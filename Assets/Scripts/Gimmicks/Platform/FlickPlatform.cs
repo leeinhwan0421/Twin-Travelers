@@ -37,11 +37,11 @@ public class FlashPlatform : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(activeTime);
+            yield return new WaitForSecondsRealtime(activeTime);
 
             Deactivate();
 
-            yield return new WaitForSeconds(deactiveTime);
+            yield return new WaitForSecondsRealtime(deactiveTime);
 
             Activate();
         }

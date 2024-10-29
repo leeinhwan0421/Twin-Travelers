@@ -34,8 +34,6 @@ public class LoadSceneManager : MonoBehaviour
         op.allowSceneActivation = false;
         float timer = 0.0f;
 
-        float prev = 0.0f;
-
         AudioManager.Instance.StopBGM();
 
         while (!op.isDone)

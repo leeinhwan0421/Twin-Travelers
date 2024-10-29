@@ -11,6 +11,6 @@ public sealed class Spin : Obstacle
     private void Update()
     {
         Vector3 direction = isLeftRotation ? Vector3.forward : -Vector3.forward;
-        transform.Rotate(direction * rotationSpeed * Time.deltaTime);
+        transform.Rotate(direction * rotationSpeed * Time.unscaledDeltaTime);
     }
 }

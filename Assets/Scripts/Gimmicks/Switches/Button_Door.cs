@@ -69,7 +69,7 @@ public class Button_Door : InteractableTrigger
     {
         while (Vector3.Distance(door.localPosition, targetPosition) > 0.01f)
         {
-            door.localPosition = Vector3.MoveTowards(door.localPosition, targetPosition, doorSpeed * Time.deltaTime);
+            door.localPosition = Vector3.MoveTowards(door.localPosition, targetPosition, doorSpeed * Time.unscaledDeltaTime);
             yield return null;
         }
 

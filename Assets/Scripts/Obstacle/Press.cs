@@ -35,11 +35,11 @@ public class Press : Obstacle
         {
             yield return MoveToPosition(maxY, returnSpeed);
 
-            yield return new WaitForSeconds(cycleTime / 2);
+            yield return new WaitForSecondsRealtime(cycleTime / 2);
 
             yield return MoveToPosition(minY, pressSpeed);
 
-            yield return new WaitForSeconds(cycleTime / 2);
+            yield return new WaitForSecondsRealtime(cycleTime / 2);
         }
     }
 
@@ -49,7 +49,7 @@ public class Press : Obstacle
 
         while (Mathf.Abs(transform.position.y - targetY) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.unscaledDeltaTime);
             yield return null;
         }
 

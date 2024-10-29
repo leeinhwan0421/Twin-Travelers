@@ -24,7 +24,7 @@ public class SpotLightRadiusController : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.unscaledDeltaTime;
 
         if (time <= timer)
         {

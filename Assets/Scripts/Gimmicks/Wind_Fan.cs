@@ -20,7 +20,7 @@ public class Wind_Fan : InteractableTrigger
     {
         foreach (GameObject obj in colls)
         {
-            obj.transform.position += Time.deltaTime * windSpeed * transform.right;
+            obj.transform.position += Time.unscaledDeltaTime * windSpeed * transform.right;
             obj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
     }
