@@ -346,6 +346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b07a02fbe7c9be4186e86d5bd17f08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedTags:
+  - Player
   other: {fileID: 4179390701052917861}
   door: {fileID: 6511997394338110908}
   activeSprite: {fileID: 21300000, guid: 2f99ac15a9467eb4a9f4dd1db1405bc5, type: 3}
@@ -627,6 +629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b07a02fbe7c9be4186e86d5bd17f08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedTags:
+  - Player
   other: {fileID: 2865005067788194711}
   door: {fileID: 6511997394338110908}
   activeSprite: {fileID: 21300000, guid: 2f99ac15a9467eb4a9f4dd1db1405bc5, type: 3}

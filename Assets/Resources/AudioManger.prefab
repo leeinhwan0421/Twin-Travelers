@@ -167,6 +167,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3a7db13ca6aa2ec419f442836a9bc589, type: 2}
   - {fileID: 11400000, guid: 8f921937b79c767428cfac5736292f50, type: 2}
   - {fileID: 11400000, guid: ce76237c39080c84e958a1886014645f, type: 2}
+  - {fileID: 11400000, guid: e1c35b921e952e745a782cb955a4db5c, type: 2}
+  - {fileID: 11400000, guid: 9b5799a39da355a489a0d0b5ce8997eb, type: 2}
+  - {fileID: 11400000, guid: 88f7b7f21025bd24aaf9c5d2986bd715, type: 2}
+  - {fileID: 11400000, guid: 876fc7d102f991a4bb84e54b88128993, type: 2}
+  - {fileID: 11400000, guid: 0c5897a880fb40f4399e42cdd348faed, type: 2}
+  - {fileID: 11400000, guid: 7771d7bdf7516cd43b19e65f7537780b, type: 2}
+  - {fileID: 11400000, guid: f924c83edc59020468ac727eed093ad9, type: 2}
+  - {fileID: 11400000, guid: b438be7753b6e314494f9574a63dabb5, type: 2}
   sfxDatas:
   - {fileID: 11400000, guid: edaf89ed3fb33d641bd11da86beeb921, type: 2}
   - {fileID: 11400000, guid: 0565a404b9f9ceb49bbc7434374f9619, type: 2}

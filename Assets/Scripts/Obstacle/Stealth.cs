@@ -6,7 +6,7 @@ public class Stealth : MonoBehaviour
 {
     [Header("Presets")]
     [Range(0.01f, 10.0f)][SerializeField] private float minRange;
-    [Range(0.01f, 10.0f)][SerializeField] private float maxRange;
+    [Range(0.01f, 100.0f)][SerializeField] private float maxRange;
 
     private SpriteRenderer spriteRenderer;
 

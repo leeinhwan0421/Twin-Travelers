@@ -8,7 +8,7 @@ public class CrossBow : MonoBehaviour
     [SerializeField] private Transform muzzle;
     [Space(10.0f)]
     [Range(0.05f, 1.0f)] [SerializeField] private float shootSpeed;
-    [Range(3.0f, 10.0f)] [SerializeField] private float shootTime;
+    [Range(1.0f, 10.0f)] [SerializeField] private float shootTime;
 
     [Header("Prefab")]
     [SerializeField] private GameObject arrow;
