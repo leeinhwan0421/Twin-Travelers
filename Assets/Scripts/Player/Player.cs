@@ -83,6 +83,10 @@ public class Player : MonoBehaviour
     #endregion
 
     #region PlayerInput Event Handle
+    /// <summary>
+    /// Player Input Send Message
+    /// </summary>
+    /// <param name="value">1D Axis</param>
     private void OnMove(InputValue value)
     {
         float axis = value.Get<float>();
@@ -90,6 +94,9 @@ public class Player : MonoBehaviour
         moveDirection.x = axis;
     }
 
+    /// <summary>
+    /// Player Input Send Message
+    /// </summary>
     private void OnJump()
     {
         if (!isGrounded) return;
@@ -98,6 +105,22 @@ public class Player : MonoBehaviour
 
         rigid.velocity = transform.up.normalized * JumpVelocity;
     }
+
+    /// <summary>
+    /// Player Input Send Message
+    /// </summary>
+    private void OnPause()
+    {
+        if (GameManager.Instance.IsPause == true)
+        {
+            GameManager.Instance.Resume();
+        }
+        else
+        {
+            GameManager.Instance.Pause();
+        }
+    }
+
     #endregion
 
     /// <summary>

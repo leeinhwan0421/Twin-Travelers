@@ -35,6 +35,10 @@ public class GameManager : MonoBehaviour
         get { return spawnManager.Players; }
     }
 
+    [Header("Play Status")]
+    private bool isPause = false;
+    public bool IsPause { get { return isPause; } }
+
     // private data...
     private int theme;
     public int Theme { get { return theme; } }
@@ -166,6 +170,30 @@ public class GameManager : MonoBehaviour
 
         uiManager.SetEarnedCoinText(earnedCoin);
         uiManager.SetTimeText(playtime);
+    }
+    #endregion
+
+    #region Pause, Resume
+    public void Pause()
+    {
+        isPause = true;
+
+        Time.timeScale = 0.0f;
+        AudioManager.Instance.PlaySFX("Pause");
+
+        // TODO : Time Scale 조정 및 Pause Panel Activate 하기 
+        // TODO : Victory, Defeat 상태 위에 표시하기!!
+    }
+
+    public void Resume()
+    {
+        isPause = false;
+
+        Time.timeScale = 1.0f;
+        AudioManager.Instance.PlaySFX("Resume");
+
+        // TODO : Time Scale 조정 및 Pause Panel Deactivate 하기 
+        // TODO : Victory, Defeat 상태 위에 표시하기!!
     }
     #endregion
 }
