@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     }
 
     [Header("Play Status")]
-    private bool isPause = false;
+    private bool isPause;
     public bool IsPause { get { return isPause; } }
 
     // private data...
@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
 
         playtime = 0.0f;
         earnedCoin = 0;
+        isPause = false;
         coinLimit = spawnManager.coinCount;
 
         uiManager.SetEarnedCoinText(earnedCoin);
@@ -132,6 +133,40 @@ public class GameManager : MonoBehaviour
         LevelManager.CompleteStage(theme, stage, starCount);
     }
 
+    public void RestartStage()
+    {
+        InitailizeUI();
+
+        spawnManager.ResetAll();
+
+        playtime = 0.0f;
+        earnedCoin = 0;
+        isPause = false;
+
+        uiManager.SetEarnedCoinText(earnedCoin);
+        uiManager.SetTimeText(playtime);
+    }
+
+    private void InitailizeUI()
+    {
+        if (uiManager.VictoryPanel.gameObject.activeSelf)
+        {
+            uiManager.VictoryPanel.Disable();
+        }
+
+        if (uiManager.DefeatPanel.gameObject.activeSelf)
+        {
+            uiManager.DefeatPanel.Disable();
+        }
+
+        if (uiManager.PausePanel.gameObject.activeSelf)
+        {
+            uiManager.PausePanel.Disable();
+        }
+
+        uiManager.ResultBackgroundPanel.SetActive(false);
+    }
+
     public int ReturnStarCount()
     {
         int count = 1; // 클리어 시, 기본 1 지급.
@@ -148,29 +183,6 @@ public class GameManager : MonoBehaviour
 
         return count;
     }
-
-    public void RestartStage()
-    {
-        if (uiManager.VictoryPanel.gameObject.activeSelf)
-        {
-            uiManager.VictoryPanel.Disable();
-        }
-
-        if (uiManager.DefeatPanel.gameObject.activeSelf)
-        {
-            uiManager.DefeatPanel.Disable();   
-        }
-
-        uiManager.ResultBackgroundPanel.SetActive(false);
-
-        spawnManager.ResetAll();
-
-        playtime = 0.0f;
-        earnedCoin = 0;
-
-        uiManager.SetEarnedCoinText(earnedCoin);
-        uiManager.SetTimeText(playtime);
-    }
     #endregion
 
     #region Pause, Resume
@@ -181,8 +193,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         AudioManager.Instance.PlaySFX("Pause");
 
-        // TODO : Time Scale 조정 및 Pause Panel Activate 하기 
-        // TODO : Victory, Defeat 상태 위에 표시하기!!
+        uiManager.PausePanel.Enable();
+        uiManager.ResultBackgroundPanel.SetActive(true);
     }
 
     public void Resume()
@@ -192,8 +204,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         AudioManager.Instance.PlaySFX("Resume");
 
-        // TODO : Time Scale 조정 및 Pause Panel Deactivate 하기 
-        // TODO : Victory, Defeat 상태 위에 표시하기!!
+        uiManager.PausePanel.Disable(); 
+        uiManager.ResultBackgroundPanel.SetActive(false);
     }
     #endregion
 }

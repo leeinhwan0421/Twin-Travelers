@@ -17,11 +17,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject resultBackgroundPanel;
     [SerializeField] private DefeatPanel defeatPanel;
     [SerializeField] private VictoryPanel victoryPanel;
+    [SerializeField] private PausePanel pausePanel;
 
     // Properties
     public GameObject ResultBackgroundPanel { get {return resultBackgroundPanel; } }
     public DefeatPanel DefeatPanel { get { return defeatPanel; } }
     public VictoryPanel VictoryPanel { get { return victoryPanel; } }
+    public PausePanel PausePanel { get { return pausePanel; } }
 
 
     public void SetTimeText(float playTime)

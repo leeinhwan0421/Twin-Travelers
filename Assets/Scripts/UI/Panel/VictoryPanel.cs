@@ -34,4 +34,9 @@ public sealed class VictoryPanel : Panel
             stars[i].SetActive(true);
         }
     }
+
+    public void RestartGame()
+    {
+        GameManager.Instance.RestartStage();
+    }
 }

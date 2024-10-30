@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
@@ -34,9 +35,11 @@ public class AudioManager : MonoBehaviour
 
     [Header("BGM")]
     [SerializeField] private List<BGMData> bgmDatas = new List<BGMData>();
+    public int bgmVolume;
 
     [Header("SFX")]
     [SerializeField] private List<SFXData> sfxDatas = new List<SFXData>();
+    public int sfxVolume;
 
     [Header("SFX Pooling")]
     private int poolSize = 20;
@@ -73,6 +76,9 @@ public class AudioManager : MonoBehaviour
         {
             sfxs.Add(data.soundName, data.clip);
         }
+
+        ChangeBGMVolume(SettingManager.BGMVolume);
+        ChangeSFXVolume(SettingManager.SFXVolume);
 
         ChangeWithPlay(SceneManager.GetActiveScene().name);
         InitializeSFXPool();
@@ -123,6 +129,13 @@ public class AudioManager : MonoBehaviour
         ChangeBGM(name);
         PlayBGM();
     }
+
+    public void ChangeBGMVolume(int volume)
+    {
+        bgmVolume = volume;
+
+        bgmSource.volume = bgmVolume / 100.0f;
+    }
     #endregion
 
     #region Sound FX
@@ -141,9 +154,15 @@ public class AudioManager : MonoBehaviour
         var sfx = sfxs[name];
         source.clip = sfx[Random.Range(0, sfx.Length)];
         source.gameObject.SetActive(true);
+        source.volume = sfxVolume / 100.0f;
         source.Play();
 
         StartCoroutine(ReturnSFXAfterPlay(source));
+    }
+
+    public void ChangeSFXVolume(int volume)
+    {
+        sfxVolume = volume;
     }
 
     private AudioSource GetPooledSFXSource()

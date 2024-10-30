@@ -23,6 +23,8 @@ public static class SettingManager
      */
     public static int ResolutionIndex { get; private set; } = 0;
     public static bool IsFullScreen { get; private set; } = true;
+    public static int BGMVolume { get; private set; } = 100;
+    public static int SFXVolume { get; private set; } = 100;
     #endregion
 
     #region Getter & Setter
@@ -39,6 +41,20 @@ public static class SettingManager
 
         SaveSettings();
     }
+
+    public static void SetBGMVolume(int volume)
+    {
+        BGMVolume = volume;
+
+        SaveSettings();
+    }
+
+    public static void SetSFXVolume(int volume)
+    {
+        SFXVolume = volume;
+
+        SaveSettings();
+    }
     #endregion
 
     #region Save & Load
@@ -48,6 +64,8 @@ public static class SettingManager
         {
             { "resolutionIndex", ResolutionIndex.ToString() },
             { "isFullscreen", IsFullScreen.ToString() },
+            { "BGMVolume", BGMVolume.ToString() },
+            { "SFXVolume", SFXVolume.ToString() },
         };
 
         INIParser.WriteINI(filePath, iniData);
@@ -57,14 +75,24 @@ public static class SettingManager
     {
         var iniData = INIParser.ReadINI(filePath);
 
-        if (iniData.TryGetValue("resolutionIndex", out string resolutionIndexStr) && int.TryParse(resolutionIndexStr, out int resolutionIndex))
+        if (iniData.TryGetValue("resolutionIndex", out var resolutionIndexStr) && int.TryParse(resolutionIndexStr, out var resolutionIndex))
         {
             ResolutionIndex = resolutionIndex;
         }
 
-        if (iniData.TryGetValue("isFullscreen", out string isFullscreenStr) && bool.TryParse(isFullscreenStr, out bool isFullscreen))
+        if (iniData.TryGetValue("isFullscreen", out var isFullscreenStr) && bool.TryParse(isFullscreenStr, out var isFullscreen))
         {
             IsFullScreen = isFullscreen;
+        }
+
+        if (iniData.TryGetValue("BGMVolume", out var bgmVolumeStr) && int.TryParse(bgmVolumeStr, out var bgmVolume))
+        {
+            BGMVolume = bgmVolume;
+        }
+
+        if (iniData.TryGetValue("SFXVolume", out var sfxVolumeStr) && int.TryParse(sfxVolumeStr, out var sfxVolume))
+        {
+            SFXVolume = sfxVolume;
         }
     }
     #endregion

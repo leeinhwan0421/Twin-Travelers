@@ -8,17 +8,24 @@ public class Panel : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();    
+        if (!TryGetComponent<Animator>(out animator))
+        {
+#if SHOW_DEBUG_MESSAGES
+            Debug.Log($"{gameObject.name} object don't have animator.");
+#endif
+        }
     }
 
     public void Enable()
     {
         SetEnable();
+        animator.ResetTrigger("Disable");
         animator.SetTrigger("Enable");
     }
 
     public void Disable()
     {
+        animator.ResetTrigger("Enable");
         animator.SetTrigger("Disable");
     }
 

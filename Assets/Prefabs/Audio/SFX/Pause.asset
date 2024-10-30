@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: Pause
   clip:
-  - {fileID: 8300000, guid: 9a20e972d8df83e4b9a7c1d348b4049b, type: 3}
+  - {fileID: 8300000, guid: 618fe4c09855d5148a9a56c1af019c85, type: 3}
+  - {fileID: 8300000, guid: 7fd38a963683e7241b225c1d48b6b0ac, type: 3}

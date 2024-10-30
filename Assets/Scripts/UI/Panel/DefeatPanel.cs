@@ -13,4 +13,9 @@ public class DefeatPanel : Panel
     {
         this.earnedCoin.text = $"{earnedCoin}";
     }
+
+    public void RestartGame()
+    {
+        GameManager.Instance.RestartStage();
+    }
 }
