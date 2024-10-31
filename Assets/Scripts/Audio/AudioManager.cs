@@ -67,12 +67,12 @@ public class AudioManager : MonoBehaviour
 
         bgmSource = gameObject.GetComponent<AudioSource>();
 
-        foreach (BGMData data in bgmDatas)
+        foreach (var data in bgmDatas)
         {
             bgms.Add(data.stageName, data.clip);
         }
 
-        foreach (SFXData data in sfxDatas)
+        foreach (var data in sfxDatas)
         {
             sfxs.Add(data.soundName, data.clip);
         }
@@ -88,7 +88,7 @@ public class AudioManager : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject sfxObject = new GameObject($"SFX_Source_Pool_{i}");
+            GameObject sfxObject = new GameObject($"SFX_Source_Pool_{i.ToString()}");
             AudioSource source = sfxObject.AddComponent<AudioSource>();
 
             sfxObject.transform.SetParent(transform);
@@ -111,7 +111,7 @@ public class AudioManager : MonoBehaviour
         if (!bgms.ContainsKey(name) || bgms[name] == null)
         {
 #if SHOW_DEBUG_MESSAGES
-            Debug.LogWarning($"wrong background music: {name}");
+            Debug.LogWarning($"wrong background music: {name.ToString()}");
 #endif
             return;
         }
@@ -144,7 +144,7 @@ public class AudioManager : MonoBehaviour
         if (!sfxs.ContainsKey(name) || sfxs[name] == null)
         {
 #if SHOW_DEBUG_MESSAGES
-            Debug.LogWarning($"wrong Sound FX: {name}");
+            Debug.LogWarning($"wrong Sound FX: {name.ToString()}");
 #endif
             return;
         }

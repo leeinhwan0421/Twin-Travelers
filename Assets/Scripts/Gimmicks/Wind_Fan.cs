@@ -18,7 +18,7 @@ public class Wind_Fan : InteractableTrigger
 
     private void Update()
     {
-        foreach (GameObject obj in colls)
+        foreach (var obj in colls)
         {
             obj.transform.position += Time.unscaledDeltaTime * windSpeed * transform.right;
             obj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;

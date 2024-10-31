@@ -161,7 +161,7 @@ public class Player : MonoBehaviour
             };
         }
 
-        foreach (Vector2 v in list)
+        foreach (var v in list)
         {
             RaycastHit2D hit = Physics2D.Raycast(v, -transform.up, checkGroundDistance, LayerMask.GetMask("Ground"));
 

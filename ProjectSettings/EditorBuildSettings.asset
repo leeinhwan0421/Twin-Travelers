@@ -107,4 +107,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 1.unity
     guid: 4871ce424f27bec43b1ff3e576a16d2e
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 2.unity
+    guid: 5404328747a253940848fd22c542deba
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 3.unity
+    guid: 94396f93e4188bb439c5ba9c33ecfbd3
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 4.unity
+    guid: 9cd14da08cadfc945860fb057a462423
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 5.unity
+    guid: 6415106b845767b4897260c88a3a6c5c
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 6.unity
+    guid: f734114ef2bdc4a41af6a53d4987f813
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 7.unity
+    guid: 55a33d534d4b1a741b3338c454e1f41c
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 8.unity
+    guid: 94f9d03c1a8cf6545a4a7529e74bd1db
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 9.unity
+    guid: 6e8321560f28a0044bea413b706b8221
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Theme 4/Theme 4 Stage 10.unity
+    guid: 5784237601f98cc4f9acf1138fde4374
   m_configObjects: {}

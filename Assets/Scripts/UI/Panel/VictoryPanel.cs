@@ -11,7 +11,7 @@ public sealed class VictoryPanel : Panel
 
     public void SetEarnedCoinText(int earnedCoin)
     {
-        this.earnedCoin.text = $"{earnedCoin}";
+        this.earnedCoin.text = $"{earnedCoin.ToString()}";
     }
 
     public void SetDisplayStarCount(int count)
@@ -19,7 +19,7 @@ public sealed class VictoryPanel : Panel
         if (stars.Count < count)
         {
 #if SHOW_DEBUG_MESSAGES
-            Debug.Log($"SetDisplayStarCount called with an invalid parameter: {count}");
+            Debug.Log($"SetDisplayStarCount called with an invalid parameter: {count.ToString()}");
 #endif
             return;
         }

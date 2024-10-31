@@ -32,7 +32,7 @@ public class AudioSettings : MonoBehaviour
     {
         int volume = (int)slider.value;
 
-        bgmVolumeText.text = $"{volume}";
+        bgmVolumeText.text = $"{volume.ToString()}";
         bgmVolumeIcon.sprite = volume != 0 ? bgmOn : bgmOff;
 
         AudioManager.Instance.ChangeBGMVolume(volume);
@@ -44,7 +44,7 @@ public class AudioSettings : MonoBehaviour
     {
         int volume = (int)slider.value;
 
-        sfxVolumeText.text = $"{volume}";
+        sfxVolumeText.text = $"{volume.ToString()}";
         sfxVolumeIcon.sprite = volume != 0 ? sfxOn : sfxOff;
 
         AudioManager.Instance.ChangeSFXVolume(volume);

@@ -11,7 +11,7 @@ public class DefeatPanel : Panel
 
     public void SetEarnedCoinText(int earnedCoin)
     {
-        this.earnedCoin.text = $"{earnedCoin}";
+        this.earnedCoin.text = $"{earnedCoin.ToString()}";
     }
 
     public void RestartGame()

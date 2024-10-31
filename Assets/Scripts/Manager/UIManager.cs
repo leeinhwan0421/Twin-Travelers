@@ -31,11 +31,11 @@ public class UIManager : MonoBehaviour
         int min = (int)(playTime / 60.0f);
         int sec = (int)(playTime % 60.0f);
 
-        timeText.text = $"{min:00} : {sec:00}";
+        timeText.text = $"{min.ToString("00")} : {sec.ToString("00")}";
     }
 
     public void SetEarnedCoinText(int earnedCoinCount)
     {
-        earnedCoinText.text = $"{earnedCoinCount}";
+        earnedCoinText.text = $"{earnedCoinCount.ToString()}";
     }
 }

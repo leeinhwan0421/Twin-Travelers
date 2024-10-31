@@ -175,6 +175,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7771d7bdf7516cd43b19e65f7537780b, type: 2}
   - {fileID: 11400000, guid: f924c83edc59020468ac727eed093ad9, type: 2}
   - {fileID: 11400000, guid: b438be7753b6e314494f9574a63dabb5, type: 2}
+  - {fileID: 11400000, guid: ad62ce1d43e4ddb4fae5a9e852f91421, type: 2}
+  - {fileID: 11400000, guid: 8a14753ed8e360940b763b4c1f28efd8, type: 2}
+  - {fileID: 11400000, guid: a7452f1f6543a4349b5840b9f71af604, type: 2}
+  - {fileID: 11400000, guid: 8f8ee0e713653f84c95d6a802c83c500, type: 2}
+  - {fileID: 11400000, guid: 61a0b76b865d8ab4aaac135d4152e3f9, type: 2}
+  - {fileID: 11400000, guid: cd3d228d6af43e84c8702c4e94d53c27, type: 2}
+  - {fileID: 11400000, guid: f42bb2c85d613804585d45200c6c9b43, type: 2}
+  - {fileID: 11400000, guid: 4beef70d0cdd9d64e9495181e6145e72, type: 2}
+  - {fileID: 11400000, guid: 90494ae8cc1cf884e86632bbd83ab284, type: 2}
+  bgmVolume: 1
   sfxDatas:
   - {fileID: 11400000, guid: edaf89ed3fb33d641bd11da86beeb921, type: 2}
   - {fileID: 11400000, guid: 0565a404b9f9ceb49bbc7434374f9619, type: 2}
@@ -204,3 +214,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dcdec51eed3d0446a5a83abdc0ceca7, type: 2}
   - {fileID: 11400000, guid: 5443601863df05a42b6786c31e6f793f, type: 2}
   - {fileID: 11400000, guid: aa41f131665f35842845a364ed16851c, type: 2}
+  sfxVolume: 1
