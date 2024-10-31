@@ -11,7 +11,7 @@ public class Magnet : InteractableTrigger
 
     private void Update()
     {
-        foreach (GameObject coll in colls)
+        foreach (var coll in colls)
         {
             Vector3 dir = transform.position - coll.transform.position;
 
