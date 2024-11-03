@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Theme 4 Stage 6
   m_EditorClassIdentifier: 
   stageName: Theme 4 Stage 6
-  clip: {fileID: 8300000, guid: 8cbf878a925e2c344b0cefe33911b865, type: 3}
+  clip: {fileID: 8300000, guid: 1f19361d8c63d82479701b63c2ea0e83, type: 3}

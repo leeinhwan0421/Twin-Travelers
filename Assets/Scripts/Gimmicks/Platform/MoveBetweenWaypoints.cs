@@ -14,6 +14,11 @@ public class MoveBetweenWaypoints : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (waypoints == null)
+        {
+            return;
+        }
+
         if (waypoints.Length <= 1)
         {
             return;
