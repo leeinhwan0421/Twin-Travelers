@@ -228,7 +228,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e906db06dff1e7c4e8e0d76bf9b1dc4d, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -249,7 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065a8d33ec6ff8e4ca7d95ee8f1359b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
   selectedTags:
   - Player
 --- !u!114 &1871925647617847828

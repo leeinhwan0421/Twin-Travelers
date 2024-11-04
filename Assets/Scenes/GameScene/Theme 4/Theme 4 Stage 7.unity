@@ -1467,7 +1467,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 13
       m_TileObjectToInstantiateIndex: 65535
@@ -1582,18 +1582,18 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -6539503636011968778, guid: 42582e3eb736a7c4a9147ba7e59978a3, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -3467293094403547561, guid: 42582e3eb736a7c4a9147ba7e59978a3, type: 3}
   - m_RefCount: 2
@@ -8508,6 +8508,26 @@ PrefabInstance:
     - target: {fileID: 8288123985240022056, guid: 3dddb16c2d4260b468101b60c981f8e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403808706287257931, guid: 3dddb16c2d4260b468101b60c981f8e3, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 55.50016
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403808706287257931, guid: 3dddb16c2d4260b468101b60c981f8e3, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 26.875103
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403808706287257931, guid: 3dddb16c2d4260b468101b60c981f8e3, type: 3}
+      propertyPath: ShapeModule.m_Position.x
+      value: 15.917765
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403808706287257931, guid: 3dddb16c2d4260b468101b60c981f8e3, type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: 6.516447
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403808706287257931, guid: 3dddb16c2d4260b468101b60c981f8e3, type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

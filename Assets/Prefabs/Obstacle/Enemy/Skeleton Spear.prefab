@@ -147,7 +147,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9588c1255a2d4144e957c19b6c457e0e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065a8d33ec6ff8e4ca7d95ee8f1359b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
   selectedTags:
   - Player
 --- !u!114 &6903017700284327928
@@ -199,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272ee89ad66bc1341aba0b7f16425d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Balloon
   selectedTags:
   - Balloon
 --- !u!1 &6829977881750939129

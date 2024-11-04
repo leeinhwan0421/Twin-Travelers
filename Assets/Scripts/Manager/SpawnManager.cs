@@ -71,6 +71,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private List<Key_Door> key_doors;
     [SerializeField] private List<TrapPlatform> trap_platforms;
 
+    [Header("Boss")]
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private Transform bossPosition;
+    private GameObject bossInstance;
+
     #region Player
     public void SpawnPlayers()
     {
@@ -312,6 +317,23 @@ public class SpawnManager : MonoBehaviour
     }
     #endregion
 
+    #region Boss
+    private void ResetBoss()
+    {
+        if (bossPrefab == null || bossPosition == null)
+        {
+            return;
+        }
+
+        if (bossInstance != null)
+        {
+            Destroy(bossInstance);
+        }
+
+        bossInstance = Instantiate(bossPrefab, bossPosition.position, Quaternion.identity);
+    }
+    #endregion
+
     public void ResetAll()
     {
         RemovePlayers();
@@ -335,5 +357,7 @@ public class SpawnManager : MonoBehaviour
         ResetKeyDoors();
 
         ResetTrapPlatforms();
+
+        ResetBoss();
     }
 }
