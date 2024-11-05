@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Theme 2 Stage 8
   m_EditorClassIdentifier: 
   stageName: Theme 2 Stage 8
-  clip: {fileID: 8300000, guid: 0e32e4e3e5388c7418faa18a86edd10e, type: 3}
+  clip: {fileID: 8300000, guid: 527ce5d42aab3f043bdc7f0f47fc3dd8, type: 3}

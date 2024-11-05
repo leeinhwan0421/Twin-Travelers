@@ -6809,6 +6809,8 @@ MonoBehaviour:
   two_button_doors: []
   key_doors: []
   trap_platforms: []
+  bossPrefab: {fileID: 0}
+  bossPosition: {fileID: 0}
 --- !u!1 &953481875
 GameObject:
   m_ObjectHideFlags: 0
@@ -13166,7 +13168,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5637513872975814091, guid: 83e9c65989e67244c8fce25bc8003a2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.72
+      value: 40.6
       objectReference: {fileID: 0}
     - target: {fileID: 5637513872975814091, guid: 83e9c65989e67244c8fce25bc8003a2c, type: 3}
       propertyPath: m_LocalPosition.y

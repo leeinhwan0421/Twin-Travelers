@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176908823217861993, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7151317650310794117, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_Name
@@ -5455,7 +5455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176908823217861993, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_SortingOrder
-      value: 106
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7151317650310794117, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_Name
@@ -6565,7 +6565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176908823217861993, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7151317650310794117, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_Name
@@ -6643,6 +6643,8 @@ MonoBehaviour:
   two_button_doors: []
   key_doors: []
   trap_platforms: []
+  bossPrefab: {fileID: 0}
+  bossPosition: {fileID: 0}
 --- !u!1 &953481875
 GameObject:
   m_ObjectHideFlags: 0
@@ -12820,7 +12822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176908823217861993, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7151317650310794117, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_Name
@@ -13792,7 +13794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176908823217861993, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7151317650310794117, guid: cbb035ac6ba2b2a46bf80a809a7fca98, type: 3}
       propertyPath: m_Name
