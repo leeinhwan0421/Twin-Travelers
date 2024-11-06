@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using System.Security.Cryptography;
 
 public class ResolutionSettings : MonoBehaviour
 {
@@ -21,23 +23,28 @@ public class ResolutionSettings : MonoBehaviour
     {
         resolutionDropdown.options.Clear();
 
-        Resolution[] resolutions = Screen.resolutions;
-        Resolution currentResolution = Screen.currentResolution;
+        List<Resolution> resolutions = Screen.resolutions
+            .Where(res => Mathf.Approximately((float)res.width / res.height, 16f / 9f))
+            .Reverse()
+            .ToList();
 
-        for (int i = resolutions.Length - 1; i >= 0; i--)
+        for (int i = 0; i < resolutions.Count; i++)
         {
             Resolution res = resolutions[i];
 
-            float refreshRate = (float)res.refreshRateRatio.numerator / res.refreshRateRatio.denominator;
-            string option = $"{res.width} x {res.height} {refreshRate:F1}Hz ";
+            if (Mathf.Approximately((float)res.width / res.height, 16f / 9f))
+            {
+                float refreshRate = (float)res.refreshRateRatio.numerator / res.refreshRateRatio.denominator;
+                string option = $"{res.width} x {res.height} {refreshRate:F1}Hz ";
+                resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(option));
+            }
 
-            resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(option));
         }
 
         resolutionDropdown.onValueChanged.RemoveAllListeners();
         resolutionDropdown.onValueChanged.AddListener(delegate { OnResolutionChange(resolutions[resolutionDropdown.value], resolutionDropdown.value); });
 
-        if (SettingManager.ResolutionIndex >= 0 && SettingManager.ResolutionIndex < resolutions.Length)
+        if (SettingManager.ResolutionIndex >= 0 && SettingManager.ResolutionIndex < resolutions.Count)
         {
             OnResolutionChange(resolutions[SettingManager.ResolutionIndex], SettingManager.ResolutionIndex);
             resolutionDropdown.value = SettingManager.ResolutionIndex;
@@ -55,6 +62,10 @@ public class ResolutionSettings : MonoBehaviour
     {
         Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreenMode, selectedResolution.refreshRateRatio);
         SettingManager.SetResolutionIndex(resolutionIndex);
+
+#if SHOW_DEBUG_MESSAGES
+        Debug.Log($"Resolution set to: {selectedResolution.width} x {selectedResolution.height} @ {selectedResolution.refreshRateRatio.numerator / selectedResolution.refreshRateRatio.denominator}Hz");
+#endif
     }
     #endregion
 
