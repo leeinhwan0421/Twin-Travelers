@@ -184,6 +184,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f42bb2c85d613804585d45200c6c9b43, type: 2}
   - {fileID: 11400000, guid: 4beef70d0cdd9d64e9495181e6145e72, type: 2}
   - {fileID: 11400000, guid: 90494ae8cc1cf884e86632bbd83ab284, type: 2}
+  - {fileID: 11400000, guid: c912ed3334a238043b312fe4da5ba3fa, type: 2}
   bgmVolume: 1
   sfxDatas:
   - {fileID: 11400000, guid: edaf89ed3fb33d641bd11da86beeb921, type: 2}

@@ -17,6 +17,21 @@ public class CameraMovement : MonoBehaviour
     [Range(1.0f, 3.0f)]
     [SerializeField] private float sizePreset;
 
+    // public properties..
+    private bool isMaxCamera = false;
+    public bool IsMaxCamera
+    {
+        get 
+        { 
+            return isMaxCamera; 
+        }
+        set
+        {
+            isMaxCamera = value;
+        }
+    }
+
+    // private properties..
     private Camera cam;
     private Vector3 velocity = Vector3.zero;
     private float zoomVelocity = 0f;
@@ -105,6 +120,11 @@ public class CameraMovement : MonoBehaviour
 
     private float GetCameraSize(List<GameObject> players)
     {
+        if (isMaxCamera)
+        {
+            return maxSize;
+        }
+
         var bounds = new Bounds(players[0].transform.position, Vector3.zero);
 
         for (int i = 1; i < players.Count; i++)

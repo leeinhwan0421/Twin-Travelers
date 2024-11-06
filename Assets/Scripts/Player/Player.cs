@@ -1,11 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -119,6 +116,16 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.Pause();
         }
+    }
+
+    /// <summary>
+    /// Camera Zoom
+    /// </summary>
+    private void OnZoom()
+    {
+        CameraMovement cameraMovement = FindObjectOfType<CameraMovement>();
+
+        cameraMovement.IsMaxCamera = !cameraMovement.IsMaxCamera;
     }
 
     #endregion
