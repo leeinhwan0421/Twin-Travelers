@@ -10140,6 +10140,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 665366497290651708, guid: 7edda32711badda49aafcffafce79246, type: 3}
+      propertyPath: text
+      value: "\uC5B4\uB460\uC744 \uBC1D\uD788\uB824\uBA74 \uC790\uC2E0\uC744 \uD76C\uC0DD\uD574\uC57C\uD55C\uB2E4."
+      objectReference: {fileID: 0}
     - target: {fileID: 2361238527540665907, guid: 7edda32711badda49aafcffafce79246, type: 3}
       propertyPath: m_Name
       value: GhostPlayer

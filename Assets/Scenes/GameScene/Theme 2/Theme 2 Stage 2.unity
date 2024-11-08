@@ -260,7 +260,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8446148164315588460, guid: c42042eed3a8aa345993339c7162f8ed, type: 3}
       propertyPath: text
-      value: "\uC880 \uB354 \uACE0\uBBFC\uD574\uBCFC\uAE4C\uC694?"
+      value: "\uC774 \uB3D9\uAD74\uC5D0\uB294 \uC624\uB798\uB41C \uC774\uC57C\uAE30\uAC00
+        \uC7A0\uB4E4\uC5B4 \uC788\uB2E4."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11794,6 +11795,8 @@ MonoBehaviour:
   two_button_doors: []
   key_doors: []
   trap_platforms: []
+  bossPrefab: {fileID: 0}
+  bossPosition: {fileID: 0}
 --- !u!1 &986093356
 GameObject:
   m_ObjectHideFlags: 0

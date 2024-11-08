@@ -6267,6 +6267,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1225797762}
     m_Modifications:
+    - target: {fileID: 1210271907630762409, guid: 03073cc3df6a4b044b4c9714a0177029, type: 3}
+      propertyPath: text
+      value: "\uB108\uB294 \uD2C0\uB9BC\uC5C6\uC774 \uD574\uB0BC \uC218 \uC788\uC744\uAEBC\uC57C."
+      objectReference: {fileID: 0}
     - target: {fileID: 5118677456053928429, guid: 03073cc3df6a4b044b4c9714a0177029, type: 3}
       propertyPath: m_Name
       value: Merchant
@@ -6367,6 +6371,10 @@ PrefabInstance:
     - target: {fileID: 6707261701776447043, guid: 8d77064111f77b046acc76f8d092c1c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366906616556881712, guid: 8d77064111f77b046acc76f8d092c1c7, type: 3}
+      propertyPath: text
+      value: "\uC624\uB79C\uB9CC\uC5D0 \uC678\uC9C0\uC778\uC774\uB77C..."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

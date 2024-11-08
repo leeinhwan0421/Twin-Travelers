@@ -2365,7 +2365,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1210271907630762409, guid: 03073cc3df6a4b044b4c9714a0177029, type: 3}
       propertyPath: text
-      value: "\uC5EC\uAE30\uAE4C\uC9C0 \uC628\uAC8C \uB300\uB2E8\uD558\uAD70."
+      value: "\uC5EC\uD0DC\uAECF \uC783\uC5C8\uB358\uAC8C \uBB34\uC5C7\uC774\uB77C
+        \uC0DD\uAC01\uD558\uB290\uB0D0."
       objectReference: {fileID: 0}
     - target: {fileID: 5118677456053928429, guid: 03073cc3df6a4b044b4c9714a0177029, type: 3}
       propertyPath: m_Name
@@ -2559,8 +2560,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7366906616556881712, guid: 8d77064111f77b046acc76f8d092c1c7, type: 3}
       propertyPath: text
-      value: "\uC5B4\uC9F8\uC11C \uB358\uC804\uC758 \uC2EC\uBD80\uB85C \uB4E4\uC5B4\uAC00\uB824\uACE0
-        \uD558\uB294 \uAC83\uC774\uB0D0..."
+      value: "\uC0BC\uCC99 \uC5B4\uB4DC\uBCA4\uCCD0\uB77C\uBA74 \uBB34\uAE30\uB97C
+        \uAC15\uD654\uD574\uC8FC\uC5C8\uC744\uD150\uB370."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3173,6 +3174,8 @@ MonoBehaviour:
   two_button_doors: []
   key_doors: []
   trap_platforms: []
+  bossPrefab: {fileID: 0}
+  bossPosition: {fileID: 0}
 --- !u!1 &953481875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,7 +3559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665366497290651708, guid: 7edda32711badda49aafcffafce79246, type: 3}
       propertyPath: text
-      value: "\uB09C \uC774\uC81C \uC2F8\uC6B0\uC9C0 \uBABB\uD558\uC9C0\uB9CC, \uC751\uC6D0\uD558\uACA0\uB2E4\uB124.."
+      value: "\uB09C \uB9CE\uC774 \uB2E4\uCCE4\uB2E4. \uBBF8\uC548\uD558\uB124."
       objectReference: {fileID: 0}
     - target: {fileID: 2361238527540665907, guid: 7edda32711badda49aafcffafce79246, type: 3}
       propertyPath: m_Name

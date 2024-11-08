@@ -11288,6 +11288,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1225797762}
     m_Modifications:
+    - target: {fileID: 4570579234500314326, guid: d260f33cea298bb4a8a688013b3ee023, type: 3}
+      propertyPath: text
+      value: "[\uACBD\uACE0] \uB3D9\uAD74\uC744 \uB4E4\uC5B4\uAC14\uB2E4 \uB098\uC628
+        \uC0AC\uB78C\uC774 \uD55C \uBA85\uB3C4 \uC5C6\uC73C\uB2C8 \uCD9C\uC785\uC744
+        \uAE08\uD569\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570579234500314326, guid: d260f33cea298bb4a8a688013b3ee023, type: 3}
+      propertyPath: selectedTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570579234500314326, guid: d260f33cea298bb4a8a688013b3ee023, type: 3}
+      propertyPath: selectedTags.Array.data[1]
+      value: EditorOnly
+      objectReference: {fileID: 0}
     - target: {fileID: 4897438581349308490, guid: d260f33cea298bb4a8a688013b3ee023, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.87
