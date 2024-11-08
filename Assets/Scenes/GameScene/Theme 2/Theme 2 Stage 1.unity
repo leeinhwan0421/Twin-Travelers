@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 20254086}
   - component: {fileID: 20254085}
   - component: {fileID: 20254084}
+  - component: {fileID: 20254088}
   m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
@@ -408,6 +409,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &20254088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20254082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 242230197}
+  - {fileID: 242230195}
+  - {fileID: 20254087}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1 &39266215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3779,6 +3798,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.51
       objectReference: {fileID: 0}
+    - target: {fileID: 934118813535914453, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+    - target: {fileID: 941929684995521651, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 941929684995521651, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.data[2]
+      value: 
+      objectReference: {fileID: 20254087}
+    - target: {fileID: 1185378940131753865, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185378940131753865, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.data[2]
+      value: 
+      objectReference: {fileID: 20254087}
     - target: {fileID: 1247434380207060552, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
       propertyPath: m_Name
       value: Button_Door
@@ -3823,6 +3862,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3201265966717716323, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
     - target: {fileID: 4645638583957711594, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -3847,9 +3890,19 @@ PrefabInstance:
       addedObject: {fileID: 20254083}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+--- !u!212 &242230195 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3201265966717716323, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+  m_PrefabInstance: {fileID: 242230194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &242230196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2088735209701527771, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+  m_PrefabInstance: {fileID: 242230194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &242230197 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 934118813535914453, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
   m_PrefabInstance: {fileID: 242230194}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &255188421
@@ -6631,6 +6684,8 @@ MonoBehaviour:
   two_button_doors: []
   key_doors: []
   trap_platforms: []
+  bossPrefab: {fileID: 0}
+  bossPosition: {fileID: 0}
 --- !u!4 &950022691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 230672031349125052, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}

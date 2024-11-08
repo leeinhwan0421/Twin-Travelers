@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8574371199936694239}
   - component: {fileID: 2155689763672835511}
   - component: {fileID: 3826324167869235981}
+  - component: {fileID: 1410346582235074921}
   m_Layer: 3
   m_Name: Door
   m_TagString: Ground
@@ -130,6 +131,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.86, y: 3.08}
   m_EdgeRadius: 0
+--- !u!114 &1410346582235074921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335892639204413015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 6759469190934067790}
+  - {fileID: 2155689763672835511}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1 &6103990816812678044
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +399,7 @@ GameObject:
   - component: {fileID: 7395468920558698408}
   - component: {fileID: 2690569210081240142}
   - component: {fileID: 22166968989386400}
+  - component: {fileID: 6242959214012717270}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -534,8 +553,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf3c8590b8032649969e68690777ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
   selectedTags:
   - Player
   _door: {fileID: 540109159620843448}
   effect: {fileID: 341325817983473524, guid: 2c9adc86d41ca2c47b67da2718bd899f, type: 3}
+--- !u!114 &6242959214012717270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112696562186401331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 2155689763672835511}
+  - {fileID: 6759469190934067790}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}

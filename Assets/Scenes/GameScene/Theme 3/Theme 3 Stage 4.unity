@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!212 &7073014 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3201265966717716323, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+  m_PrefabInstance: {fileID: 928756038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &39266215
 GameObject:
   m_ObjectHideFlags: 0
@@ -7469,6 +7474,7 @@ GameObject:
   - component: {fileID: 859457063}
   - component: {fileID: 859457062}
   - component: {fileID: 859457061}
+  - component: {fileID: 859457065}
   m_Layer: 3
   m_Name: Button (1)
   m_TagString: Untagged
@@ -7659,6 +7665,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &859457065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859457059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 7073014}
+  - {fileID: 859457064}
+  - {fileID: 1116418034}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1001 &871936689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7948,6 +7972,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 941929684995521651, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 941929684995521651, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.data[1]
+      value: 
+      objectReference: {fileID: 859457064}
+    - target: {fileID: 941929684995521651, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1116418034}
+    - target: {fileID: 1185378940131753865, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185378940131753865, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+      propertyPath: activeList.Array.data[2]
+      value: 
+      objectReference: {fileID: 859457064}
     - target: {fileID: 1247434380207060552, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
       propertyPath: m_Name
       value: Button_Door
@@ -8661,6 +8705,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1116418034 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 934118813535914453, guid: b77e2f67830a73841a9b16ac3a7e5cbc, type: 3}
+  m_PrefabInstance: {fileID: 928756038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1125713914
 GameObject:
   m_ObjectHideFlags: 0

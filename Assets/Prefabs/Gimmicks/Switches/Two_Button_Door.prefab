@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 5039945676520909276}
   - component: {fileID: 6536235869277106274}
   - component: {fileID: 5372210994892990571}
+  - component: {fileID: 6985476519075850432}
   m_Layer: 3
   m_Name: Door
   m_TagString: Ground
@@ -246,6 +247,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.86, y: 3.08}
   m_EdgeRadius: 0
+--- !u!114 &6985476519075850432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104839059834630706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 1391944429433686174}
+  - {fileID: 7016873248712504795}
+  - {fileID: 6536235869277106274}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1 &4157179598980123941
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +278,7 @@ GameObject:
   - component: {fileID: 2865005067788194711}
   - component: {fileID: 7493113951470271034}
   - component: {fileID: 5341161556399752145}
+  - component: {fileID: 7281588863191151216}
   m_Layer: 3
   m_Name: Button
   m_TagString: Ground
@@ -447,6 +467,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.075241, y: 0.7078686}
   m_EdgeRadius: 0
+--- !u!114 &7281588863191151216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157179598980123941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 1391944429433686174}
+  - {fileID: 7016873248712504795}
+  - {fileID: 6536235869277106274}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1 &5241140000381983126
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +580,7 @@ GameObject:
   - component: {fileID: 4179390701052917861}
   - component: {fileID: 669214348593317022}
   - component: {fileID: 3469949795302244778}
+  - component: {fileID: 372877897113187641}
   m_Layer: 3
   m_Name: Button
   m_TagString: Ground
@@ -730,6 +769,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0373392, y: 0.6963148}
   m_EdgeRadius: 0
+--- !u!114 &372877897113187641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092057292993508677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 1391944429433686174}
+  - {fileID: 7016873248712504795}
+  - {fileID: 6536235869277106274}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1 &8194689961083407828
 GameObject:
   m_ObjectHideFlags: 0

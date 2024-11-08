@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3094180539204025898}
   - component: {fileID: 4897073979929971476}
   - component: {fileID: 7759994108774262069}
+  - component: {fileID: 941929684995521651}
   m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
@@ -194,7 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d67f5b04694baf4a93ad69098824908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: 
   selectedTags:
   - Player
   - Moveable
@@ -204,6 +204,23 @@ MonoBehaviour:
   closeLocalPosition: {x: 0, y: -1.6, z: 0}
   openSprite: {fileID: 21300000, guid: 4f52f769517ffb14db802c8687735422, type: 3}
   closeSprite: {fileID: 21300000, guid: fca74f923ecd3af4aaefab5bbb30eb6c, type: 3}
+--- !u!114 &941929684995521651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209518160106673652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 3201265966717716323}
+  - {fileID: 934118813535914453}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1 &1247434380207060552
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +350,7 @@ GameObject:
   - component: {fileID: 230672031349125052}
   - component: {fileID: 934118813535914453}
   - component: {fileID: 390146415206336582}
+  - component: {fileID: 1185378940131753865}
   m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
@@ -452,6 +470,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.86, y: 3.08}
   m_EdgeRadius: 0
+--- !u!114 &1185378940131753865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758551669450563846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e24d068ea5b144ea20530532d4650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeList:
+  - {fileID: 934118813535914453}
+  - {fileID: 3201265966717716323}
+  defaultMaterial: {fileID: 2100000, guid: e8a5d9bf3c71af04f917b097d5c6ee5b, type: 2}
+  highlightPrefab: {fileID: 2100000, guid: eafd4fa05818a974cbef4bca978793c4, type: 2}
 --- !u!1 &8015961259672125601
 GameObject:
   m_ObjectHideFlags: 0

@@ -819,19 +819,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7322897711512653824, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
       propertyPath: m_Positions.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322897711512653824, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7322897711512653824, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7322897711512653824, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
       value: 0.5597015
       objectReference: {fileID: 0}
     - target: {fileID: 7322897711512653824, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 0.8163771
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322897711512653824, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
       value: 0.110497236
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322897711512653824, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].value
+      value: 0.104395606
       objectReference: {fileID: 0}
     - target: {fileID: 8622981320690554488, guid: a99e33aa2f900cf49bf068f5bf7d9932, type: 3}
       propertyPath: m_Enabled
