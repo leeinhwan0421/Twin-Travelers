@@ -185,6 +185,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4beef70d0cdd9d64e9495181e6145e72, type: 2}
   - {fileID: 11400000, guid: 90494ae8cc1cf884e86632bbd83ab284, type: 2}
   - {fileID: 11400000, guid: c912ed3334a238043b312fe4da5ba3fa, type: 2}
+  - {fileID: 11400000, guid: 594b36adbfcbe814d897beef4ad32e5d, type: 2}
+  - {fileID: 11400000, guid: 9a4a7a03169407b4c95b0ea6036f543e, type: 2}
+  - {fileID: 11400000, guid: 863782a0b21e4094da9ff218aa1a839c, type: 2}
+  - {fileID: 11400000, guid: 8d8b2f5b87826074c9cd6591e1103595, type: 2}
+  - {fileID: 11400000, guid: 4899783bb24d6f744b6837266cd4e6ef, type: 2}
+  - {fileID: 11400000, guid: c8b1ae5da4bfb3b418b6428e8142e65b, type: 2}
+  - {fileID: 11400000, guid: cf2c92e3af4755b4db35ba926111fd85, type: 2}
+  - {fileID: 11400000, guid: adfcee8f4366adb43af1e20bb680014f, type: 2}
+  - {fileID: 11400000, guid: 85aaffa1f39f41e438cce47815b5bdf5, type: 2}
   bgmVolume: 1
   sfxDatas:
   - {fileID: 11400000, guid: edaf89ed3fb33d641bd11da86beeb921, type: 2}
