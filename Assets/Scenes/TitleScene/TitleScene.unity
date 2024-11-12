@@ -3643,6 +3643,7 @@ GameObject:
   - component: {fileID: 871126225}
   - component: {fileID: 871126226}
   - component: {fileID: 871126223}
+  - component: {fileID: 871126227}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -3809,8 +3810,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 871126223}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 871126227}
+        m_TargetAssemblyTypeName: LoadSceneButton, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   buttonType: 0
+--- !u!114 &871126227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871126221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fee608966e05aa4b960d682addb65eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &891322132
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,6 +11140,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7045075021267818505}
   m_CullTransparentMesh: 1
+--- !u!1001 &3780058975504740246
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546481554040269280, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987225051921939336, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
+      propertyPath: m_Name
+      value: ResolutionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32be05ed0292e894fab9235941a6ffcd, type: 3}
 --- !u!114 &3902489768096656730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11867,3 +11949,4 @@ SceneRoots:
   - {fileID: 1113901889}
   - {fileID: 1973117826}
   - {fileID: 328386744}
+  - {fileID: 3780058975504740246}

@@ -27,4 +27,9 @@ public class LoadSceneButton : MonoBehaviour
             LoadSceneManager.LoadScene("TitleScene");
         }
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
