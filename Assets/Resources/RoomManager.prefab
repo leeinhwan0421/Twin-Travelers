@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7566098407141845365}
   - component: {fileID: 2251297598409296756}
   - component: {fileID: 899412591867479815}
-  - component: {fileID: 4805062027434416830}
+  - component: {fileID: 73511699287562121}
   m_Layer: 5
-  m_Name: Status Panel
+  m_Name: Offline Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4805062027434416830
+--- !u!114 &73511699287562121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,9 +77,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1932631505728893685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9a2e678938639438e4ab3b94b09972, type: 3}
+  m_Script: {fileID: 11500000, guid: 31e066e4bd9e40e4b8eaa4ce61ca0082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkPanel: {fileID: 4307986555668252120}
+  text: {fileID: 5640400830221705540}
+  timeToGoTitle: 3
 --- !u!1 &3258027201188313751
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +173,7 @@ GameObject:
   - component: {fileID: 5456491152943039857}
   - component: {fileID: 2884661340860589762}
   m_Layer: 5
-  m_Name: Close Button (1)
+  m_Name: Close Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4805062027434416830}
+      - m_Target: {fileID: 73511699287562121}
         m_TargetAssemblyTypeName: Panel, Assembly-CSharp
         m_MethodName: Disable
         m_Mode: 1
@@ -473,7 +476,7 @@ GameObject:
   - component: {fileID: 3760513970379225555}
   - component: {fileID: 126275541835335695}
   m_Layer: 0
-  m_Name: =====[Offline Layer]=====
+  m_Name: =====[Network Layer]=====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,10 +707,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC624\uD504\uB77C\uC778 \uBAA8\uB4DC\uB85C \uC804\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uD0C0\uC774\uD2C0\uB85C
-    \uB3CC\uC544\uAC11\uB2C8\uB2E4.\n\uC778\uD130\uB137\uC5D0 \uC5F0\uACB0 \uB420
-    \uACBD\uC6B0\n\uAC19\uC774\uD558\uAE30 \uAE30\uB2A5\uC744 \uC0AC\uC6A9\uD560
-    \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  m_text: "\uC624\uD504\uB77C\uC778 \uBAA8\uB4DC\uB85C \uC804\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n3
+    \uCD08 \uB4A4 \uD0C0\uC774\uD2C0\uB85C \uB3CC\uC544\uAC11\uB2C8\uB2E4.\n\uC778\uD130\uB137\uC5D0
+    \uC5F0\uACB0 \uB420 \uACBD\uC6B0\n\uAC19\uC774\uD558\uAE30 \uAE30\uB2A5\uC744
+    \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3625e403d332ca94588f57858b1eb5e5, type: 2}
   m_sharedMaterial: {fileID: -5335019569137496598, guid: 3625e403d332ca94588f57858b1eb5e5, type: 2}
@@ -1110,6 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba9401b1f9de9a46bdeacbac61e9aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playmode: 1
 --- !u!114 &3809380033690073442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,4 +1127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offlinePanelLayer: {fileID: 4307986555668252120}
-  offlinePanel: {fileID: 4805062027434416830}
+  offlinePanel: {fileID: 73511699287562121}

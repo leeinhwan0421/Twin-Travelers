@@ -1,15 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
-using Photon.Realtime;
-using Photon.Pun;
 using System.Linq;
+using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    #region properties
-    // 싱글턴 구현
+    public enum Playmode
+    {
+        None,
+        Single,
+        Multi
+    };
+
     private static RoomManager instance;
     public static RoomManager Instance
     {
@@ -17,7 +20,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<RoomManager>(); // 이래도 없다?
+                instance = FindObjectOfType<RoomManager>();
 
                 if (instance == null)
                 {
@@ -36,7 +39,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public readonly int roomCodeLength = 6;
     public readonly int maxPlayerCount = 2;
-    #endregion
+
+    public Playmode playmode = Playmode.Single;
+
+    private List<RoomInfo> currentRoomList = new List<RoomInfo>();
 
     #region LifeCycle
     private void Awake()
@@ -44,7 +50,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (instance == null)
         {
             instance = this;
-
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -57,40 +62,93 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LogLevel = PunLogLevel.Full;
         PhotonNetwork.AutomaticallySyncScene = false;
+
+        PhotonNetwork.JoinLobby();
     }
     #endregion
 
-    #region Method
+    #region Room Management
     private string GenerateRoomCode()
     {
         string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        string newCode;
+        int maxAttempts = 100;
+        int attempts = 0;
 
-        return new string(Enumerable.Repeat(chars, roomCodeLength).Select(s => s[Random.Range(0, s.Length)]).ToArray());
+        do {
+            newCode = new string(Enumerable.Repeat(chars, roomCodeLength)
+                                .Select(s => s[Random.Range(0, s.Length)])
+                                .ToArray());
+            attempts++;
+        } while (IsRoomCodeDuplicated(newCode) && attempts < maxAttempts);
+
+        if (attempts >= maxAttempts)
+        {
+            Debug.LogError("Failed to generate a unique room code after multiple attempts.");
+            return null;
+        }
+
+        return newCode;
     }
 
-    public void CreateRoom()
+    private bool IsRoomCodeDuplicated(string roomCode)
+    {
+        foreach (var room in currentRoomList)
+        {
+            if (room.Name == roomCode)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public string CreateRoom()
     {
         string roomCode = GenerateRoomCode();
+
+        if (string.IsNullOrEmpty(roomCode))
+        {
+            Debug.LogError("Failed to create room. Could not generate a unique room code.");
+            return null;
+        }
+
         RoomOptions options = new RoomOptions
         {
             MaxPlayers = maxPlayerCount
         };
-        
-        PhotonNetwork.CreateRoom(roomCode, options, null);
+
+        PhotonNetwork.CreateRoom(roomCode, options, TypedLobby.Default);
+        playmode = Playmode.Multi;
+
+        return roomCode;
     }
 
     public void JoinRoom(string roomCode)
     {
         if (roomCode.Length < roomCodeLength)
         {
+            Debug.LogError("Invalid room code.");
             return;
         }
 
         PhotonNetwork.JoinRoom(roomCode);
+        playmode = Playmode.Multi;
+    }
+
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+        playmode = Playmode.Single;
     }
     #endregion
 
-    #region Override Method
+    #region Callbacks
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        currentRoomList = roomList;
+    }
+
     public override void OnJoinedRoom()
     {
 #if SHOW_DEBUG_MESSAGES
@@ -99,18 +157,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.CurrentRoom.PlayerCount > maxPlayerCount)
         {
-            PhotonNetwork.LeaveRoom();
+            LeaveRoom();
         }
     }
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
 #if SHOW_DEBUG_MESSAGES
-        Debug.Log($"A player has left the room. Return to title");
+        Debug.Log("A player has left the room. Returning to title.");
 #endif
-
-        PhotonNetwork.LeaveRoom();
-        LoadSceneManager.LoadScene("TitleScene"); 
+        LeaveRoom();
+        LoadSceneManager.LoadScene("TitleScene");
     }
 
     public void LoadNextScene(string nextScene)
@@ -126,6 +183,5 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         LoadSceneManager.LoadScene(sceneName);
     }
-
     #endregion
 }

@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 using Photon.Pun;
 using Photon.Realtime;
 using System.Net.NetworkInformation;
@@ -9,17 +7,26 @@ using System.Net.NetworkInformation;
 public class ConnectionChecker : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject offlinePanelLayer;
-    [SerializeField] private Panel offlinePanel;
+    [SerializeField] private OfflinePanel offlinePanel;
+
+    private Coroutine connectionCheckCoroutine;
+
+    private bool wasOffline = false;
 
     private void Start()
     {
         if (!IsInternetAvailable())
         {
             ShowOfflineWarning();
-            return;
+            wasOffline = true;
+        }
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            wasOffline = false;
         }
 
-        PhotonNetwork.ConnectUsingSettings();
+        connectionCheckCoroutine = StartCoroutine(PeriodicConnectionCheck());
     }
 
     public override void OnConnectedToMaster()
@@ -28,6 +35,8 @@ public class ConnectionChecker : MonoBehaviourPunCallbacks
         Debug.Log("Successfully connected to Photon Master Server");
 #endif
         HideOfflineWarning();
+
+        PhotonNetwork.JoinLobby();
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -35,41 +44,78 @@ public class ConnectionChecker : MonoBehaviourPunCallbacks
 #if SHOW_DEBUG_MESSAGES
         Debug.LogWarning($"Disconnected from Photon. Cause: {cause}");
 #endif
+        RoomManager.Instance.playmode = RoomManager.Playmode.Single;
         ShowOfflineWarning();
     }
 
     private bool IsInternetAvailable()
     {
-        try
-        {
-            foreach (var networkInterface in NetworkInterface.GetAllNetworkInterfaces())
-            {
-                if (networkInterface.OperationalStatus == OperationalStatus.Up &&
-                    (networkInterface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 ||
-                     networkInterface.NetworkInterfaceType == NetworkInterfaceType.Ethernet))
-                {
-                    return true;
-                }
-            }
-        }
-        catch
-        {
-#if SHOW_DEBUG_MESSAGES
-            Debug.LogWarning("Failed to check network interfaces.");
-#endif
-        }
-        return false;
+        return Application.internetReachability != NetworkReachability.NotReachable;
     }
 
     private void ShowOfflineWarning()
     {
+        if (offlinePanel == null || offlinePanelLayer == null)
+        {
+            return;
+        }
+
         offlinePanelLayer.SetActive(true);
         offlinePanel.Enable();
     }
 
     private void HideOfflineWarning()
     {
+        if (offlinePanel == null && offlinePanelLayer == null)
+        {
+            return;
+        }
+
+        if (offlinePanel.gameObject.activeSelf == false && offlinePanelLayer.activeSelf == false)
+        {
+            return;
+        }
+
         offlinePanelLayer.SetActive(false);
         offlinePanel.Disable();
+    }
+
+    private IEnumerator PeriodicConnectionCheck()
+    {
+        while (true)
+        {
+            bool isCurrentlyOffline = !IsInternetAvailable();
+
+            if (isCurrentlyOffline && !wasOffline)
+            {
+#if SHOW_DEBUG_MESSAGES
+                Debug.Log("Internet disconnected. Showing offline warning...");
+#endif
+                ShowOfflineWarning();
+                wasOffline = true;
+
+                PhotonNetwork.Disconnect();
+            }
+            else if (!isCurrentlyOffline && wasOffline)
+            {
+#if SHOW_DEBUG_MESSAGES
+                Debug.Log("Internet reconnected. Hiding offline warning and reconnecting...");
+#endif
+                HideOfflineWarning();
+                wasOffline = false;
+
+                PhotonNetwork.ConnectUsingSettings();
+            }
+
+            yield return new WaitForSeconds(3);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (connectionCheckCoroutine != null)
+        {
+            StopCoroutine(connectionCheckCoroutine);
+        }
     }
 }
