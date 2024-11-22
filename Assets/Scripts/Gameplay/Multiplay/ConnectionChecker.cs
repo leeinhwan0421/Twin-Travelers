@@ -94,6 +94,7 @@ public class ConnectionChecker : MonoBehaviourPunCallbacks
                 ShowOfflineWarning();
                 wasOffline = true;
 
+                RoomManager.Instance.LeaveRoom();
                 PhotonNetwork.Disconnect();
             }
             else if (!isCurrentlyOffline && wasOffline)

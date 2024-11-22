@@ -115,7 +115,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         RoomOptions options = new RoomOptions
         {
-            MaxPlayers = maxPlayerCount
+            MaxPlayers = maxPlayerCount,
+            EmptyRoomTtl = 0
         };
 
         PhotonNetwork.CreateRoom(roomCode, options, TypedLobby.Default);
@@ -138,7 +139,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
-        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+
         playmode = Playmode.Single;
     }
     #endregion
