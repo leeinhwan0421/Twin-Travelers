@@ -125,16 +125,25 @@ public class RoomManager : MonoBehaviourPunCallbacks
         return roomCode;
     }
 
-    public void JoinRoom(string roomCode)
+    public bool JoinRoom(string roomCode)
     {
-        if (roomCode.Length < roomCodeLength)
-        {
-            Debug.LogError("Invalid room code.");
-            return;
-        }
+        bool Joined = PhotonNetwork.JoinRoom(roomCode);
 
-        PhotonNetwork.JoinRoom(roomCode);
-        playmode = Playmode.Multi;
+        if (Joined)
+        {
+#if SHOW_DEBUG_MESSAGES
+            Debug.Log($"Joined Room, Room code is {roomCode}");
+#endif
+            playmode = Playmode.Multi;
+        }
+#if SHOW_DEBUG_MESSAGES
+        else
+        {
+            Debug.Log($"Wrong Code, Wrong code is {roomCode}");
+        }
+#endif
+
+        return Joined;
     }
 
     public void LeaveRoom()
@@ -163,6 +172,18 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CurrentRoom.PlayerCount > maxPlayerCount)
         {
             LeaveRoom();
+        }
+    }
+
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        Debug.Log($"Player {newPlayer.NickName} has joined the room.");
+
+        HostPanel panel = FindObjectOfType<HostPanel>();
+
+        if (panel != null && panel.isActiveAndEnabled)
+        {
+            panel.Connected();
         }
     }
 

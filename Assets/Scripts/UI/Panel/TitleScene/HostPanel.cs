@@ -9,6 +9,9 @@ using WebSocketSharp;
 
 public class HostPanel : Panel
 {
+    [SerializeField] private Panel parent;
+    [SerializeField] private List<GameObject> disableList;
+    [Space(10.0f)]
     [SerializeField] private TextMeshProUGUI text;
 
     public new void Enable()
@@ -16,6 +19,17 @@ public class HostPanel : Panel
         base.Enable();
 
         StartCoroutine(MakeRoomAndShowRoomCode());
+    }
+
+    public void Connected()
+    {
+        Disable();
+        parent.Disable();
+
+        foreach (var item in disableList)
+        {
+            item.SetActive(false);
+        }
     }
 
     public void LeaveRoom()
