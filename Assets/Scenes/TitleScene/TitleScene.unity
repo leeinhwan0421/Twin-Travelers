@@ -671,18 +671,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1954287212}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: Enable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1845479644}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -694,6 +682,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1954287212}
+        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   buttonType: 0
 --- !u!222 &86140437
@@ -4106,9 +4106,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 662913856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9a2e678938639438e4ab3b94b09972, type: 3}
+  m_Script: {fileID: 11500000, guid: 41810a2edaa6d6d40851a60828274f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errorText: "\uBE44\uC815\uC0C1\uC801\uC778 \uC624\uB958\uAC00 \uBC1C\uC0DD\uD558\uC600\uC2B5\uB2C8\uB2E4."
+  singleText: "\uD604\uC7AC \uC2F1\uAE00/\uC624\uD504\uB77C\uC778 \uD50C\uB808\uC774\uC785\uB2C8\uB2E4."
+  multiText: "\uD604\uC7AC \uBA40\uD2F0 \uD50C\uB808\uC774 \uC911\uC785\uB2C8\uB2E4."
+  text: {fileID: 154990220}
 --- !u!1 &666096838
 GameObject:
   m_ObjectHideFlags: 0
@@ -15564,7 +15568,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1954287207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124eb1151ebd47443802aa552bd8836a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c9a2e678938639438e4ab3b94b09972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1973117823
