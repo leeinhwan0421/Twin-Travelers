@@ -3,6 +3,8 @@ using System.Linq;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
+using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -58,10 +60,22 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        PhotonNetwork.NetworkingClient.EventReceived += OnEventReceived;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        PhotonNetwork.NetworkingClient.EventReceived -= OnEventReceived;
+    }
+
     private void Start()
     {
         PhotonNetwork.LogLevel = PunLogLevel.Full;
-        PhotonNetwork.AutomaticallySyncScene = false;
+        PhotonNetwork.AutomaticallySyncScene = true;
 
         PhotonNetwork.JoinLobby();
     }
@@ -196,18 +210,24 @@ public class RoomManager : MonoBehaviourPunCallbacks
         LoadSceneManager.LoadScene("TitleScene");
     }
 
+    private void OnEventReceived(EventData photonEvent)
+    {
+        if (photonEvent.Code == 1)
+        {
+            string sceneName = (string)photonEvent.CustomData;
+
+            LoadSceneManager.nextScene = sceneName;
+            SceneManager.LoadScene("LoadScene");
+        }
+    }
+    #endregion
+
     public void LoadNextScene(string nextScene)
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("LoadScene", RpcTarget.All, nextScene);
+            PhotonNetwork.RaiseEvent(1, nextScene, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
         }
     }
 
-    [PunRPC]
-    private void LoadScene(string sceneName)
-    {
-        LoadSceneManager.LoadScene(sceneName);
-    }
-    #endregion
 }

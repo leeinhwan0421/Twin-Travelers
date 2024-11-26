@@ -21,6 +21,18 @@ public class LoadSceneManager : MonoBehaviour
         Debug.Log($"Loading the scene: {sceneName}");
 #endif
 
+        if (RoomManager.Instance.playmode == RoomManager.Playmode.Multi)
+        {
+            RoomManager.Instance.LoadNextScene(sceneName);
+        }
+        else
+        {
+            LoadSceneLocal(sceneName);
+        }
+    }
+
+    public static void LoadSceneLocal(string sceneName)
+    {
         nextScene = sceneName;
         SceneManager.LoadScene("LoadScene");
     }
