@@ -12,6 +12,8 @@ public class JoinPanel : Panel
     [Space(10.0f)]
     [SerializeField] private GameObject loadObject;   // 방을 나가고 있는 도중에 출력될 Object
     [SerializeField] private GameObject loadedObject; // 방을 나가고 난 뒤 출력될 Object
+    [Space(10.0f)]
+    [SerializeField] private TextMeshProUGUI errorText;
 
     public new void Enable()
     {
@@ -32,32 +34,36 @@ public class JoinPanel : Panel
             yield return new WaitForSeconds(0.1f);
         }
 
+        WriteErrorText("");
+
         loadObject.SetActive(false);
         loadedObject.SetActive(true);
     }
 
     public void JoinRoom(TMP_InputField field)
     {
-        if (field.text.Length < RoomManager.Instance.roomCodeLength)
+        if (field.text.Length == RoomManager.Instance.roomCodeLength)
         {
-            // 자릿수
+            RoomManager.Instance.JoinRoom(field.text);
+            return;
         }
 
-        bool Joined = RoomManager.Instance.JoinRoom(field.text);
+        WriteErrorText("방 코드는 6자리로 이루어져 있습니다.");
+    }
 
-        if (Joined)
+    public void CloseJoinPanel()
+    {
+        Disable();
+        parent.Disable();
+
+        foreach (var item in disableList)
         {
-            Disable();
-            parent.Disable();
-            
-            foreach(var item in disableList)
-            {
-                item.SetActive(false);
-            }
+            item.SetActive(false);
         }
-        else
-        {
-            // other
-        }
+    }
+
+    public void WriteErrorText(string text)
+    {
+        errorText.text = text;
     }
 }

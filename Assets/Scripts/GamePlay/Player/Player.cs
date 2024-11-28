@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+using Photon.Pun;
+
+public class Player : MonoBehaviourPun
 {
     enum PlayerType
     {
@@ -63,9 +66,23 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
 
-        if (playerType == PlayerType.Offline)
+        switch (playerType)
         {
-            GetComponent<PlayerInput>().SwitchCurrentControlScheme(new[] { Keyboard.current });
+            case PlayerType.Offline:
+                GetComponent<PlayerInput>().SwitchCurrentControlScheme(new[] { Keyboard.current });
+                break;
+            case PlayerType.Online:
+#if SHOW_DEBUG_MESSAGES
+                if (!PhotonNetwork.IsConnected)
+                {
+                    Debug.Log("Client is Offline, but state is Online.");
+                }
+                if (!photonView.IsMine)
+                {
+                    GetComponent<PlayerInput>().enabled = false;
+                }
+#endif
+                break;
         }
 
         ChangeGravity(GravityPortal.GravityPortalType.Down);
@@ -73,9 +90,22 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        SetAnimatorParameters();
-        Move();
-        OnGrounded();
+        switch (playerType)
+        {
+            case PlayerType.Offline:
+                SetAnimatorParameters();
+                Move();
+                OnGrounded();
+                break;
+            case PlayerType.Online:
+                if (photonView.IsMine)
+                {
+                    SetAnimatorParameters();
+                    Move();
+                    OnGrounded();
+                }
+                break;
+        }
     }
     #endregion
 

@@ -1,3 +1,5 @@
+using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +7,16 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [Header("Player Spawn Points")]
-    [SerializeField] private Transform spawnPoint1P; // 1P SpawnPoint
-    [SerializeField] private Transform spawnPoint2P; // 2P SpawnPoint
+    [SerializeField] private Transform spawnPoint1P;                // 1P SpawnPoint
+    [SerializeField] private Transform spawnPoint2P;                // 2P SpawnPoint
 
-    [Header("Player Prefabs")]
-    [SerializeField] private GameObject player1P;    // 1P Prefab
-    [SerializeField] private GameObject player2P;    // 2P Prefab
+    [Header("Local Player Prefabs")]
+    [SerializeField] private string pathOflocalPlayer1P = "Player/Local/Player_Local_1P";               // Resources path
+    [SerializeField] private string pathOflocalPlayer2P = "Player/Local/Player_Local_2P";               // Resources path
+
+    [Header("Network Player Prefabs")]
+    [SerializeField] private string pathOfNetworkPlayer1P = "Player/Network/Player_Network_1P";         // Resources path
+    [SerializeField] private string pathOfNetworkPlayer2P = "Player/Network/Player_Network_2P";         // Resources path
 
     // Instance
     private List<GameObject> players = new List<GameObject>();
@@ -87,8 +93,33 @@ public class SpawnManager : MonoBehaviour
             RemovePlayers();
         }
 
-        players.Add(Instantiate(player1P, spawnPoint1P.position, Quaternion.identity));
-        players.Add(Instantiate(player2P, spawnPoint2P.position, Quaternion.identity));
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.None:
+#if SHOW_DEBUG_MESSAGES
+                Debug.Log("RoomManager.playmode is none, how to come gamescene?");
+#endif
+                LoadSceneManager.LoadScene("TitleScene");
+                break;
+            case RoomManager.Playmode.Single:
+                GameObject player1P = Resources.Load(pathOflocalPlayer1P) as GameObject;
+                GameObject player2P = Resources.Load(pathOflocalPlayer2P) as GameObject;
+
+                players.Add(Instantiate(player1P, spawnPoint1P.position, Quaternion.identity));
+                players.Add(Instantiate(player2P, spawnPoint2P.position, Quaternion.identity));
+                break;
+            case RoomManager.Playmode.Multi:
+                if (PhotonNetwork.IsMasterClient) // HOST
+                {
+                    players.Add(PhotonNetwork.Instantiate(pathOfNetworkPlayer1P, spawnPoint1P.position, Quaternion.identity));
+                }
+                else                              // CLIENT
+                {
+                    players.Add(PhotonNetwork.Instantiate(pathOfNetworkPlayer2P, spawnPoint2P.position, Quaternion.identity));
+                }
+                break;
+        }
+
     }
 
     public void RemovePlayers()

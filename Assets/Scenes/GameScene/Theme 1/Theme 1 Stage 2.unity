@@ -1856,8 +1856,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint1P: {fileID: 395392521}
   spawnPoint2P: {fileID: 584254193}
-  player1P: {fileID: 2047770059207094632, guid: 288a87e5f70e5e340ad2a10929ab26ff, type: 3}
-  player2P: {fileID: 1260204812887663879, guid: fac72c25c12355446b33ece4606f9342, type: 3}
+  localPlayer1P: {fileID: 2047770059207094632, guid: 288a87e5f70e5e340ad2a10929ab26ff, type: 3}
+  localPlayer2P: {fileID: 1260204812887663879, guid: fac72c25c12355446b33ece4606f9342, type: 3}
+  pathOfNetworkPlayer1P: Player/Network/Player_Network_1P
+  pathOfNetworkPlayer2P: Player/Network/Player_Network_2P
   coinsSpawnPointsParent: {fileID: 1441034715}
   coin: {fileID: 8479545252353280211, guid: 04a9709c28827514ca4ffd90aa2eb794, type: 3}
   boxSpawnPointsParent: {fileID: 1075557673}

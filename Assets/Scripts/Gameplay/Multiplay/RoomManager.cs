@@ -77,6 +77,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LogLevel = PunLogLevel.Full;
         PhotonNetwork.AutomaticallySyncScene = true;
 
+        PhotonNetwork.SendRate = Application.targetFrameRate;
+        PhotonNetwork.SerializationRate = 30;
+
         PhotonNetwork.JoinLobby();
     }
     #endregion
@@ -130,7 +133,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         RoomOptions options = new RoomOptions
         {
             MaxPlayers = maxPlayerCount,
-            EmptyRoomTtl = 0
+            EmptyRoomTtl = 0,
+            PlayerTtl = 0
         };
 
         PhotonNetwork.CreateRoom(roomCode, options, TypedLobby.Default);
@@ -139,25 +143,18 @@ public class RoomManager : MonoBehaviourPunCallbacks
         return roomCode;
     }
 
-    public bool JoinRoom(string roomCode)
+    public void JoinRoom(string roomCode)
     {
-        bool Joined = PhotonNetwork.JoinRoom(roomCode);
+        bool success = PhotonNetwork.JoinRoom(roomCode);
 
-        if (Joined)
+        if (!success)
         {
-#if SHOW_DEBUG_MESSAGES
-            Debug.Log($"Joined Room, Room code is {roomCode}");
-#endif
-            playmode = Playmode.Multi;
+            JoinPanel panel = FindObjectOfType<JoinPanel>();
+            if (panel != null)
+            {
+                panel.WriteErrorText("네트워크 에러, 잠시 뒤 다시 시도해주세요.");
+            }
         }
-#if SHOW_DEBUG_MESSAGES
-        else
-        {
-            Debug.Log($"Wrong Code, Wrong code is {roomCode}");
-        }
-#endif
-
-        return Joined;
     }
 
     public void LeaveRoom()
@@ -182,11 +179,32 @@ public class RoomManager : MonoBehaviourPunCallbacks
 #if SHOW_DEBUG_MESSAGES
         Debug.Log($"Joined Room: {PhotonNetwork.CurrentRoom.Name}");
 #endif
-
         if (PhotonNetwork.CurrentRoom.PlayerCount > maxPlayerCount)
         {
             LeaveRoom();
+            return;
         }
+
+        JoinPanel panel = FindObjectOfType<JoinPanel>();
+        if (panel != null)
+        {
+            panel.CloseJoinPanel();
+        }
+
+        playmode = Playmode.Multi;
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        Debug.LogError($"Failed Join Room, message: {message}");
+
+        JoinPanel panel = FindObjectOfType<JoinPanel>();
+        if (panel != null)
+        {
+            panel.WriteErrorText("방이 존재하지 않습니다.");
+        }
+
+        playmode = Playmode.Single;
     }
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
@@ -206,6 +224,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 #if SHOW_DEBUG_MESSAGES
         Debug.Log("A player has left the room. Returning to title.");
 #endif
+
         LeaveRoom();
         LoadSceneManager.LoadScene("TitleScene");
     }

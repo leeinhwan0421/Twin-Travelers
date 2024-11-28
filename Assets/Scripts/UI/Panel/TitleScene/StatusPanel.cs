@@ -19,13 +19,13 @@ public class StatusPanel : Panel
 
         switch (RoomManager.Instance.playmode)
         {
-            case RoomManager.Playmode.None:
-                text.text = errorText; // 에러
+            case RoomManager.Playmode.None: // 에러
+                text.text = errorText; 
                 break;
-            case RoomManager.Playmode.Single:
-                text.text = singleText; // 오프라인이거나 싱글 플레이
+            case RoomManager.Playmode.Single: // 오프라인이거나 싱글 플레이
+                text.text = singleText; 
                 break;
-            case RoomManager.Playmode.Multi:
+            case RoomManager.Playmode.Multi: // 멀티 플레이 중
                 text.text = $"{multiText}\n게임 번호: {PhotonNetwork.CurrentRoom.Name}";
                 break;
         }
