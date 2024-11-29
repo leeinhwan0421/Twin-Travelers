@@ -78,7 +78,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
 
         PhotonNetwork.SendRate = Application.targetFrameRate;
-        PhotonNetwork.SerializationRate = 30;
+        PhotonNetwork.SerializationRate = 45;
 
         PhotonNetwork.JoinLobby();
     }

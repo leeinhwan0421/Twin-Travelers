@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoBehaviourPunCallbacks
 {
     [Header("Player Spawn Points")]
     [SerializeField] private Transform spawnPoint1P;                // 1P SpawnPoint
@@ -101,21 +101,29 @@ public class SpawnManager : MonoBehaviour
 #endif
                 LoadSceneManager.LoadScene("TitleScene");
                 break;
-            case RoomManager.Playmode.Single:
-                GameObject player1P = Resources.Load(pathOflocalPlayer1P) as GameObject;
-                GameObject player2P = Resources.Load(pathOflocalPlayer2P) as GameObject;
 
-                players.Add(Instantiate(player1P, spawnPoint1P.position, Quaternion.identity));
-                players.Add(Instantiate(player2P, spawnPoint2P.position, Quaternion.identity));
+            case RoomManager.Playmode.Single:
+                GameObject playerLocal1P = Resources.Load(pathOflocalPlayer1P) as GameObject;
+                GameObject playerLocal2P = Resources.Load(pathOflocalPlayer2P) as GameObject;
+
+                players.Add(Instantiate(playerLocal1P, spawnPoint1P.position, Quaternion.identity));
+                players.Add(Instantiate(playerLocal2P, spawnPoint2P.position, Quaternion.identity));
                 break;
+
             case RoomManager.Playmode.Multi:
-                if (PhotonNetwork.IsMasterClient) // HOST
+                if (PhotonNetwork.IsMasterClient)
                 {
-                    players.Add(PhotonNetwork.Instantiate(pathOfNetworkPlayer1P, spawnPoint1P.position, Quaternion.identity));
+                    GameObject playerNetwork1P = PhotonNetwork.Instantiate(pathOfNetworkPlayer1P, spawnPoint1P.position, Quaternion.identity);
+                    players.Add(playerNetwork1P);
+
+                    UpdatePlayerProperties(playerNetwork1P, 1);
                 }
-                else                              // CLIENT
+                else
                 {
-                    players.Add(PhotonNetwork.Instantiate(pathOfNetworkPlayer2P, spawnPoint2P.position, Quaternion.identity));
+                    GameObject playerNetwork2P = PhotonNetwork.Instantiate(pathOfNetworkPlayer2P, spawnPoint2P.position, Quaternion.identity);
+                    players.Add(playerNetwork2P);
+
+                    UpdatePlayerProperties(playerNetwork2P, 2);
                 }
                 break;
         }
@@ -128,7 +136,33 @@ public class SpawnManager : MonoBehaviour
         {
             if (players[i] != null)
             {
-                Destroy(players[i]);
+                var photonView = players[i].GetComponent<PhotonView>();
+
+                if (photonView != null)
+                {
+                    switch (RoomManager.Instance.playmode)
+                    {
+                        case RoomManager.Playmode.Multi:
+                            if (photonView.IsMine)
+                            {
+                                PhotonNetwork.Destroy(players[i]);
+                            }
+                            else if (PhotonNetwork.IsMasterClient)
+                            {
+                                photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+                                PhotonNetwork.Destroy(players[i]);
+                            }
+                            break;
+
+                        case RoomManager.Playmode.Single:
+                            Destroy(players[i]);
+                            break;
+                    }
+                }
+                else
+                {
+                    Destroy(players[i]);
+                }
             }
         }
 
@@ -142,11 +176,48 @@ public class SpawnManager : MonoBehaviour
             if (players[i] != null)
             {
                 players[i].GetComponent<Player>().InstantiateDeadEffect();
-                Destroy(players[i]);
+
+                switch (RoomManager.Instance.playmode)
+                {
+                    case RoomManager.Playmode.Multi:
+                        PhotonNetwork.Destroy(players[i]);
+                        break;
+
+                    case RoomManager.Playmode.Single:
+                        Destroy(players[i]);
+                        break;
+                }
             }
         }
 
         players.Clear();
+    }
+
+    private void UpdatePlayerProperties(GameObject player, int playerIndex)
+    {
+        ExitGames.Client.Photon.Hashtable playerProperties = PhotonNetwork.CurrentRoom.CustomProperties;
+
+        playerProperties[$"Player{playerIndex}"] = player.GetComponent<PhotonView>().ViewID;
+        PhotonNetwork.CurrentRoom.SetCustomProperties(playerProperties);
+    }
+    #endregion
+
+    #region Photon Callbacks
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+    {
+        foreach (var key in propertiesThatChanged.Keys)
+        {
+            if (key.ToString().StartsWith("Player"))
+            {
+                int viewID = (int)propertiesThatChanged[key];
+                GameObject player = PhotonView.Find(viewID)?.gameObject;
+
+                if (player != null && !players.Contains(player))
+                {
+                    players.Add(player);
+                }
+            }
+        }
     }
     #endregion
 

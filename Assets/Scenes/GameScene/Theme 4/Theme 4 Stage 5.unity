@@ -9531,6 +9531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917381543}
   - component: {fileID: 917381544}
+  - component: {fileID: 917381545}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9570,6 +9571,28 @@ MonoBehaviour:
   stageAllowPanel: {fileID: 528048893}
   timeLimit: 60
   coinLimit: 5
+--- !u!114 &917381545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917381542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &947762684
 GameObject:
   m_ObjectHideFlags: 0
@@ -9616,8 +9639,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint1P: {fileID: 395392521}
   spawnPoint2P: {fileID: 584254193}
-  player1P: {fileID: 2047770059207094632, guid: 288a87e5f70e5e340ad2a10929ab26ff, type: 3}
-  player2P: {fileID: 1260204812887663879, guid: fac72c25c12355446b33ece4606f9342, type: 3}
+  pathOflocalPlayer1P: Player/Local/Player_Local_1P
+  pathOflocalPlayer2P: Player/Local/Player_Local_2P
+  pathOfNetworkPlayer1P: Player/Network/Player_Network_1P
+  pathOfNetworkPlayer2P: Player/Network/Player_Network_2P
   coinsSpawnPointsParent: {fileID: 1441034715}
   coin: {fileID: 8479545252353280211, guid: 04a9709c28827514ca4ffd90aa2eb794, type: 3}
   boxSpawnPointsParent: {fileID: 1075557673}

@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine.SceneManagement;
-using UnityEngine;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
-using System;
 
-public class GameManager : MonoBehaviour
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+using Photon.Pun;
+
+[RequireComponent(typeof(PhotonView))]
+public class GameManager : MonoBehaviourPunCallbacks
 {
     private static GameManager instance;
     public static GameManager Instance
@@ -85,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region Initialize, Defeat, Victory, Restart
+    #region Initialize
     public void InitializeStage()
     {
         string[] parts = SceneManager.GetActiveScene().name.Split(' ');
@@ -103,8 +105,24 @@ public class GameManager : MonoBehaviour
         uiManager.SetEarnedCoinText(earnedCoin);
         uiManager.SetTimeText(playtime);
     }
+    #endregion
 
+    #region Defeat
     public void DefeatStage()
+    {
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.Multi:
+                photonView.RPC("RPC_DefeatStage", RpcTarget.AllBuffered);
+                break;
+            case RoomManager.Playmode.Single:
+                RPC_DefeatStage();
+                break;
+        }
+    }
+
+    [PunRPC]
+    private void RPC_DefeatStage()
     {
         spawnManager.RemovePlayersWithDeadEffect();
 
@@ -115,8 +133,24 @@ public class GameManager : MonoBehaviour
 
         uiManager.ResultBackgroundPanel.SetActive(true);
     }
+    #endregion
 
+    #region Victory
     public void VictoryStage()
+    {
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.Multi:
+                photonView.RPC("RPC_VictoryStage", RpcTarget.AllBuffered);
+                break;
+            case RoomManager.Playmode.Single:
+                RPC_VictoryStage();
+                break;
+        }
+    }
+
+    [PunRPC]
+    private void RPC_VictoryStage()
     {
         spawnManager.RemovePlayers();
 
@@ -132,8 +166,24 @@ public class GameManager : MonoBehaviour
 
         LevelManager.CompleteStage(theme, stage, starCount);
     }
+    #endregion
 
+    #region Restart
     public void RestartStage()
+    {
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.Multi:
+                photonView.RPC("RPC_RestartStage", RpcTarget.AllBuffered);
+                break;
+            case RoomManager.Playmode.Single:
+                RPC_RestartStage();
+                break;
+        }
+    }
+
+    [PunRPC]
+    private void RPC_RestartStage()
     {
         InitailizeUI();
 
@@ -146,6 +196,7 @@ public class GameManager : MonoBehaviour
         uiManager.SetEarnedCoinText(earnedCoin);
         uiManager.SetTimeText(playtime);
     }
+    #endregion
 
     private void InitailizeUI()
     {
@@ -183,7 +234,6 @@ public class GameManager : MonoBehaviour
 
         return count;
     }
-    #endregion
 
     #region Pause, Resume
     public void Pause()

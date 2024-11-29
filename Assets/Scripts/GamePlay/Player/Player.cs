@@ -6,8 +6,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 using Photon.Pun;
+using UnityEngine.UIElements;
 
-public class Player : MonoBehaviourPun
+public class Player : MonoBehaviourPun, IPunObservable
 {
     enum PlayerType
     {
@@ -16,7 +17,7 @@ public class Player : MonoBehaviourPun
     }
 
     [Header("Types")]
-    [SerializeField] private PlayerType playerType; 
+    [SerializeField] private PlayerType playerType;
 
     [Header("Preset")]
     [SerializeField] private float moveSpeed;
@@ -57,6 +58,11 @@ public class Player : MonoBehaviourPun
 
     private bool isGrounded;
     private GravityPortal.GravityPortalType gravityType;
+
+    // Network Values
+    private Vector3 networkPosition;
+    private Vector3 networkEuler;
+    private Vector2 networkVelocity;
 
     #region Unity LifeCycle
     private void Awake()
@@ -103,6 +109,10 @@ public class Player : MonoBehaviourPun
                     SetAnimatorParameters();
                     Move();
                     OnGrounded();
+                }
+                else
+                {
+                    SmoothNetworkMovement();
                 }
                 break;
         }
@@ -158,6 +168,59 @@ public class Player : MonoBehaviourPun
         cameraMovement.IsMaxCamera = !cameraMovement.IsMaxCamera;
     }
 
+    #endregion
+
+    #region PUN Network
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (playerType == PlayerType.Offline)
+        {
+            return;
+        }
+
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.eulerAngles);
+            stream.SendNext(GetComponent<Rigidbody2D>().velocity);
+
+            stream.SendNext(animator.GetBool("IsMove"));
+            stream.SendNext(animator.GetBool("IsGrounded"));
+
+            stream.SendNext(gravityType);
+
+            stream.SendNext(spriteRenderer.flipX);
+        }
+        else if (stream.IsReading)
+        {
+            networkPosition = (Vector3)stream.ReceiveNext();
+            networkEuler = (Vector3)stream.ReceiveNext();
+            networkVelocity = (Vector2)stream.ReceiveNext();
+
+            bool isMove = (bool)stream.ReceiveNext();
+            bool isGrounded = (bool)stream.ReceiveNext();
+
+            GravityPortal.GravityPortalType gravityType = (GravityPortal.GravityPortalType)stream.ReceiveNext();
+
+            spriteRenderer.flipX = (bool)stream.ReceiveNext();
+
+            animator.SetBool("IsMove", isMove);
+            animator.SetBool("IsGrounded", isGrounded);
+            animator.SetFloat("Velocity", networkVelocity.y);
+
+            if (this.gravityType != gravityType)
+            {
+                ChangeGravity(gravityType);
+            }
+        }
+    }
+
+    private void SmoothNetworkMovement()
+    {
+        transform.position = Vector3.Lerp(transform.position, networkPosition, Time.deltaTime * moveSpeed);
+        transform.eulerAngles = networkEuler;
+        rigid.velocity = networkVelocity;
+    }
     #endregion
 
     /// <summary>

@@ -1,8 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ConnectedAndReadyButton : MonoBehaviour
+public class MasterClientButton : MonoBehaviour
 {
     private SoundButton button;
 
@@ -21,7 +22,14 @@ public class ConnectedAndReadyButton : MonoBehaviour
     {
         while (true)
         {
-            button.interactable = PhotonNetwork.IsConnectedAndReady;
+            if (RoomManager.Instance.playmode == RoomManager.Playmode.Single)
+            {
+                button.interactable = true;
+            }
+            else
+            {
+                button.interactable = PhotonNetwork.IsMasterClient;
+            }
 
             yield return new WaitForSecondsRealtime(0.25f);
         }

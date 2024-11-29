@@ -17,8 +17,6 @@ GameObject:
   - component: {fileID: 6828322695738138393}
   - component: {fileID: 3855498883311438889}
   - component: {fileID: -4768699381723115575}
-  - component: {fileID: -1897028454107525262}
-  - component: {fileID: -2325188177142507760}
   m_Layer: 6
   m_Name: Player_Network_2P
   m_TagString: Player
@@ -244,7 +242,7 @@ MonoBehaviour:
   - {x: 0.27522337, y: -0.833491, z: 0}
   m_ShapePathHash: -1464093223
   m_Mesh: {fileID: 0}
-  m_InstanceId: -133240
+  m_InstanceId: 35644
   m_LocalBounds:
     m_Center: {x: 0.01766646, y: -0.6593106, z: 0}
     m_Extent: {x: 0.25755692, y: 0.17418046, z: 0}
@@ -285,54 +283,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: -1897028454107525262}
-  - {fileID: -2325188177142507760}
+  - {fileID: 3855498883311438889}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-1897028454107525262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260204812887663879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: IsMove
-  - Type: 4
-    SynchronizeType: 1
-    Name: IsGrounded
-  - Type: 1
-    SynchronizeType: 2
-    Name: Velocity
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
---- !u!114 &-2325188177142507760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260204812887663879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 1
-  m_UseLocal: 1
 --- !u!1 &3212467128422901477
 GameObject:
   m_ObjectHideFlags: 0

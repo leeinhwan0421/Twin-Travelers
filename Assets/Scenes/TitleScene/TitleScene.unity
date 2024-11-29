@@ -803,6 +803,7 @@ GameObject:
   - component: {fileID: 98524678}
   - component: {fileID: 98524681}
   - component: {fileID: 98524682}
+  - component: {fileID: 98524683}
   - component: {fileID: 98524679}
   m_Layer: 5
   m_Name: Play
@@ -996,6 +997,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   buttonType: 0
+--- !u!114 &98524683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98524677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0d79c7a3ce36e40a2ba3bb56020a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &136932707
 GameObject:
   m_ObjectHideFlags: 0
