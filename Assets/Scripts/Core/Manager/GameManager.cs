@@ -240,7 +240,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         isPause = true;
 
-        Time.timeScale = 0.0f;
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.Multi:
+                // Nothing
+                break;
+            default:
+                Time.timeScale = 0.0f;
+                break;
+        }
+
         AudioManager.Instance.PlaySFX("Pause");
 
         uiManager.PausePanel.Enable();
@@ -251,7 +260,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         isPause = false;
 
-        Time.timeScale = 1.0f;
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.Multi:
+                // Nothing
+                break;
+            default:
+                Time.timeScale = 1.0f;
+                break;
+        }
+
         AudioManager.Instance.PlaySFX("Resume");
 
         uiManager.PausePanel.Disable(); 
