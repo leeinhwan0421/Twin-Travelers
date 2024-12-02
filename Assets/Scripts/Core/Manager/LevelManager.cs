@@ -79,7 +79,7 @@ public static class LevelManager
     }
 
 
-    #region Save, Load, Reset
+    #region Save, Load, Reset, AllUnlock(Cheat)
     public static void SaveProgress()
     {
         for (int i = 0; i < themeCount; i++)
@@ -111,6 +111,20 @@ public static class LevelManager
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
+    }
+
+    public static void UnlockAllStages()
+    {
+        foreach (var theme in themes)
+        {
+            foreach (var stage in theme.stages)
+            {
+                stage.isUnlocked = true;
+                stage.starCount = 3;
+            }
+        }
+
+        SaveProgress();
     }
     #endregion
 }
