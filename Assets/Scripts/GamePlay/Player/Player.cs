@@ -217,8 +217,14 @@ public class Player : MonoBehaviourPun, IPunObservable
 
     private void SmoothNetworkMovement()
     {
-        transform.position = Vector3.Lerp(transform.position, networkPosition, Time.deltaTime * moveSpeed);
+        Vector3 dir = (networkPosition - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, networkPosition);
+        float movePerFrame = moveSpeed * Time.deltaTime;
+
+        transform.position += dir * Mathf.Min(distance, movePerFrame);
+
         transform.eulerAngles = networkEuler;
+
         rigid.velocity = networkVelocity;
     }
     #endregion

@@ -44,8 +44,11 @@ public static class LevelManager
 
     public static void CompleteStage(int themeIndex, int stageIndex, int starCount)
     {
+
         if (themeIndex < themes.Count && stageIndex < themes[themeIndex].stages.Count)
         {
+            themes[themeIndex].stages[stageIndex].isUnlocked = true;
+
             if (themes[themeIndex].stages[stageIndex].starCount < starCount)
             {
                 themes[themeIndex].stages[stageIndex].starCount = starCount;

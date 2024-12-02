@@ -39,12 +39,15 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
     }
 
+    [SerializeField] private Panel playerLeftPanel;
+
     public readonly int roomCodeLength = 6;
     public readonly int maxPlayerCount = 2;
 
     public Playmode playmode = Playmode.Single;
 
     private List<RoomInfo> currentRoomList = new List<RoomInfo>();
+
 
     #region LifeCycle
     private void Awake()
@@ -224,8 +227,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 #if SHOW_DEBUG_MESSAGES
         Debug.Log("A player has left the room. Returning to title.");
 #endif
-
         LeaveRoom();
+        playerLeftPanel.Enable();
         LoadSceneManager.LoadScene("TitleScene");
     }
 
