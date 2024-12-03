@@ -21,12 +21,14 @@ public static class LevelManager
     private static void InitializeTheme()
     {
         themes = new List<Theme>();
+        themes.Capacity = themeCount;
 
         for (int i = 0; i < themeCount; i++)
         {
             Theme theme = new Theme();
             theme.themeName = $"Theme {i + 1}";
             theme.stages = new List<Stage>();
+            theme.stages.Capacity = stageCount;
 
             for (int j = 0; j < stageCount; j++)
             {

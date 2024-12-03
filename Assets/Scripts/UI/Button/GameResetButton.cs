@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsPanel : Panel
+public class GameResetButton : MonoBehaviour
 {
     public void ResetGameProgress()
     {

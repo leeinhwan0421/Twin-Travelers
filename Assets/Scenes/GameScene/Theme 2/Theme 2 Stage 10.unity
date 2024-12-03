@@ -8916,10 +8916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint1P: {fileID: 395392521}
   spawnPoint2P: {fileID: 584254193}
-  pathOflocalPlayer1P: Player/Local/Player_Local_1P
-  pathOflocalPlayer2P: Player/Local/Player_Local_2P
-  pathOfNetworkPlayer1P: Player/Network/Player_Network_1P
-  pathOfNetworkPlayer2P: Player/Network/Player_Network_2P
   coinsSpawnPointsParent: {fileID: 1441034715}
   coin: {fileID: 8479545252353280211, guid: 04a9709c28827514ca4ffd90aa2eb794, type: 3}
   boxSpawnPointsParent: {fileID: 1075557673}
@@ -8928,14 +8924,8 @@ MonoBehaviour:
   barrel: {fileID: 3539082871747297433, guid: 609fe0c8ec90f9243ab6fa081f39b04a, type: 3}
   eggSpawnPointsParent: {fileID: 953481876}
   egg: {fileID: 7518157524632940184, guid: 07873aca22280754ea8c03a866353514, type: 3}
-  lever_doors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  button_doors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  lever_doors: []
+  button_doors: []
   two_button_doors: []
   key_doors: []
   trap_platforms: []

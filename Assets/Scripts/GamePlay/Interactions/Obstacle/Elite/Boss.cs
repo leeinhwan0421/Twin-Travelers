@@ -178,7 +178,6 @@ public sealed class Boss : MonoBehaviour
 
     #endregion  
 
-
     private IEnumerator PatternCoroutine()
     {
         while (true)

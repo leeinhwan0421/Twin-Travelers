@@ -2,21 +2,19 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviourPunCallbacks
 {
-    [Header("Player Spawn Points")]
-    [SerializeField] private Transform spawnPoint1P;                // 1P SpawnPoint
-    [SerializeField] private Transform spawnPoint2P;                // 2P SpawnPoint
+    // ======================================================== //
 
-    [Header("Local Player Prefabs")]
-    [SerializeField] private string pathOflocalPlayer1P = "Player/Local/Player_Local_1P";               // Resources path
-    [SerializeField] private string pathOflocalPlayer2P = "Player/Local/Player_Local_2P";               // Resources path
+    private string pathOflocalPlayer1P = "Player/Local/Player_Local_1P";               // Resources path
+    private string pathOflocalPlayer2P = "Player/Local/Player_Local_2P";               // Resources path
 
-    [Header("Network Player Prefabs")]
-    [SerializeField] private string pathOfNetworkPlayer1P = "Player/Network/Player_Network_1P";         // Resources path
-    [SerializeField] private string pathOfNetworkPlayer2P = "Player/Network/Player_Network_2P";         // Resources path
+    private string pathOfNetworkPlayer1P = "Player/Network/Player_Network_1P";         // Resources path
+    private string pathOfNetworkPlayer2P = "Player/Network/Player_Network_2P";         // Resources path
 
     // Instance
     private List<GameObject> players = new List<GameObject>();
@@ -24,9 +22,13 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     {
         get
         {
-            return players;
+            return players.Where(player => player != null).ToList();
         }
     }
+
+    [Header("Player Spawn Points")]
+    [SerializeField] private Transform spawnPoint1P;                // 1P SpawnPoint
+    [SerializeField] private Transform spawnPoint2P;                // 2P SpawnPoint
 
     // ======================================================== //
 
@@ -105,6 +107,8 @@ public class SpawnManager : MonoBehaviourPunCallbacks
             case RoomManager.Playmode.Single:
                 GameObject playerLocal1P = Resources.Load(pathOflocalPlayer1P) as GameObject;
                 GameObject playerLocal2P = Resources.Load(pathOflocalPlayer2P) as GameObject;
+
+                players.Capacity = 2;
 
                 players.Add(Instantiate(playerLocal1P, spawnPoint1P.position, Quaternion.identity));
                 players.Add(Instantiate(playerLocal2P, spawnPoint2P.position, Quaternion.identity));
@@ -221,202 +225,68 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     }
     #endregion
 
-    #region Coin
-    public void SpawnCoins()
-    {
-        if (coins.Count > 0)
-        {
-            RemoveCoins();
-        }
+    #region Spawn and Remove Items
 
-        for (int i = 0; i < coinsSpawnPointsParent.childCount; i++)
+    private void SpawnItems(Transform parent, GameObject prefab, List<GameObject> list)
+    {
+        RemoveItems(list);
+
+        list.Capacity = parent.childCount;
+
+        for (int i = 0; i < parent.childCount; i++)
         {
-            Transform spawnPoint = coinsSpawnPointsParent.GetChild(i);
-            coins.Add(Instantiate(coin, spawnPoint.position, Quaternion.identity));
+            var spawnPoint = parent.GetChild(i);
+            var item = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+            list.Add(item);
         }
     }
 
-    public void RemoveCoins()
+    private void RemoveItems(List<GameObject> list)
     {
-        for (int i = 0; i < coins.Count; i++)
+        foreach (var item in list)
         {
-            if (coins[i] != null)
+            if (item != null)
             {
-                Destroy(coins[i]);
+                Destroy(item);
             }
         }
 
-        coins.Clear();
+        list.Clear();
     }
+
+    public void SpawnCoins() => SpawnItems(coinsSpawnPointsParent, coin, coins);
+    public void RemoveCoins() => RemoveItems(coins);
+
+    public void SpawnBoxs() => SpawnItems(boxSpawnPointsParent, box, boxs);
+    public void RemoveBoxs() => RemoveItems(boxs);
+
+    public void SpawnBarrels() => SpawnItems(barrelSpawnPointsParent, barrel, barrels);
+    public void RemoveBarrels() => RemoveItems(barrels);
+
+    public void SpawnEggs() => SpawnItems(eggSpawnPointsParent, egg, eggs);
+    public void RemoveEggs() => RemoveItems(eggs);
+
     #endregion
 
-    #region Box
-    public void SpawnBoxs()
-    {
-        if (boxs.Count > 0)
-        {
-            RemoveBoxs();
-        }
+    #region Gimmick Resets
 
-        for (int i = 0; i < boxSpawnPointsParent.childCount; i++)
+    public void ResetGimmicks()
+    {
+        ResetList(lever_doors, door => door.ResetLeverDoor());
+        ResetList(button_doors, door => door.ResetButtonDoor());
+        ResetList(two_button_doors, door => door.ResetTwoButtonDoor());
+        ResetList(key_doors, door => door.ResetKeyDoor());
+        ResetList(trap_platforms, platform => platform.ResetTrapPlatform());
+    }
+
+    private void ResetList<T>(List<T> list, System.Action<T> resetAction)
+    {
+        foreach (var item in list)
         {
-            Transform spawnPoint = boxSpawnPointsParent.GetChild(i);
-            boxs.Add(Instantiate(box, spawnPoint.position, Quaternion.identity));
+            resetAction?.Invoke(item);
         }
     }
 
-    public void RemoveBoxs()
-    {
-        for (int i = 0; i < boxs.Count; i++)
-        {
-            if (boxs[i] != null)
-            {
-                Destroy(boxs[i]);
-            }
-        }
-
-        boxs.Clear();
-    }
-    #endregion
-
-    #region Barrel
-    public void SpawnBarrels()
-    {
-        if (barrels.Count > 0)
-        {
-            RemoveBarrels();
-        }
-
-        for (int i = 0; i < barrelSpawnPointsParent.childCount; i++)
-        {
-            Transform spawnPoint = barrelSpawnPointsParent.GetChild(i);
-            barrels.Add(Instantiate(barrel, spawnPoint.position, Quaternion.identity));
-        }
-    }
-
-    public void RemoveBarrels()
-    {
-        for (int i = 0; i < barrels.Count; i++)
-        {
-            if (barrels[i] != null)
-            {
-                Destroy(barrels[i]);
-            }
-        }
-
-        barrels.Clear();
-    }
-    #endregion
-
-    #region Egg
-    public void SpawnEggs()
-    {
-        if (eggs.Count > 0)
-        {
-            RemoveEggs();
-        }
-
-        for (int i = 0; i < eggSpawnPointsParent.childCount; i++)
-        {
-            Transform spawnPoint = eggSpawnPointsParent.GetChild(i);
-            eggs.Add(Instantiate(egg, spawnPoint.position, Quaternion.identity));
-        }
-    }
-
-    public void RemoveEggs()
-    {
-        for (int i = 0; i < eggs.Count; i++)
-        {
-            if (eggs[i] != null)
-            {
-                Destroy(eggs[i]);
-            }
-        }
-
-        eggs.Clear();
-    }
-    #endregion
-
-    #region Gimmick
-    public void ResetLeverDoors()
-    {
-        if (lever_doors.Count <= 0)
-        {
-            return;
-        }
-
-        for (int i = 0; i < lever_doors.Count; i++)
-        {
-            if (lever_doors[i] != null)
-            {
-                lever_doors[i].ResetLeverDoor();
-            }
-        }
-    }
-
-    public void ResetButtonDoors()
-    {
-        if (button_doors.Count <= 0)
-        {
-            return;
-        }
-
-        for (int i = 0; i < button_doors.Count; i++)
-        {
-            if (button_doors[i] != null)
-            {
-                button_doors[i].ResetButtonDoor();
-            }
-        }
-    }
-
-    public void ResetTwoButtonDoors()
-    {
-        if (two_button_doors.Count <= 0)
-        {
-            return;
-        }
-
-        for (int i = 0; i < two_button_doors.Count; i++)
-        {
-            if (two_button_doors[i] != null)
-            {
-                two_button_doors[i].ResetTwoButtonDoor();
-            }
-        }
-    }
-
-    public void ResetKeyDoors()
-    {
-        if (key_doors.Count <= 0)
-        {
-            return;
-        }
-
-        for (int i = 0; i < key_doors.Count; i++)
-        {
-            if (key_doors[i] != null)
-            {
-                key_doors[i].ResetKeyDoor();
-            }
-        }
-    }
-
-    public void ResetTrapPlatforms()
-    {
-        if (trap_platforms.Count <= 0)
-        {
-            return;
-        }
-
-        for (int i = 0; i < trap_platforms.Count; i++)
-        {
-            if (trap_platforms[i] != null)
-            {
-                trap_platforms[i].ResetTrapPlatform();
-            }
-        }
-    }
     #endregion
 
     #region Boss
@@ -441,25 +311,12 @@ public class SpawnManager : MonoBehaviourPunCallbacks
         RemovePlayers();
         SpawnPlayers();
 
-        RemoveCoins();
         SpawnCoins();
-
-        RemoveBoxs();
         SpawnBoxs();
-
-        RemoveBarrels();
         SpawnBarrels();
-
-        RemoveEggs();
         SpawnEggs();
 
-        ResetLeverDoors();
-        ResetButtonDoors();
-        ResetTwoButtonDoors();
-        ResetKeyDoors();
-
-        ResetTrapPlatforms();
-
+        ResetGimmicks();
         ResetBoss();
     }
 }
