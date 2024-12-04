@@ -5982,9 +5982,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1225797762}
     m_Modifications:
+    - target: {fileID: 103752391295009028, guid: c5b2f45539dd4a54f932604a8d96a83a, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1519123434666266385, guid: c5b2f45539dd4a54f932604a8d96a83a, type: 3}
       propertyPath: m_Name
       value: Teleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268121994950919689, guid: c5b2f45539dd4a54f932604a8d96a83a, type: 3}
+      propertyPath: sceneViewId
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3853221740293244909, guid: c5b2f45539dd4a54f932604a8d96a83a, type: 3}
       propertyPath: m_LocalScale.x
@@ -8163,10 +8171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint1P: {fileID: 395392521}
   spawnPoint2P: {fileID: 584254193}
-  pathOflocalPlayer1P: Player/Local/Player_Local_1P
-  pathOflocalPlayer2P: Player/Local/Player_Local_2P
-  pathOfNetworkPlayer1P: Player/Network/Player_Network_1P
-  pathOfNetworkPlayer2P: Player/Network/Player_Network_2P
   coinsSpawnPointsParent: {fileID: 1441034715}
   coin: {fileID: 8479545252353280211, guid: 04a9709c28827514ca4ffd90aa2eb794, type: 3}
   boxSpawnPointsParent: {fileID: 1075557673}

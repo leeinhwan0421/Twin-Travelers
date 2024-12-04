@@ -217,15 +217,28 @@ public class Player : MonoBehaviourPun, IPunObservable
 
     private void SmoothNetworkMovement()
     {
+        transform.eulerAngles = networkEuler;
+        rigid.velocity = networkVelocity;
+
         Vector3 dir = (networkPosition - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, networkPosition);
         float movePerFrame = moveSpeed * Time.deltaTime;
 
-        transform.position += dir * Mathf.Min(distance, movePerFrame);
+        if (distance < movePerFrame)
+        {
+            transform.position = networkPosition;
+        }
+        else
+        {
+            transform.position += dir * Mathf.Min(distance, movePerFrame);
+        }
+    }
 
-        transform.eulerAngles = networkEuler;
-
-        rigid.velocity = networkVelocity;
+    [PunRPC]
+    private void SyncPosition(Vector3 targetPosition)
+    {
+        transform.position = targetPosition;
+        networkPosition = targetPosition;
     }
     #endregion
 
@@ -281,6 +294,29 @@ public class Player : MonoBehaviourPun, IPunObservable
                 isGrounded = false;
             }
         }
+    }
+
+    /// <summary>
+    /// 순간이동 로직
+    /// <summary>
+    public void MoveToPosition(Vector3 targetPosition)
+    {
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.Multi:
+                if (photonView.IsMine)
+                {
+                    transform.position = targetPosition;
+
+                    photonView.RPC("SyncPosition", RpcTarget.Others, targetPosition);
+                }
+                break;
+
+            case RoomManager.Playmode.Single:
+                transform.position = targetPosition;
+                break;
+        }
+        
     }
 
     /// <summary>

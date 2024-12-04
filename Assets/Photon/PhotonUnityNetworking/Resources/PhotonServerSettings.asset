@@ -40,6 +40,11 @@ MonoBehaviour:
   - RPC_RestartStage
   - RPC_VictoryStage
   - RPC_DefeatStage
+  - TeleportToTarget
+  - AddRecent
+  - SyncPosition
+  - RemoveRecent
+  - EarnedCoin
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

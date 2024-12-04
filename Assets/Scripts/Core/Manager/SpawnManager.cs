@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,8 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 
     [Header("Coins")]
     [SerializeField] private Transform coinsSpawnPointsParent;
-    [SerializeField] private GameObject coin;
 
+    private string coin = "Gimmicks/Coin";
     private List<GameObject> coins = new List<GameObject>();
 
     public int coinCount
@@ -50,24 +51,24 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 
     [Header("Boxs")]
     [SerializeField] private Transform boxSpawnPointsParent;
-    [SerializeField] private GameObject box;
 
+    private string box = "Gimmicks/Moveable/Box";
     private List<GameObject> boxs = new List<GameObject>();
 
     // ======================================================== //
 
     [Header("Barrels")]
     [SerializeField] private Transform barrelSpawnPointsParent;
-    [SerializeField] private GameObject barrel;
 
+    private string barrel = "Gimmicks/Moveable/Barrel";
     private List<GameObject> barrels = new List<GameObject>();
 
     // ======================================================== //
 
     [Header("Eggs")]
     [SerializeField] private Transform eggSpawnPointsParent;
-    [SerializeField] private GameObject egg;
 
+    private string egg = "Gimmicks/Moveable/Egg";
     private List<GameObject> eggs = new List<GameObject>();
 
     // ======================================================== //
@@ -227,7 +228,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 
     #region Spawn and Remove Items
 
-    private void SpawnItems(Transform parent, GameObject prefab, List<GameObject> list)
+    private void SpawnItems(Transform parent, string pathOfPrefab, List<GameObject> list)
     {
         RemoveItems(list);
 
@@ -236,8 +237,39 @@ public class SpawnManager : MonoBehaviourPunCallbacks
         for (int i = 0; i < parent.childCount; i++)
         {
             var spawnPoint = parent.GetChild(i);
-            var item = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
-            list.Add(item);
+
+            switch (RoomManager.Instance.playmode)
+            {
+                case RoomManager.Playmode.Multi:
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameObject objNetwork = PhotonNetwork.Instantiate(pathOfPrefab, spawnPoint.position, Quaternion.identity);
+
+                        if (objNetwork.TryGetComponent<PhotonView>(out PhotonView photonView))
+                        {
+                            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+                        }
+
+                        list.Add(objNetwork);
+                    }
+
+                    break;
+                case RoomManager.Playmode.Single:
+
+                    GameObject objLocal = Resources.Load(pathOfPrefab) as GameObject;
+
+                    if (objLocal == null)
+                    {
+                        Debug.LogError("SpawnItems, but Can't read Item Path");
+                        return;
+                    }
+
+                    var itemLocal = Instantiate(objLocal, spawnPoint.position, Quaternion.identity);
+
+                    list.Add(itemLocal);
+
+                    break;
+            }
         }
     }
 
@@ -247,7 +279,18 @@ public class SpawnManager : MonoBehaviourPunCallbacks
         {
             if (item != null)
             {
-                Destroy(item);
+                switch (RoomManager.Instance.playmode)
+                {
+                    case RoomManager.Playmode.Multi:
+                        if (PhotonNetwork.IsMasterClient)
+                        {
+                            PhotonNetwork.Destroy(item);
+                        }
+                        break;
+                    case RoomManager.Playmode.Single:
+                        Destroy(item);
+                        break;
+                }
             }
         }
 

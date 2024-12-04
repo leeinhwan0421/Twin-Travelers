@@ -40,6 +40,11 @@ public class JoinPanel : Panel
         loadedObject.SetActive(true);
     }
 
+    public void UpperRoomCode(TMP_InputField field)
+    {
+        field.text = field.text.ToUpper();
+    }
+
     public void JoinRoom(TMP_InputField field)
     {
         if (field.text.Length == RoomManager.Instance.roomCodeLength)
