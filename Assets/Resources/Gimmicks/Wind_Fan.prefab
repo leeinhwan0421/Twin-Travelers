@@ -91,7 +91,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8029c351979d37a41abe235b8fa7b3ce, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -187,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a04a1eab5de018469193e0c0095378e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interatableTag: Player
   selectedTags:
   - Player
   - Moveable

@@ -23,7 +23,7 @@ public class CrossBow : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.unscaledDeltaTime;
+        timer += Time.deltaTime;
 
         if (timer >= shootTime)
         {

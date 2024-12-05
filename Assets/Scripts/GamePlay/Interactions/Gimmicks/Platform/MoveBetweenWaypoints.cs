@@ -41,12 +41,12 @@ public class MoveBetweenWaypoints : MonoBehaviour
 
     private void Move()
     {
-        if (Vector2.Distance(transform.position, waypoints[curIndex].position) < moveSpeed * Time.unscaledDeltaTime)
+        if (Vector2.Distance(transform.position, waypoints[curIndex].position) < moveSpeed * Time.deltaTime)
         {
             transform.position = waypoints[curIndex].position;
             curIndex = (curIndex + 1) % waypoints.Length;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[curIndex].position, moveSpeed * Time.unscaledDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, waypoints[curIndex].position, moveSpeed * Time.deltaTime);
     }
 }

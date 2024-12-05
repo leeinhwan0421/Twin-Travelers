@@ -31,11 +31,11 @@ public class FadeController : MonoBehaviour
         {
             yield return ChangeAlphaOverTime(maxAlpha, fadeSpeed);
 
-            yield return new WaitForSecondsRealtime(fadeInterval / 2);
+            yield return new WaitForSeconds(fadeInterval / 2);
 
             yield return ChangeAlphaOverTime(minAlpha, fadeSpeed);
 
-            yield return new WaitForSecondsRealtime(fadeInterval / 2);
+            yield return new WaitForSeconds(fadeInterval / 2);
         }
     }
 
@@ -43,7 +43,7 @@ public class FadeController : MonoBehaviour
     {
         while(Mathf.Abs(spriteRenderer.color.a - target) > 0.01f)
         {
-            float newAlpha = Mathf.Lerp(spriteRenderer.color.a, target, lerpSpeed * Time.unscaledDeltaTime);
+            float newAlpha = Mathf.Lerp(spriteRenderer.color.a, target, lerpSpeed * Time.deltaTime);
 
             spriteRenderer.color = new Color(spriteRenderer.color.r,
                                              spriteRenderer.color.g,

@@ -35,7 +35,7 @@ public class TextWriter : MonoBehaviour
         {
             this.text.text += text[i];
             AudioManager.Instance.PlaySFX("SignTyping");
-            yield return new WaitForSecondsRealtime(typingInterval);
+            yield return new WaitForSeconds(typingInterval);
         }
 
         this.text.text = text;

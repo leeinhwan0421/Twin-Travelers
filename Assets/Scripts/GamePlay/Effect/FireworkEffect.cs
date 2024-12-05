@@ -8,7 +8,7 @@ public class FireworkEffect : Effect
 
     private void Update()
     {
-        transform.position += Vector3.up * moveSpeed * Time.unscaledDeltaTime;    
+        transform.position += Vector3.up * moveSpeed * Time.deltaTime;    
     }
 
     private void PlayFlySound()

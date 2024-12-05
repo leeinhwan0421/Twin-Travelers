@@ -84,7 +84,7 @@ public sealed class Boss : MonoBehaviour
         direction = x - transform.position.x;
         direction = Mathf.Clamp(direction, -1.0f, 1.0f);
 
-        transform.position += moveSpeed * Time.unscaledDeltaTime * new Vector3(direction, 0.0f, 0.0f);
+        transform.position += moveSpeed * Time.deltaTime * new Vector3(direction, 0.0f, 0.0f);
 
         if (direction > 0.0f)
         {
@@ -132,7 +132,7 @@ public sealed class Boss : MonoBehaviour
             item.gameObject.SetActive(true);
         }
 
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSeconds(0.5f);
 
         for (int i = 0; i < obstacles.Count; i++)
         {
@@ -156,7 +156,7 @@ public sealed class Boss : MonoBehaviour
             item.gameObject.SetActive(true);
         }
 
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSeconds(0.2f);
 
 
         for (int i = 0; i < obstacles.Count; i++)
@@ -172,7 +172,7 @@ public sealed class Boss : MonoBehaviour
             obstacles.Add(Instantiate(obstaclePrefab, item.transform.position, Quaternion.identity));
             item.gameObject.SetActive(false);
 
-            yield return new WaitForSecondsRealtime(0.05f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -188,7 +188,7 @@ public sealed class Boss : MonoBehaviour
             {
                 Move();
 
-                time += Time.unscaledDeltaTime;
+                time += Time.deltaTime;
 
                 yield return null;
             }

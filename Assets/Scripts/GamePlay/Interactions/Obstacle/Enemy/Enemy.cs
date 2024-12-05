@@ -43,17 +43,17 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator MoveCycle()
     {
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSeconds(2.0f);
 
         while (true)
         {
             yield return MoveToPosition(max, lerpSpeed); // 무조건 오른쪽이죠..
 
-            yield return new WaitForSecondsRealtime(cycleTime / 2);
+            yield return new WaitForSeconds(cycleTime / 2);
 
             yield return MoveToPosition(min, lerpSpeed);
 
-            yield return new WaitForSecondsRealtime(cycleTime / 2);
+            yield return new WaitForSeconds(cycleTime / 2);
         }
     }
 
@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
         while(timer <= time)
         {
             transform.position = Vector2.Lerp(s, e, timer / time);
-            timer += Time.unscaledDeltaTime;
+            timer += Time.deltaTime;
 
             yield return null;
         }

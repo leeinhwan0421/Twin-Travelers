@@ -65,11 +65,11 @@ public class Laser : Obstacle
 
         while (true)
         {
-            yield return new WaitForSecondsRealtime(activeTime);
+            yield return new WaitForSeconds(activeTime);
 
             Deactivate();
 
-            yield return new WaitForSecondsRealtime(deactiveTime);
+            yield return new WaitForSeconds(deactiveTime);
 
             Activate();
         }
@@ -86,7 +86,7 @@ public class Laser : Obstacle
         while(timer <= 1.0f)
         {
             lineRenderer.widthMultiplier = Mathf.Lerp(s, e, timer);
-            timer += Time.unscaledDeltaTime * speed;
+            timer += Time.deltaTime * speed;
 
             yield return null;
         }

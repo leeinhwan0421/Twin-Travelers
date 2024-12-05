@@ -20,7 +20,7 @@ public class Magnet : InteractableTrigger
                 rigid.velocity = Vector2.zero;
             }
 
-            coll.transform.position += pullSpeed * Time.unscaledDeltaTime * dir.normalized; 
+            coll.transform.position += pullSpeed * Time.deltaTime * dir.normalized; 
         }
     }
 
