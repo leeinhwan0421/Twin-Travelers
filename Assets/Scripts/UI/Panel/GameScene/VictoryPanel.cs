@@ -18,7 +18,7 @@ public sealed class VictoryPanel : Panel
     {
         if (stars.Count < count)
         {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
             Debug.Log($"SetDisplayStarCount called with an invalid parameter: {count.ToString()}");
 #endif
             return;

@@ -7,7 +7,7 @@ public abstract class InteractableTrigger : MonoBehaviour
 
     private void Start()
     {
-#if SHOW_DEBUG_MESSAGES 
+#if UNITY_EDITOR 
         if (TryGetComponent<Collider2D>(out Collider2D coll2D))
         {
             if (coll2D.isTrigger == false)

@@ -1,13 +1,18 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using Photon.Pun;
 using Photon.Realtime;
+
 using ExitGames.Client.Photon;
-using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
+    #region Properties
     public enum Playmode
     {
         None,
@@ -48,6 +53,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private List<RoomInfo> currentRoomList = new List<RoomInfo>();
 
+#endregion
 
     #region LifeCycle
     private void Awake()
@@ -97,7 +103,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         do {
             newCode = new string(Enumerable.Repeat(chars, roomCodeLength)
-                                .Select(s => s[Random.Range(0, s.Length)])
+                                .Select(s => s[UnityEngine.Random.Range(0, s.Length)])
                                 .ToArray());
             attempts++;
         } while (IsRoomCodeDuplicated(newCode) && attempts < maxAttempts);
@@ -123,14 +129,20 @@ public class RoomManager : MonoBehaviourPunCallbacks
         return false;
     }
 
-    public string CreateRoom()
+    public bool CreateRoom()
     {
         string roomCode = GenerateRoomCode();
 
         if (string.IsNullOrEmpty(roomCode))
         {
             Debug.LogError("Failed to create room. Could not generate a unique room code.");
-            return null;
+            return false;
+        }
+
+        if (!PhotonNetwork.IsConnectedAndReady)
+        {
+            Debug.LogError("Failed to create room. Client is not connected to Master Server.");
+            return false;
         }
 
         RoomOptions options = new RoomOptions
@@ -140,10 +152,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             PlayerTtl = 0
         };
 
-        PhotonNetwork.CreateRoom(roomCode, options, TypedLobby.Default);
-        playmode = Playmode.Multi;
-
-        return roomCode;
+        return PhotonNetwork.CreateRoom(roomCode, options, TypedLobby.Default);
     }
 
     public void JoinRoom(string roomCode)
@@ -172,6 +181,31 @@ public class RoomManager : MonoBehaviourPunCallbacks
     #endregion
 
     #region Callbacks
+
+    public override void OnCreatedRoom()
+    {
+        HostPanel panel = FindObjectOfType<HostPanel>();
+
+        if (panel != null)
+        {
+            panel.SetText($"게임 참가 번호는 {PhotonNetwork.CurrentRoom.Name} 입니다.");
+        }
+
+        playmode = Playmode.Multi;
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        HostPanel panel = FindObjectOfType<HostPanel>();
+
+        if (panel != null)
+        {
+            panel.SetText("오류가 발생하였습니다.\r\n잠시 뒤 다시 시도해주세요.");
+        }
+
+        playmode = Playmode.Single;
+    }
+
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         currentRoomList = roomList;
@@ -179,7 +213,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log($"Joined Room: {PhotonNetwork.CurrentRoom.Name}");
 #endif
         if (PhotonNetwork.CurrentRoom.PlayerCount > maxPlayerCount)
@@ -220,11 +254,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             panel.Connected();
         }
+
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
     }
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log("A player has left the room. Returning to title.");
 #endif
         LeaveRoom();

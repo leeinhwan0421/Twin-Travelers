@@ -6,7 +6,7 @@ public class GameResetButton : MonoBehaviour
 {
     public void ResetGameProgress()
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log("Game progress reset triggered. Returning to Title Scene...");
 #endif
 

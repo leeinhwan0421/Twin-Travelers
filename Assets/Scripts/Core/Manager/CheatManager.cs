@@ -18,7 +18,7 @@ public class CheatCodeManager : MonoBehaviour
 
             if (cheatCodeIndex >= cheatCode.Length)
             {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
                 Debug.Log("All stages unlocked!");
 #endif
                 LevelManager.UnlockAllStages();

@@ -25,6 +25,15 @@ public class Coin : InteractableTrigger
         InstantiateEarnEffect();
     }
 
+    [PunRPC]
+    private void DestroyCoin()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+    }
+
     protected override void EnterEvent(Collider2D collision)
     {
         if (!isActivate)
@@ -35,15 +44,16 @@ public class Coin : InteractableTrigger
         switch (RoomManager.Instance.playmode)
         {
             case RoomManager.Playmode.Multi:
+                if (!collision.gameObject.TryGetComponent<PhotonView>(out PhotonView playerPhotonView))
+                    return;
+
+                if (!playerPhotonView.IsMine)
+                    return;
 
                 if (TryGetComponent<PhotonView>(out PhotonView photonView))
                 {
-                    photonView.RPC("EarnedCoin", RpcTarget.All);
-
-                    if (photonView.IsMine)
-                    {
-                        PhotonNetwork.Destroy(gameObject);
-                    }
+                    photonView.RPC("EarnedCoin", RpcTarget.AllBuffered);
+                    photonView.RPC("DestroyCoin", RpcTarget.MasterClient);
                 }
                 break;
             case RoomManager.Playmode.Single:

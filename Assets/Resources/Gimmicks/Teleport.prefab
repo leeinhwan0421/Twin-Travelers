@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2896754042232454704}
   - component: {fileID: 4338250273338934537}
   - component: {fileID: 5416067458417564483}
-  - component: {fileID: 3268121994950919689}
+  - component: {fileID: 2909195797555593393}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -4896,7 +4896,7 @@ MonoBehaviour:
   - Moveable
   target: {fileID: 1397697103370558120}
   teleportEffect: {fileID: 6769444947113106401, guid: fed1eb1524809c04bbdc566e17c535b9, type: 3}
---- !u!114 &3268121994950919689
+--- !u!114 &2909195797555593393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4911,7 +4911,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 1
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
@@ -5164,7 +5164,7 @@ GameObject:
   - component: {fileID: 1337901949624165219}
   - component: {fileID: 671320622057039213}
   - component: {fileID: 1397697103370558120}
-  - component: {fileID: 103752391295009028}
+  - component: {fileID: 5068923082890750461}
   m_Layer: 0
   m_Name: B
   m_TagString: Untagged
@@ -10047,7 +10047,7 @@ MonoBehaviour:
   - Moveable
   target: {fileID: 5416067458417564483}
   teleportEffect: {fileID: 6769444947113106401, guid: fed1eb1524809c04bbdc566e17c535b9, type: 3}
---- !u!114 &103752391295009028
+--- !u!114 &5068923082890750461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10062,7 +10062,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 1
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []

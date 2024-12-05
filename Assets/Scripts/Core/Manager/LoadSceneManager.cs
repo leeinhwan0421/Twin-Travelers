@@ -17,7 +17,7 @@ public class LoadSceneManager : MonoBehaviour
 
     public static void LoadScene(string sceneName)
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log($"Loading the scene: {sceneName}");
 #endif
 
@@ -56,8 +56,8 @@ public class LoadSceneManager : MonoBehaviour
 
             if (op.progress < 0.9f)
             {
-                panel.progressBar.fillAmount = Mathf.Lerp(panel.progressBar.fillAmount, op.progress, timer);
-                
+                panel.progressBar.fillAmount = Mathf.Max(panel.progressBar.fillAmount, Mathf.Lerp(panel.progressBar.fillAmount, op.progress, timer));
+
                 if (panel.progressBar.fillAmount >= op.progress)
                 {
                     timer = 0.0f;
@@ -65,7 +65,7 @@ public class LoadSceneManager : MonoBehaviour
             }
             else
             {
-                panel.progressBar.fillAmount = Mathf.Lerp(panel.progressBar.fillAmount, 1f, timer);
+                panel.progressBar.fillAmount = Mathf.Max(panel.progressBar.fillAmount, Mathf.Lerp(panel.progressBar.fillAmount, 1f, timer));
 
                 if (panel.progressBar.fillAmount == 1.0f)
                 {

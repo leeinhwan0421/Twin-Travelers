@@ -10,7 +10,7 @@ public class Panel : MonoBehaviour
     {
         if (!TryGetComponent<Animator>(out animator))
         {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
             Debug.Log($"{gameObject.name} object don't have animator.");
 #endif
         }

@@ -8,7 +8,7 @@ public abstract class InteractableCollision : MonoBehaviour
 
     private void Start()
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         if (GetComponent<Collider2D>().isTrigger)
         {
             Debug.Log($"{gameObject.name} Collider2D is Trigger, this scripts need off trigger mode");

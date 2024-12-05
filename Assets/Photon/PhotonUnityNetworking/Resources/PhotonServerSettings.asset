@@ -45,6 +45,10 @@ MonoBehaviour:
   - SyncPosition
   - RemoveRecent
   - EarnedCoin
+  - DestroyCoin
+  - RPC_PlayerLoaded
+  - RPC_ShowStageAllowPanel
+  - RPC_AllPlayersLoaded
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

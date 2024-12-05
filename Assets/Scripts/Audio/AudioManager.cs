@@ -110,7 +110,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!bgms.ContainsKey(name) || bgms[name] == null)
         {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
             Debug.LogWarning($"wrong background music: {name.ToString()}");
 #endif
             return;
@@ -143,7 +143,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!sfxs.ContainsKey(name) || sfxs[name] == null)
         {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
             Debug.LogWarning($"wrong Sound FX: {name.ToString()}");
 #endif
             return;

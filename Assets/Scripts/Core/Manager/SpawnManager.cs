@@ -90,7 +90,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     {
         if (players.Count > 0)
         {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
             Debug.Log("called spawn timing is invalid");
 #endif
             RemovePlayers();
@@ -99,7 +99,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
         switch (RoomManager.Instance.playmode)
         {
             case RoomManager.Playmode.None:
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
                 Debug.Log("RoomManager.playmode is none, how to come gamescene?");
 #endif
                 LoadSceneManager.LoadScene("TitleScene");
@@ -243,11 +243,11 @@ public class SpawnManager : MonoBehaviourPunCallbacks
                 case RoomManager.Playmode.Multi:
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        GameObject objNetwork = PhotonNetwork.Instantiate(pathOfPrefab, spawnPoint.position, Quaternion.identity);
+                        GameObject objNetwork = PhotonNetwork.InstantiateRoomObject(pathOfPrefab, spawnPoint.position, Quaternion.identity);
 
                         if (objNetwork.TryGetComponent<PhotonView>(out PhotonView photonView))
                         {
-                            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+                            photonView.TransferOwnership(PhotonNetwork.MasterClient);
                         }
 
                         list.Add(objNetwork);

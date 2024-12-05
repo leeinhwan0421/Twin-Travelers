@@ -78,7 +78,7 @@ public class Player : MonoBehaviourPun, IPunObservable
                 GetComponent<PlayerInput>().SwitchCurrentControlScheme(new[] { Keyboard.current });
                 break;
             case PlayerType.Online:
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
                 if (!PhotonNetwork.IsConnected)
                 {
                     Debug.Log("Client is Offline, but state is Online.");
@@ -363,7 +363,7 @@ public class Player : MonoBehaviourPun, IPunObservable
 
                 break;
             default:
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
                 Debug.LogWarning($"call with GravityPortalType null reference");
 #endif
                 break;

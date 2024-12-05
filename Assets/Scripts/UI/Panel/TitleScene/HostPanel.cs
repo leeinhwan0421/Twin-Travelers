@@ -38,6 +38,11 @@ public class HostPanel : Panel
         RoomManager.Instance.LeaveRoom();
     }
 
+    public void SetText(string text)
+    {
+        this.text.text = text;
+    }
+
     private IEnumerator MakeRoomAndShowRoomCode()
     {
         RoomManager.Instance.LeaveRoom();
@@ -49,14 +54,16 @@ public class HostPanel : Panel
             yield return new WaitForSeconds(0.1f);
         }
 
-        string roomCode = RoomManager.Instance.CreateRoom();
+        bool send = RoomManager.Instance.CreateRoom();
 
-        if (roomCode.IsNullOrEmpty())
+        if (send == false)
         {
-            text.text = "오류가 발생하였습니다. 다시 시도해주세요.";
+            text.text = "오류가 발생하였습니다.\r\n잠시 뒤 다시 시도해주세요.";
             yield break;
         }
 
-        text.text = $"게임 참가 번호는 [{roomCode}] 입니다.";
+        text.text = $"게임을 생성하고 있습니다...";
+
+        yield break;
     }
 }

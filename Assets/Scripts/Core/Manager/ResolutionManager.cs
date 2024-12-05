@@ -97,7 +97,7 @@ public class ResolutionManager : MonoBehaviour
         Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreenMode, selectedResolution.refreshRateRatio);
         SettingManager.SetResolutionIndex(resolutionIndex);
 
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log($"Resolution set to: {selectedResolution.width} x {selectedResolution.height} @ {selectedResolution.refreshRateRatio.numerator / selectedResolution.refreshRateRatio.denominator}Hz");
 #endif
     }
@@ -107,7 +107,7 @@ public class ResolutionManager : MonoBehaviour
         Screen.fullScreenMode = isOn ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
         SettingManager.SetIsFullScreen(isOn);
 
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log($"Screen set to {(isOn ? "FullScreen" : "Windowed")}");
 #endif
     }

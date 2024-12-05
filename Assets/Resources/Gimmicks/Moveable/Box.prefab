@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 3341956102526332697}
   - component: {fileID: 7820981307782992895}
   - component: {fileID: 430552231238495817}
-  - component: {fileID: 222863478044002549}
+  - component: {fileID: -7535137225939154032}
+  - component: {fileID: 2586909624722326599}
   m_Layer: 3
   m_Name: Box
   m_TagString: Moveable
@@ -258,15 +259,32 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 1
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 222863478044002549}
+  - {fileID: -7535137225939154032}
+  - {fileID: 2586909624722326599}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &222863478044002549
+--- !u!114 &-7535137225939154032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011032141672730163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 1
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &2586909624722326599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

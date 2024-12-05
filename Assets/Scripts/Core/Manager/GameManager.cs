@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         get { return spawnManager.Players; }
     }
 
-    [Header("Play Status")]
+    // Play Status
     private bool isPause;
     public bool IsPause { get { return isPause; } }
 
@@ -51,6 +51,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     private float playtime;
     private int earnedCoin;
 
+    // Player Infos
+    private int loadedPlayerCount;
+
+    #region LifeCycle
+
     private void Awake()
     {
         instance = this;
@@ -58,13 +63,72 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        stageAllowPanel.gameObject.SetActive(true);
+        switch (RoomManager.Instance.playmode)
+        {
+            case RoomManager.Playmode.Multi:
+                OnSceneLoaded();
+                break;
+
+            case RoomManager.Playmode.Single:
+                stageAllowPanel.gameObject.SetActive(true);
+                break;
+        }
     }
 
     private void Update()
     {
         UpdatePlaytime(Time.deltaTime);
     }
+
+    #endregion
+
+    #region PUN Callbacks
+
+    [PunRPC]
+    private void RPC_PlayerLoaded()
+    {
+        loadedPlayerCount++;
+
+        Debug.Log($"Player Loaded: {loadedPlayerCount}/{RoomManager.Instance.maxPlayerCount}");
+
+        if (loadedPlayerCount >= RoomManager.Instance.maxPlayerCount)
+        {
+            photonView.RPC("RPC_AllPlayersLoaded", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    private void RPC_AllPlayersLoaded()
+    {
+        stageAllowPanel.gameObject.SetActive(true);
+
+        Debug.Log("All players loaded. Stage allow panel activated.");
+
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+            {
+                { "SceneLoaded", null }
+            };
+            player.SetCustomProperties(props);
+        }
+    }
+
+    public void OnSceneLoaded()
+    {
+        ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+        {
+            { "SceneLoaded", true }
+        };
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        photonView.RPC("RPC_PlayerLoaded", RpcTarget.AllBuffered);
+
+        Debug.Log("Scene loaded and notified to every client.");
+    }
+
+    #endregion
 
     #region playtime
     private void UpdatePlaytime(float deltaTime)
@@ -198,6 +262,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     #endregion
 
+    #region Other
     private void InitailizeUI()
     {
         if (uiManager.VictoryPanel.gameObject.activeSelf)
@@ -234,6 +299,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         return count;
     }
+    #endregion
 
     #region Pause, Resume
     public void Pause()

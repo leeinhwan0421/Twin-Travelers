@@ -9,7 +9,7 @@ public class URLButton : MonoBehaviour
 
     public void OnClick()
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log($"OpenURL : {link}");
 #endif
         Application.OpenURL(link);

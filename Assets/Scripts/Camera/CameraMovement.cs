@@ -64,7 +64,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (cam.orthographic == false)
         {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
             Debug.Log("This Scripts only support Orthographic Camera");
 #endif
         }

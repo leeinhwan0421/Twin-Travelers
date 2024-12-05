@@ -31,7 +31,7 @@ public class ConnectionChecker : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.Log("Successfully connected to Photon Master Server");
 #endif
         HideOfflineWarning();
@@ -41,7 +41,7 @@ public class ConnectionChecker : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
         Debug.LogWarning($"Disconnected from Photon. Cause: {cause}");
 #endif
         RoomManager.Instance.playmode = RoomManager.Playmode.Single;
@@ -88,7 +88,7 @@ public class ConnectionChecker : MonoBehaviourPunCallbacks
 
             if (isCurrentlyOffline && !wasOffline)
             {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
                 Debug.Log("Internet disconnected. Showing offline warning...");
 #endif
                 ShowOfflineWarning();
@@ -99,7 +99,7 @@ public class ConnectionChecker : MonoBehaviourPunCallbacks
             }
             else if (!isCurrentlyOffline && wasOffline)
             {
-#if SHOW_DEBUG_MESSAGES
+#if UNITY_EDITOR
                 Debug.Log("Internet reconnected. Hiding offline warning and reconnecting...");
 #endif
                 HideOfflineWarning();
