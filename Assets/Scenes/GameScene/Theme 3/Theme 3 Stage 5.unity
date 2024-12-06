@@ -6080,13 +6080,9 @@ MonoBehaviour:
   spawnPoint1P: {fileID: 395392521}
   spawnPoint2P: {fileID: 584254193}
   coinsSpawnPointsParent: {fileID: 1441034715}
-  coin: {fileID: 8479545252353280211, guid: 04a9709c28827514ca4ffd90aa2eb794, type: 3}
   boxSpawnPointsParent: {fileID: 1075557673}
-  box: {fileID: 7011032141672730163, guid: f6dcabe9ba9854f4b9399fcca8ebb800, type: 3}
   barrelSpawnPointsParent: {fileID: 39266216}
-  barrel: {fileID: 3539082871747297433, guid: 609fe0c8ec90f9243ab6fa081f39b04a, type: 3}
   eggSpawnPointsParent: {fileID: 953481876}
-  egg: {fileID: 7518157524632940184, guid: 07873aca22280754ea8c03a866353514, type: 3}
   lever_doors: []
   button_doors:
   - {fileID: 867645033}
