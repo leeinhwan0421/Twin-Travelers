@@ -51,6 +51,9 @@
 
 - **풍선 타기 (Balloon Riding)**: 풍선을 잡고 하늘을 날아 장애물을 피합니다.
 
+# 시연 영상
+[YouTube 링크](https://www.youtube.com/watch?v=L-SwHIiYgvA)
+
 # 사용한 에셋
 ---
 <details>
