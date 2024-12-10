@@ -6,7 +6,7 @@
 ![게임 순서도](https://github.com/user-attachments/assets/f4265fb6-9bdc-4157-afe9-a01424d5d63e)  
 
 # 조작법
-![게임 조작법](https://github.com/user-attachments/assets/f933211d-5ed0-47c3-8fb4-fe092d896f66)
+![게임 조작법](https://github.com/user-attachments/assets/f9b4f9fc-60c7-4fdd-91ee-c87d2ab06254)
 
 # 기믹 설명
 ### Obstacles
