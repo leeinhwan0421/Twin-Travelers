@@ -3,7 +3,7 @@
 | 2022 전국기능경기대회 게임개발 과제 리마스터 작품입니다.
 
 # 게임 순서도
-![게임 순서도](https://github.com/user-attachments/assets/f4265fb6-9bdc-4157-afe9-a01424d5d63e)  
+![게임 순서도](https://github.com/user-attachments/assets/1a134bb9-1b04-46c5-b52a-25d7d461e8ec)
 
 # 조작법
 ![게임 조작법](https://github.com/user-attachments/assets/f9b4f9fc-60c7-4fdd-91ee-c87d2ab06254)
