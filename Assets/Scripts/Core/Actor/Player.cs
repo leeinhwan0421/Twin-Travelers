@@ -376,7 +376,7 @@ namespace TwinTravelers.Core.Actor
         {
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     if (photonView.IsMine)
                     {
                         transform.position = targetPosition;
@@ -385,7 +385,7 @@ namespace TwinTravelers.Core.Actor
                     }
                     break;
 
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     transform.position = targetPosition;
                     break;
             }

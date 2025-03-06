@@ -24,7 +24,7 @@ namespace TwinTravelers.UI
         {
             while (true)
             {
-                if (RoomManager.Instance.playmode == RoomManager.Playmode.Single)
+                if (RoomManager.Instance.playmode == Playmode.Single)
                 {
                     button.interactable = true;
                 }

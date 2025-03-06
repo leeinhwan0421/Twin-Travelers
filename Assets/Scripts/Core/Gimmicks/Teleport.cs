@@ -28,7 +28,7 @@ namespace TwinTravelers.Core.Gimmicks
 
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     var photonView = collision.GetComponent<PhotonView>();
 
                     if (collision.CompareTag("Player"))
@@ -41,7 +41,7 @@ namespace TwinTravelers.Core.Gimmicks
                     }
                     break;
 
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     collision.transform.position = target.transform.position;
                     break;
             }

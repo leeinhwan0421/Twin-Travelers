@@ -23,7 +23,7 @@ namespace TwinTravelers.Management
             Debug.Log($"Loading the scene: {sceneName}");
 #endif
 
-            if (RoomManager.Instance.playmode == RoomManager.Playmode.Multi)
+            if (RoomManager.Instance.playmode == Playmode.Multi)
             {
                 RoomManager.Instance.LoadNextScene(sceneName);
             }

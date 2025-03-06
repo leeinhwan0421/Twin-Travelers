@@ -65,11 +65,11 @@ namespace TwinTravelers.Management
         {
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     OnSceneLoaded();
                     break;
 
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     stageAllowPanel.gameObject.SetActive(true);
                     break;
             }
@@ -176,10 +176,10 @@ namespace TwinTravelers.Management
         {
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     photonView.RPC("RPC_DefeatStage", RpcTarget.AllBuffered);
                     break;
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     RPC_DefeatStage();
                     break;
             }
@@ -204,10 +204,10 @@ namespace TwinTravelers.Management
         {
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     photonView.RPC("RPC_VictoryStage", RpcTarget.AllBuffered);
                     break;
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     RPC_VictoryStage();
                     break;
             }
@@ -237,10 +237,10 @@ namespace TwinTravelers.Management
         {
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     photonView.RPC("RPC_RestartStage", RpcTarget.AllBuffered);
                     break;
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     RPC_RestartStage();
                     break;
             }
@@ -285,14 +285,14 @@ namespace TwinTravelers.Management
 
         public int ReturnStarCount()
         {
-            int count = 1; // Å¬¸®¾î ½Ã, ±âº» 1 Áö±Ş.
+            int count = 1; // í´ë¦¬ì–´ ì‹œ, ê¸°ë³¸ 1 ì§€ê¸‰.
 
-            if (timeLimit >= playtime) // ½Ã°£ Á¦ÇÑº¸´Ù ÀÏÂï Å¬¸®¾î
+            if (timeLimit >= playtime) // ì‹œê°„ ì œí•œë³´ë‹¤ ì¼ì° í´ë¦¬ì–´
             {
                 count++;
             }
 
-            if (coinLimit <= earnedCoin) // ÄÚÀÎ Á¦ÇÑº¸´Ù ÄÚÀÎ ¸¹ÀÌ ¸ÔÀ¸¸é
+            if (coinLimit <= earnedCoin) // ì½”ì¸ ì œí•œë³´ë‹¤ ì½”ì¸ ë§ì´ ë¨¹ìœ¼ë©´
             {
                 count++;
             }
@@ -308,7 +308,7 @@ namespace TwinTravelers.Management
 
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     // Nothing
                     break;
                 default:
@@ -328,7 +328,7 @@ namespace TwinTravelers.Management
 
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     // Nothing
                     break;
                 default:

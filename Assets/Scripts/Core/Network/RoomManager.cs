@@ -8,21 +8,25 @@ using Photon.Pun;
 using Photon.Realtime;
 
 using ExitGames.Client.Photon;
+
 using TwinTravelers.UI;
 using TwinTravelers.Management;
 
 namespace TwinTravelers.Core.Network
 {
+    public enum Playmode
+    {
+        None,
+        Single,
+        Multi
+    };
+
+    /// <summary>
+    /// 멀티플레이어 방을 생성 및 관리하는 클래스
+    /// </summary>
     public class RoomManager : MonoBehaviourPunCallbacks
     {
-        #region Properties
-        public enum Playmode
-        {
-            None,
-            Single,
-            Multi
-        };
-
+        #region Singletion
         private static RoomManager instance;
         public static RoomManager Instance
         {
@@ -46,14 +50,34 @@ namespace TwinTravelers.Core.Network
                 return instance;
             }
         }
+        #endregion
 
-        [SerializeField] private Panel playerLeftPanel;
+        #region Properties
+        /// <summary>
+        /// 플레이어가 방을 나갔을 때 표시할 UI 패널
+        /// </summary>
+        [Tooltip("플레이어가 방을 나갔을 때 표시할 UI 패널")]
+        [SerializeField] 
+        private Panel playerLeftPanel;
 
+        /// <summary>
+        /// 방 코드 길이
+        /// </summary>
         public readonly int roomCodeLength = 6;
+
+        /// <summary>
+        /// 최대 플레이어 수
+        /// </summary>
         public readonly int maxPlayerCount = 2;
 
+        /// <summary>
+        /// 현재 플레이 모드
+        /// </summary>
         public Playmode playmode = Playmode.Single;
 
+        /// <summary>
+        /// 존재하는 방 목록
+        /// </summary>
         private List<RoomInfo> currentRoomList = new List<RoomInfo>();
 
         #endregion
@@ -97,6 +121,10 @@ namespace TwinTravelers.Core.Network
         #endregion
 
         #region Room Management
+        /// <summary>
+        /// 랜덤한 방 코드를 생성합니다.
+        /// </summary>
+        /// <returns>생성된 방 코드</returns>
         private string GenerateRoomCode()
         {
             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -121,6 +149,11 @@ namespace TwinTravelers.Core.Network
             return newCode;
         }
 
+        /// <summary>
+        /// 방 코드가 중복되었는지 확인합니다.
+        /// </summary>
+        /// <param name="roomCode">확인할 방 코드</param>
+        /// <returns>중복 여부</returns>
         private bool IsRoomCodeDuplicated(string roomCode)
         {
             foreach (var room in currentRoomList)
@@ -133,6 +166,10 @@ namespace TwinTravelers.Core.Network
             return false;
         }
 
+        /// <summary>
+        /// 방을 생성합니다.
+        /// </summary>
+        /// <returns>성공 여부</returns>
         public bool CreateRoom()
         {
             string roomCode = GenerateRoomCode();
@@ -159,6 +196,10 @@ namespace TwinTravelers.Core.Network
             return PhotonNetwork.CreateRoom(roomCode, options, TypedLobby.Default);
         }
 
+        /// <summary>
+        /// 방에 입장을 시도합니다.
+        /// </summary>
+        /// <param name="roomCode">방 코드</param>
         public void JoinRoom(string roomCode)
         {
             bool success = PhotonNetwork.JoinRoom(roomCode);
@@ -168,11 +209,14 @@ namespace TwinTravelers.Core.Network
                 JoinPanel panel = FindObjectOfType<JoinPanel>();
                 if (panel != null)
                 {
-                    panel.WriteErrorText("��Ʈ��ũ ����, ��� �� �ٽ� �õ����ּ���.");
+                    panel.WriteErrorText("네트워크 에러, 잠시 뒤 다시 시도해주세요.");
                 }
             }
         }
 
+        /// <summary>
+        /// 방을 나갑니다.
+        /// </summary>
         public void LeaveRoom()
         {
             if (PhotonNetwork.InRoom)
@@ -186,35 +230,50 @@ namespace TwinTravelers.Core.Network
 
         #region Callbacks
 
+        /// <summary>
+        /// 방이 생성되었을 때 호출되는 콜백
+        /// </summary>
         public override void OnCreatedRoom()
         {
             HostPanel panel = FindObjectOfType<HostPanel>();
 
             if (panel != null)
             {
-                panel.SetText($"���� ���� ��ȣ�� {PhotonNetwork.CurrentRoom.Name} �Դϴ�.");
+                panel.SetText($"게임 참가 번호는 {PhotonNetwork.CurrentRoom.Name} 입니다.");
             }
 
             playmode = Playmode.Multi;
         }
 
+        /// <summary>
+        /// 방 생성에 실패했을 때 호출되는 콜백
+        /// </summary>
+        /// <param name="returnCode"></param>
+        /// <param name="message"></param>
         public override void OnCreateRoomFailed(short returnCode, string message)
         {
             HostPanel panel = FindObjectOfType<HostPanel>();
 
             if (panel != null)
             {
-                panel.SetText("������ �߻��Ͽ����ϴ�.\r\n��� �� �ٽ� �õ����ּ���.");
+                panel.SetText("오류가 발생하였습니다.\r\n잠시 뒤 다시 시도해주세요.");
             }
 
             playmode = Playmode.Single;
         }
 
+        /// <summary>
+        /// 방 목록이 업데이트 되었을 때 호출되는 콜백
+        /// </summary>
+        /// <param name="roomList"></param>
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
             currentRoomList = roomList;
         }
 
+        /// <summary>
+        /// 방에 입장했을 때 호출되는 콜백
+        /// </summary>
         public override void OnJoinedRoom()
         {
 #if UNITY_EDITOR
@@ -235,6 +294,11 @@ namespace TwinTravelers.Core.Network
             playmode = Playmode.Multi;
         }
 
+        /// <summary>
+        /// 방에 입장을 실패했을 때 호출되는 콜백
+        /// </summary>
+        /// <param name="returnCode"></param>
+        /// <param name="message"></param>
         public override void OnJoinRoomFailed(short returnCode, string message)
         {
             Debug.LogError($"Failed Join Room, message: {message}");
@@ -242,12 +306,16 @@ namespace TwinTravelers.Core.Network
             JoinPanel panel = FindObjectOfType<JoinPanel>();
             if (panel != null)
             {
-                panel.WriteErrorText("���� �������� �ʽ��ϴ�.");
+                panel.WriteErrorText("방이 존재하지 않습니다.");
             }
 
             playmode = Playmode.Single;
         }
 
+        /// <summary>
+        /// 플레이어가 방에 들어왔을 때 콜백
+        /// </summary>
+        /// <param name="newPlayer"></param>
         public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
         {
             Debug.Log($"Player {newPlayer.NickName} has joined the room.");
@@ -263,6 +331,10 @@ namespace TwinTravelers.Core.Network
             PhotonNetwork.CurrentRoom.IsVisible = false;
         }
 
+        /// <summary>
+        /// 플레이어가 방을 나갔을 때 콜백
+        /// </summary>
+        /// <param name="otherPlayer"></param>
         public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
         {
 #if UNITY_EDITOR
@@ -273,6 +345,10 @@ namespace TwinTravelers.Core.Network
             LoadSceneManager.LoadScene("TitleScene");
         }
 
+        /// <summary>
+        /// 다음 씬을 로드하는 이벤트
+        /// </summary>
+        /// <param name="photonEvent"></param>
         private void OnEventReceived(EventData photonEvent)
         {
             if (photonEvent.Code == 1)
@@ -285,6 +361,10 @@ namespace TwinTravelers.Core.Network
         }
         #endregion
 
+        /// <summary>
+        /// 다음 씬을 로드합니다. (모든 플레이어에게 이벤트를 전송)
+        /// </summary>
+        /// <param name="nextScene"></param>
         public void LoadNextScene(string nextScene)
         {
             if (PhotonNetwork.IsMasterClient)

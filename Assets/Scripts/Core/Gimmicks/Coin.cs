@@ -45,7 +45,7 @@ namespace TwinTravelers.Core.Gimmicks
 
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     if (!collision.gameObject.TryGetComponent<PhotonView>(out PhotonView playerPhotonView))
                         return;
 
@@ -58,7 +58,7 @@ namespace TwinTravelers.Core.Gimmicks
                         photonView.RPC("DestroyCoin", RpcTarget.MasterClient);
                     }
                     break;
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     EarnedCoin();
                     Destroy(gameObject);
                     break;

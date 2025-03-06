@@ -99,14 +99,14 @@ namespace TwinTravelers.Management
 
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.None:
+                case Playmode.None:
 #if UNITY_EDITOR
                     Debug.Log("RoomManager.playmode is none, how to come gamescene?");
 #endif
                     LoadSceneManager.LoadScene("TitleScene");
                     break;
 
-                case RoomManager.Playmode.Single:
+                case Playmode.Single:
                     GameObject playerLocal1P = Resources.Load(pathOflocalPlayer1P) as GameObject;
                     GameObject playerLocal2P = Resources.Load(pathOflocalPlayer2P) as GameObject;
 
@@ -116,7 +116,7 @@ namespace TwinTravelers.Management
                     players.Add(Instantiate(playerLocal2P, spawnPoint2P.position, Quaternion.identity));
                     break;
 
-                case RoomManager.Playmode.Multi:
+                case Playmode.Multi:
                     if (PhotonNetwork.IsMasterClient)
                     {
                         GameObject playerNetwork1P = PhotonNetwork.Instantiate(pathOfNetworkPlayer1P, spawnPoint1P.position, Quaternion.identity);
@@ -148,7 +148,7 @@ namespace TwinTravelers.Management
                     {
                         switch (RoomManager.Instance.playmode)
                         {
-                            case RoomManager.Playmode.Multi:
+                            case Playmode.Multi:
                                 if (photonView.IsMine)
                                 {
                                     PhotonNetwork.Destroy(players[i]);
@@ -160,7 +160,7 @@ namespace TwinTravelers.Management
                                 }
                                 break;
 
-                            case RoomManager.Playmode.Single:
+                            case Playmode.Single:
                                 Destroy(players[i]);
                                 break;
                         }
@@ -185,11 +185,11 @@ namespace TwinTravelers.Management
 
                     switch (RoomManager.Instance.playmode)
                     {
-                        case RoomManager.Playmode.Multi:
+                        case Playmode.Multi:
                             PhotonNetwork.Destroy(players[i]);
                             break;
 
-                        case RoomManager.Playmode.Single:
+                        case Playmode.Single:
                             Destroy(players[i]);
                             break;
                     }
@@ -241,7 +241,7 @@ namespace TwinTravelers.Management
 
                 switch (RoomManager.Instance.playmode)
                 {
-                    case RoomManager.Playmode.Multi:
+                    case Playmode.Multi:
                         if (PhotonNetwork.IsMasterClient)
                         {
                             GameObject objNetwork = PhotonNetwork.InstantiateRoomObject(pathOfPrefab, spawnPoint.position, Quaternion.identity);
@@ -255,7 +255,7 @@ namespace TwinTravelers.Management
                         }
 
                         break;
-                    case RoomManager.Playmode.Single:
+                    case Playmode.Single:
 
                         GameObject objLocal = Resources.Load(pathOfPrefab) as GameObject;
 
@@ -282,13 +282,13 @@ namespace TwinTravelers.Management
                 {
                     switch (RoomManager.Instance.playmode)
                     {
-                        case RoomManager.Playmode.Multi:
+                        case Playmode.Multi:
                             if (PhotonNetwork.IsMasterClient)
                             {
                                 PhotonNetwork.Destroy(item);
                             }
                             break;
-                        case RoomManager.Playmode.Single:
+                        case Playmode.Single:
                             Destroy(item);
                             break;
                     }

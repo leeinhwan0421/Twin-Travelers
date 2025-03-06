@@ -20,15 +20,15 @@ namespace TwinTravelers.UI
 
             switch (RoomManager.Instance.playmode)
             {
-                case RoomManager.Playmode.None: // 에러
+                case Playmode.None: // 에러
                     button.SetActive(false);
                     text.text = errorText;
                     break;
-                case RoomManager.Playmode.Single: // 오프라인이거나 싱글 플레이
+                case Playmode.Single: // 오프라인이거나 싱글 플레이
                     button.SetActive(false);
                     text.text = singleText;
                     break;
-                case RoomManager.Playmode.Multi: // 멀티 플레이 중
+                case Playmode.Multi: // 멀티 플레이 중
                     button.SetActive(true);
                     text.text = $"{multiText}\n게임 번호: {PhotonNetwork.CurrentRoom.Name}";
                     break;
