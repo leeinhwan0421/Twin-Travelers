@@ -1,0 +1,75 @@
+using UnityEngine;
+using TwinTravelers.Core.Utility;
+using TwinTravelers.Management;
+
+namespace TwinTravelers.Core.Gimmicks
+{
+    public class Two_Button_Door : InteractableTrigger
+    {
+        [Header("Presets")]
+        [SerializeField] private Two_Button_Door other;
+        [SerializeField] private Animator door;
+
+        [Header("Sprites")]
+        [SerializeField] private Sprite activeSprite;
+        [SerializeField] private Sprite deactiveSprite;
+
+        private SpriteRenderer spriteRenderer;
+
+        public bool isActive = false;
+        private int cnt = 0;
+
+        private void Awake()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        public void ResetTwoButtonDoor()
+        {
+            isActive = false;
+            cnt = 0;
+
+            door.Rebind();
+        }
+
+        protected override void EnterEvent(Collider2D collision)
+        {
+            if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
+            {
+                return;
+            }
+
+            cnt++;
+
+            if (cnt == 1)
+            {
+                isActive = true;
+                spriteRenderer.sprite = activeSprite;
+                AudioManager.Instance.PlaySFX("ButtonEnter");
+
+
+                if (other.isActive == true)
+                {
+                    door.SetTrigger("Open");
+                }
+            }
+        }
+
+        protected override void ExitEvent(Collider2D collision)
+        {
+            if (!collision.CompareTag("Player") && !collision.CompareTag("Moveable"))
+            {
+                return;
+            }
+
+            cnt--;
+
+            if (cnt == 0)
+            {
+                isActive = false;
+                spriteRenderer.sprite = deactiveSprite;
+                AudioManager.Instance.PlaySFX("ButtonExit");
+            }
+        }
+    }
+}

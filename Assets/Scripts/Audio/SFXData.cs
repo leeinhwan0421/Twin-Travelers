@@ -1,10 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New SFX", menuName = "Audio/SFX Source", order = 2)]
-public class SFXData : ScriptableObject
+namespace TwinTravelers.Audio
 {
-    public string soundName; // ÀÌÆåÆ® »ç¿îµå ÀÌ¸§
-    public AudioClip[] clip; // ·£´ıÀ¸·Î »ç¿ëÇÒ ¿¹Á¤
+    /// <summary>
+    /// SFX ë°ì´í„°
+    /// </summary>
+    [CreateAssetMenu(fileName = "New SFX", menuName = "Audio/SFX Source", order = 2)]
+    public class SFXData : ScriptableObject
+    {
+        /// <summary>
+        /// sfx ì´ë¦„
+        /// </summary>
+        public string soundName;
+
+        /// <summary>
+        /// ëœë¤ìœ¼ë¡œ ì‚¬ìš©í•  ì‚¬ìš´ë“œ í´ë¦½ ë¦¬ìŠ¤íŠ¸
+        /// </summary>
+        public AudioClip[] clip;
+    }
 }
