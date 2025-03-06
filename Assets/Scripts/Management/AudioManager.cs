@@ -8,8 +8,7 @@ namespace TwinTravelers.Management
 {
     public class AudioManager : MonoBehaviour
     {
-        #region properties
-        // ½Ì±ÛÅÏ ±¸Çö
+        #region Singletion
         private static AudioManager instance;
         public static AudioManager Instance
         {
@@ -17,7 +16,7 @@ namespace TwinTravelers.Management
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<AudioManager>(); // ÀÌ·¡µµ ¾ø´Ù?
+                    instance = FindObjectOfType<AudioManager>(); // ì´ë˜ë„ ì—†ë‹¤?
 
                     if (instance == null)
                     {
@@ -33,7 +32,9 @@ namespace TwinTravelers.Management
                 return instance;
             }
         }
+        #endregion
 
+        #region Field
         [Header("BGM")]
         [SerializeField] private List<BGMData> bgmDatas = new List<BGMData>();
         public int bgmVolume;
