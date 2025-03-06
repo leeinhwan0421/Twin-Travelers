@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace TwinTravelers.Core.Utility
 {
+    /// <summary>
+    /// Collider2D의 경계를 표시하는 클래스 (Square)
+    /// </summary>
     public class Collider2DGizmos : MonoBehaviour
     {
         private Collider2D coll;

@@ -5,17 +5,53 @@ namespace TwinTravelers.Core.Utility
 {
     public class SpotLightRadiusController : MonoBehaviour
     {
+        #region Field
+        /// <summary>
+        /// 내부 반지름 최소값
+        /// </summary>
         [Header("Presets")]
-        [SerializeField] private float minInner;
-        [SerializeField] private float maxInner;
-        [Space(10.0f)]
-        [SerializeField] private float minOuter;
-        [SerializeField] private float maxOuter;
-        [Space(10.0f)]
-        [SerializeField] private float time = 1.0f;
+        [Tooltip("내부 반지름 최소값")]
+        [SerializeField] 
+        private float minInner;
 
+        /// <summary>
+        /// 내부 반지름 최대값
+        /// </summary>
+        [Tooltip("내부 반지름 최대값")]
+        [SerializeField]
+        private float maxInner;
+
+        /// <summary>
+        /// 외부 반지름 최소값
+        /// </summary>
+        [Tooltip("외부 반지름 최소값")]
+        [SerializeField, Space(10.0f)]
+        private float minOuter;
+
+        /// <summary>
+        /// 외부 반지름 최대값
+        /// </summary>
+        [Tooltip("외부 반지름 최대값")]
+        [SerializeField]
+        private float maxOuter;
+
+        /// <summary>
+        /// 반지름 변경 주기
+        /// </summary>
+        [Tooltip("반지름 변경 주기")]
+        [SerializeField, Space(10.0f)]
+        private float time = 1.0f;
+
+        /// <summary>
+        /// 2D 라이트 컴포넌트
+        /// </summary>
         private Light2D light2D;
+
+        /// <summary>
+        /// 타이머
+        /// </summary>
         private float timer = 0.0f;
+        #endregion
 
         private void Awake()
         {

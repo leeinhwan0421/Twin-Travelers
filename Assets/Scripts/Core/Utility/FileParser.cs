@@ -4,8 +4,16 @@ using System.IO;
 namespace TwinTravelers.Core.Utility
 {
     #region ini
+    /// <summary>
+    /// INI 파일을 읽고, 특정 필드를 읽고 불러옵니다.
+    /// </summary>
     public static class INIParser
     {
+        /// <summary>
+        /// INI 파일을 읽어서 Dictionary로 반환합니다.
+        /// </summary>
+        /// <param name="path">INI 파일의 위치</param>
+        /// <returns>INI 파일 내부 데이터를 , <Key, Value> 형태로 반환합니다.</returns>
         public static Dictionary<string, string> ReadINI(string path)
         {
             var data = new Dictionary<string, string>();
@@ -30,6 +38,11 @@ namespace TwinTravelers.Core.Utility
             return data;
         }
 
+        /// <summary>
+        /// Dictionary를 INI 파일로 저장합니다.
+        /// </summary>
+        /// <param name="path">INI 파일의 위치</param>
+        /// <param name="data">Dictionary</param>
         public static void WriteINI(string path, Dictionary<string, string> data)
         {
             StreamWriter writer = new StreamWriter(path);
