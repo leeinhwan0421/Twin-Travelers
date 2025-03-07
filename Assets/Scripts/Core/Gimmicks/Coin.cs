@@ -8,16 +8,33 @@ namespace TwinTravelers.Core.Gimmicks
 {
     public class Coin : InteractableTrigger
     {
+        #region Fields
+        /// <summary>
+        /// 획득 이펙트
+        /// </summary>
         [Header("Preset")]
-        [SerializeField] private GameObject earnEffect;
+        [Tooltip("획득 이펙트")]
+        [SerializeField]
+        private GameObject earnEffect;
 
+        /// <summary>
+        /// 코인이 활성화되었는지 여부
+        /// </summary>
         private bool isActivate = true;
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// 획득 이펙트를 생성합니다.
+        /// </summary>
         private void InstantiateEarnEffect()
         {
             Instantiate(earnEffect, transform.position, Quaternion.identity);
         }
 
+        /// <summary>
+        /// 코인을 모든 클라이언트에서 획득합니다.
+        /// </summary>
         [PunRPC]
         private void EarnedCoin()
         {
@@ -27,6 +44,9 @@ namespace TwinTravelers.Core.Gimmicks
             InstantiateEarnEffect();
         }
 
+        /// <summary>
+        /// 코인을 모든 클라이언트에서 파괴합니다.
+        /// </summary>
         [PunRPC]
         private void DestroyCoin()
         {
@@ -69,5 +89,6 @@ namespace TwinTravelers.Core.Gimmicks
         {
             // Nothing
         }
+        #endregion
     }
 }

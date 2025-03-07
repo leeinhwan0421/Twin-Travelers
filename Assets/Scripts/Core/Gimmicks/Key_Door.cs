@@ -4,12 +4,31 @@ namespace TwinTravelers.Core.Gimmicks
 {
     public class Key_Door : MonoBehaviour
     {
+        /// <summary>
+        /// 문의 색상
+        /// </summary>
         [Header("Presets")]
-        [SerializeField] private Color color;
+        [Tooltip("문의 색상")]
+        [SerializeField] 
+        private Color color;
+
         [Space(10.0f)]
-        [SerializeField] private GameObject key;
+
+        /// <summary>
+        /// 열쇠 오브젝트
+        /// </summary>
+        [Tooltip("열쇠 오브젝트")]
+        [SerializeField]
+        private GameObject key;
+
         [Space(10.0f)]
-        [SerializeField] private Animator doorAnim;
+
+        /// <summary>
+        /// 문의 애니메이터 컴포넌트
+        /// </summary>
+        [Tooltip("문의 애니메이터 컴포넌트")]
+        [SerializeField]
+        private Animator doorAnim;
 
         private void Start()
         {
@@ -21,11 +40,17 @@ namespace TwinTravelers.Core.Gimmicks
             }
         }
 
+        /// <summary>
+        /// 문을 엽니다.
+        /// </summary>
         public void Open()
         {
             doorAnim.SetTrigger("Open");
         }
 
+        /// <summary>
+        /// 문과 열쇠을 초기화합니다.
+        /// </summary>
         public void ResetKeyDoor()
         {
             doorAnim.Rebind();

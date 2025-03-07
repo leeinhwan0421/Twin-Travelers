@@ -5,6 +5,9 @@ using TwinTravelers.Core.Utility;
 
 namespace TwinTravelers.Core.Gimmicks
 {
+    /// <summary>
+    /// 중력을 변경하는 포탈 클래스
+    /// </summary>
     public class GravityPortal : InteractableTrigger
     {
         [Serializable]
@@ -14,9 +17,17 @@ namespace TwinTravelers.Core.Gimmicks
             Down
         }
 
+        #region Fields
+        /// <summary>
+        /// 변경할 중력 방향
+        /// </summary>
         [Header("Preset")]
-        [SerializeField] private GravityPortalType type;
+        [Tooltip("변경할 중력 방향")]
+        [SerializeField] 
+        private GravityPortalType type;
+        #endregion
 
+        #region Methods
         protected override void EnterEvent(Collider2D collision)
         {
             if (collision.TryGetComponent<Player>(out Player playerUp))
@@ -48,5 +59,6 @@ namespace TwinTravelers.Core.Gimmicks
         {
             // Nothing
         }
+        #endregion
     }
 }

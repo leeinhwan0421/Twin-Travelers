@@ -3,19 +3,51 @@ using UnityEngine;
 
 namespace TwinTravelers.Core.Gimmicks
 {
+    /// <summary>
+    /// 적 클래스
+    /// </summary>
     public class Enemy : MonoBehaviour
     {
+        #region Fields
+        /// <summary>
+        /// 적의 이동 속도
+        /// </summary>
         [Header("Presets")]
-        [SerializeField] private float lerpSpeed; // LerpSpeed;
-        [SerializeField] private float cycleTime;
-        [SerializeField] private Vector2 max;
-        [SerializeField] private Vector2 min;
+        [Tooltip("적의 이동 속도")]
+        [SerializeField] 
+        private float lerpSpeed;
+
+        /// <summary>
+        /// 적의 이동 주기
+        /// </summary>
+        [Tooltip("적의 이동 주기")]
+        [SerializeField]
+        private float cycleTime;
+
+        /// <summary>
+        /// 적의 최대 이동 위치 
+        /// </summary>
+        [Tooltip("적의 최대 이동 위치 ")]
+        [SerializeField]
+        private Vector2 max;
+
+        /// <summary>
+        /// 적의 최소 이동 위치
+        /// </summary>
+        [Tooltip("적의 최소 이동 위치")]
+        [SerializeField]
+        private Vector2 min;
 
         private Vector2 drawFrom = Vector2.zero;
         private Vector2 drawTo = Vector2.zero;
 
+        /// <summary>
+        /// 애니메이터 컴포넌트
+        /// </summary>
         private Animator animator;
+        #endregion
 
+        #region Unity Methods
         private void Start()
         {
             animator = GetComponent<Animator>();
@@ -40,14 +72,20 @@ namespace TwinTravelers.Core.Gimmicks
 
             Gizmos.DrawLine(drawFrom, drawTo);
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// 적의 이동을 주기적으로 반복하는 코루틴
+        /// </summary>
+        /// <returns>IEnumerator</returns>
         private IEnumerator MoveCycle()
         {
             yield return new WaitForSeconds(2.0f);
 
             while (true)
             {
-                yield return MoveToPosition(max, lerpSpeed); // ������ ����������..
+                yield return MoveToPosition(max, lerpSpeed);
 
                 yield return new WaitForSeconds(cycleTime / 2);
 
@@ -57,6 +95,12 @@ namespace TwinTravelers.Core.Gimmicks
             }
         }
 
+        /// <summary>
+        /// 적을 특정 위치로 이동시키는 코루틴
+        /// </summary>
+        /// <param name="position">목표 위치</param>
+        /// <param name="speed">속도</param>
+        /// <returns>IEnumerator</returns>
         private IEnumerator MoveToPosition(Vector2 position, float speed)
         {
             Vector2 s = transform.position;
@@ -94,5 +138,6 @@ namespace TwinTravelers.Core.Gimmicks
 
             transform.position = e;
         }
+        #endregion
     }
 }

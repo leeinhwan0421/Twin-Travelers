@@ -10,14 +10,28 @@ namespace TwinTravelers.Core.Gimmicks
 {
     public class Teleport : InteractableTrigger
     {
+        #region Fields
+        /// <summary>
+        /// 이동할 위치
+        /// </summary>
         [Header("Preset")]
-        [SerializeField] private Teleport target;
+        [Tooltip("이동할 위치")]
+        [SerializeField] 
+        private Teleport target;
 
+        /// <summary>
+        /// 이동 이펙트
+        /// </summary>
         [Header("Prefab")]
-        [SerializeField] private GameObject teleportEffect;
+        [Tooltip("이동 이펙트")]
+        [SerializeField] 
+        private GameObject teleportEffect;
 
-        // private value..
+        /// <summary>
+        /// 최근에 이동한 오브젝트
+        /// </summary>
         private HashSet<GameObject> recents = new HashSet<GameObject>();
+        #endregion
 
         protected override void EnterEvent(Collider2D collision)
         {

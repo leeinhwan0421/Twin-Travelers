@@ -3,15 +3,50 @@ using UnityEngine;
 
 namespace TwinTravelers.Core.Gimmicks
 {
+    /// <summary>
+    /// 프레스 장애물 클래스
+    /// </summary>
     public class Press : Obstacle
     {
+        #region Fields
+        /// <summary>
+        /// 최소 높이
+        /// </summary>
         [Header("Preset")]
-        [SerializeField] private float minY;
-        [SerializeField] private float maxY;
-        [SerializeField] private float cycleTime;
-        [SerializeField] private float pressSpeed = 10f;
-        [SerializeField] private float returnSpeed = 2f;
+        [Tooltip("최소 높이")]
+        [SerializeField] 
+        private float minY;
 
+        /// <summary>
+        /// 최대 높이
+        /// </summary>
+        [Tooltip("최대 높이")]
+        [SerializeField]
+        private float maxY;
+
+        /// <summary>
+        /// 주기
+        /// </summary>
+        [Tooltip("주기")]
+        [SerializeField]
+        private float cycleTime;
+
+        /// <summary>
+        /// 눌릴 때의 속도
+        /// </summary>
+        [Tooltip("눌릴 때의 속도")]
+        [SerializeField]
+        private float pressSpeed = 10f;
+
+        /// <summary>
+        /// 복귀 속도
+        /// </summary>
+        [Tooltip("복귀 속도")]
+        [SerializeField]
+        private float returnSpeed = 2f;
+        #endregion
+
+        #region Unity Methods
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
@@ -29,7 +64,13 @@ namespace TwinTravelers.Core.Gimmicks
 
             StartCoroutine(PressCycle());
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// 프레스 사이클
+        /// </summary>
+        /// <returns>IEnumerator</returns>
         private IEnumerator PressCycle()
         {
             while (true)
@@ -44,6 +85,12 @@ namespace TwinTravelers.Core.Gimmicks
             }
         }
 
+        /// <summary>
+        /// 특정 위치로 이동합니다.
+        /// </summary>
+        /// <param name="targetY">목표 높이</param>
+        /// <param name="speed">속도</param>
+        /// <returns>IEnumerator</returns>
         private IEnumerator MoveToPosition(float targetY, float speed)
         {
             Vector3 targetPosition = new Vector3(transform.position.x, targetY, transform.position.z);
@@ -56,5 +103,6 @@ namespace TwinTravelers.Core.Gimmicks
 
             transform.position = targetPosition;
         }
+        #endregion
     }
 }

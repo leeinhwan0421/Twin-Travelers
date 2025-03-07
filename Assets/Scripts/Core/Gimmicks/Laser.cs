@@ -3,17 +3,48 @@ using UnityEngine;
 
 namespace TwinTravelers.Core.Gimmicks
 {
+    /// <summary>
+    /// 레이저 클래스
+    /// </summary>
     public class Laser : Obstacle
     {
+        #region Fields
+        /// <summary>
+        /// 레이져가 계속 켜져있어야 하는지 여부
+        /// </summary>
         [Header("Presets")]
-        [SerializeField] private bool isStatic;
+        [Tooltip("레이져가 계속 켜져있어야 하는지 여부")]
+        [SerializeField]
+        private bool isStatic;
+
         [Space(10.0f)]
-        [Range(0.01f, 10.0f)][SerializeField] private float activeTime;
-        [Range(0.01f, 10.0f)][SerializeField] private float deactiveTime;
 
+        /// <summary>
+        /// 활성화 시간
+        /// </summary>
+        [Tooltip("활성화 시간")]
+        [Range(0.01f, 10.0f), SerializeField] 
+        private float activeTime;
+
+        /// <summary>
+        /// 비활성화 시간
+        /// </summary>
+        [Tooltip("비활성화 시간")]
+        [Range(0.01f, 10.0f), SerializeField] 
+        private float deactiveTime;
+
+        /// <summary>
+        /// 이 클래스를 가진 오브젝트의 라인 렌더러 컴포넌트
+        /// </summary>
         private LineRenderer lineRenderer;
-        private EdgeCollider2D coll;
 
+        /// <summary>
+        /// 이 클래스를 가진 오브젝트의 엣지 콜라이더 컴포넌트
+        /// </summary>
+        private EdgeCollider2D coll;
+        #endregion
+
+        #region Unity Methods
         private void Awake()
         {
             lineRenderer = GetComponent<LineRenderer>();
@@ -27,7 +58,12 @@ namespace TwinTravelers.Core.Gimmicks
         {
             StopAllCoroutines();
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// 엣지 콜라이더 생성
+        /// </summary>
         private void GenerateEdgeCollider2D()
         {
             int numPoints = lineRenderer.positionCount;
@@ -44,6 +80,9 @@ namespace TwinTravelers.Core.Gimmicks
             coll.isTrigger = true;
         }
 
+        /// <summary>
+        /// 활성화
+        /// </summary>
         private void Activate()
         {
             // AudioManager.Instance.PlaySFX("Laser");
@@ -51,12 +90,19 @@ namespace TwinTravelers.Core.Gimmicks
             coll.enabled = true;
         }
 
+        /// <summary>
+        /// 비활성화
+        /// </summary>
         private void Deactivate()
         {
             StartCoroutine(WidthAnimation(0.0f));
             coll.enabled = false;
         }
 
+        /// <summary>
+        /// 레이저 사이클
+        /// </summary>
+        /// <returns>IEnumerator</returns>
         private IEnumerator Cycle()
         {
             if (isStatic == true)
@@ -76,6 +122,11 @@ namespace TwinTravelers.Core.Gimmicks
             }
         }
 
+        /// <summary>
+        /// 레이저가 부드럽게 켜지거나 꺼지게 하는 코루틴
+        /// </summary>
+        /// <param name="widthMultipler">목표 너비 multipler</param>
+        /// <returns>IEnumerator</returns>
         private IEnumerator WidthAnimation(float widthMultipler)
         {
             float speed = 5.0f;
@@ -96,5 +147,6 @@ namespace TwinTravelers.Core.Gimmicks
 
             yield break;
         }
+        #endregion
     }
 }

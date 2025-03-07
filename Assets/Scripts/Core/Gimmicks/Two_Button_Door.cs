@@ -6,24 +6,64 @@ namespace TwinTravelers.Core.Gimmicks
 {
     public class Two_Button_Door : InteractableTrigger
     {
+        #region Fields
+        /// <summary>
+        /// 다른 버튼
+        /// </summary>
         [Header("Presets")]
-        [SerializeField] private Two_Button_Door other;
-        [SerializeField] private Animator door;
+        [Tooltip("다른 버튼")]
+        [SerializeField] 
+        private Two_Button_Door other;
 
+        /// <summary>
+        /// 문 애니메이터
+        /// </summary>
+        [Tooltip("문 애니메이터")]
+        [SerializeField]
+        private Animator door;
+
+        /// <summary>
+        /// 활성화된 스프라이트 에셋
+        /// </summary>
         [Header("Sprites")]
-        [SerializeField] private Sprite activeSprite;
-        [SerializeField] private Sprite deactiveSprite;
+        [Tooltip("활성화된 스프라이트 에셋")]
+        [SerializeField] 
+        private Sprite activeSprite;
 
+        /// <summary>
+        /// 비활성화된 스프라이트 에셋
+        /// </summary>
+        [Tooltip("비활성화된 스프라이트 에셋")]
+        [SerializeField]
+        private Sprite deactiveSprite;
+
+        /// <summary>
+        /// 컨트롤 할 스프라이트 렌더러
+        /// </summary>
         private SpriteRenderer spriteRenderer;
 
+        /// <summary>
+        /// 버튼 활성화 여부
+        /// </summary>
         public bool isActive = false;
-        private int cnt = 0;
 
+        /// <summary>
+        /// 버튼 카운트
+        /// </summary>
+        private int cnt = 0;
+        #endregion
+
+        #region Unity Methods
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// 버튼 및 문을 초기화합니다.
+        /// </summary>
         public void ResetTwoButtonDoor()
         {
             isActive = false;
@@ -71,5 +111,6 @@ namespace TwinTravelers.Core.Gimmicks
                 AudioManager.Instance.PlaySFX("ButtonExit");
             }
         }
+        #endregion
     }
 }
