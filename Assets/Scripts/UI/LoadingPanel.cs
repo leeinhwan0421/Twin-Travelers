@@ -7,25 +7,62 @@ using UnityEngine.UI;
 
 namespace TwinTravelers.UI
 {
+    /// <summary>
+    /// 로딩 패널
+    /// </summary>
     public class LoadingPanel : MonoBehaviour
     {
+        #region Fields
         [Header("Element")]
+        /// <summary>
+        /// 로딩 진행도를 표시하는 프로그레스 바
+        /// </summary>
+        [Tooltip("로딩 진행도를 표시하는 프로그레스 바")]
         public Image progressBar;
+
+        /// <summary>
+        /// 로딩 진행도를 표시하는 텍스트
+        /// </summary>
+        [Tooltip("로딩 진행도를 표시하는 텍스트")]
         public TextMeshProUGUI loadingText;
+
+        /// <summary>
+        /// 로딩 바 하단 텍스트
+        /// </summary>
+        [Tooltip("로딩 바 하단 텍스트")]
         public TextMeshProUGUI TipText;
 
+        /// <summary>
+        /// 로딩 텍스트를 순환시킬 텍스트 리스트 (Loading, Loading. Loading.., ..)
+        /// </summary>
         [Header("Loading Preset")]
-        [SerializeField] private List<string> cycleText;
-        [SerializeField] private float cycleInterval = 0.5f;
-        private int cycleIndex = 0;
+        [Tooltip("로딩 텍스트를 순환시킬 텍스트 리스트 (Loading, Loading. Loading.., ..)")]
+        [SerializeField]
+        private List<string> cycleText;
 
+        /// <summary>
+        /// 순환 간격
+        /// </summary>
+        [Tooltip("순환 간격")]
+        [SerializeField]
+        private float cycleInterval = 0.5f;
+
+        /// <summary>
+        /// 순환 인덱스
+        /// </summary>
+        private int cycleIndex = 0;
+        #endregion
+
+        #region Unity Methods
         private void Start()
         {
             TipText.text = LoadTipsFromFile();
 
             StartCoroutine(CycleLoadingText());
         }
+        #endregion
 
+        #region Methods
         private IEnumerator CycleLoadingText()
         {
             while (true)
@@ -51,5 +88,6 @@ namespace TwinTravelers.UI
                 return "No tips Available";
             }
         }
+        #endregion
     }
 }

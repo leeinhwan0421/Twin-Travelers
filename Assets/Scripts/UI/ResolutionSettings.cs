@@ -6,18 +6,40 @@ using TwinTravelers.Management;
 
 namespace TwinTravelers.UI
 {
+    /// <summary>
+    /// 해상도 설정
+    /// </summary>
     public class ResolutionSettings : MonoBehaviour
     {
+        #region Fields
+        /// <summary>
+        /// 해상도 설정 드롭다운
+        /// </summary>
         [Header("Preset")]
-        [SerializeField] private TMP_Dropdown resolutionDropdown;
-        [SerializeField] private Toggle fullscreenToggle;
+        [Tooltip("해상도 설정 드롭다운")]
+        [SerializeField] 
+        private TMP_Dropdown resolutionDropdown;
 
+        /// <summary>
+        /// 전체화면 설정 토글
+        /// </summary>
+        [Tooltip("전체화면 설정 토글")]
+        [SerializeField]
+        private Toggle fullscreenToggle;
+        #endregion
+
+        #region Unity Methods
         private void Start()
         {
             InitializeResolutionDropdown();
             InitializeFullscreenToggle();
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// 해상도 설정 드롭다운을 초기화합니다.
+        /// </summary>
         private void InitializeResolutionDropdown()
         {
             resolutionDropdown.options.Clear();
@@ -50,6 +72,9 @@ namespace TwinTravelers.UI
             resolutionDropdown.RefreshShownValue();
         }
 
+        /// <summary>
+        /// 전체화면 설정을 초기화합니다.
+        /// </summary>
         private void InitializeFullscreenToggle()
         {
             fullscreenToggle.onValueChanged.RemoveAllListeners();
@@ -58,5 +83,6 @@ namespace TwinTravelers.UI
 
             ResolutionManager.OnFullScreenChange(SettingManager.IsFullScreen);
         }
+        #endregion
     }
 }

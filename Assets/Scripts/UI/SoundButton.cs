@@ -5,6 +5,9 @@ using TwinTravelers.Management;
 
 namespace TwinTravelers.UI
 {
+    /// <summary>
+    /// 버튼 타입
+    /// </summary>
     public enum Button_Type
     {
         Normal = 0,
@@ -12,6 +15,9 @@ namespace TwinTravelers.UI
         Block = 2,
     }
 
+    /// <summary>
+    /// 버튼 + 사운드를 결합한 클래스
+    /// </summary>
     public class SoundButton : Button
     {
 
@@ -28,7 +34,7 @@ namespace TwinTravelers.UI
 
         public Button_Type buttonType;
 
-        #region Sound
+        #region Methods
         public void PlayHoverSound()
         {
             AudioManager.Instance.PlaySFX("UIHover");
@@ -61,9 +67,7 @@ namespace TwinTravelers.UI
             base.OnPointerClick(eventData);
             PlayClickSound();
         }
-        #endregion
 
-        #region Color Change
         protected override void DoStateTransition(SelectionState state, bool instant)
         {
             Color color;
@@ -102,6 +106,7 @@ namespace TwinTravelers.UI
                 }
             }
         }
+
         private void ColorTween(Color targetColor, bool instant)
         {
             if (targetGraphic == null) return;

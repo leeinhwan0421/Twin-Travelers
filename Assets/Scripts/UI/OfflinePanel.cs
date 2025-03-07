@@ -5,12 +5,35 @@ using TwinTravelers.Management;
 
 namespace TwinTravelers.UI
 {
+    /// <summary>
+    /// ì˜¤í”„ë¼ì¸ íŒ¨ë„
+    /// </summary>
     public class OfflinePanel : Panel
     {
-        [SerializeField] private GameObject networkPanel;
-        [SerializeField] private TextMeshProUGUI text;
-        [SerializeField] private float timeToGoTitle = 3.0f;
+        #region Fields
+        /// <summary>
+        /// ë„¤íŠ¸ì›Œí¬ íŒ¨ë„
+        /// </summary>
+        [Tooltip("ë„¤íŠ¸ì›Œí¬ íŒ¨ë„")]
+        [SerializeField] 
+        private GameObject networkPanel;
 
+        /// <summary>
+        /// íŒ¨ë„ ë‚´ë¶€ í…ìŠ¤íŠ¸
+        /// </summary>
+        [Tooltip("íŒ¨ë„ ë‚´ë¶€ í…ìŠ¤íŠ¸")]
+        [SerializeField]
+        private TextMeshProUGUI text;
+
+        /// <summary>
+        /// íƒ€ì´í‹€ë¡œ ëŒì•„ê°€ëŠ” ì‹œê°„
+        /// </summary>
+        [Tooltip("íƒ€ì´í‹€ë¡œ ëŒì•„ê°€ëŠ” ì‹œê°„")]
+        [SerializeField]
+        private float timeToGoTitle = 3.0f;
+        #endregion
+
+        #region Methods
         public new void Enable()
         {
             base.Enable();
@@ -25,13 +48,17 @@ namespace TwinTravelers.UI
             StopAllCoroutines();
         }
 
+        /// <summary>
+        /// ì—…ë°ì´íŠ¸ ì½”ë£¨í‹´
+        /// </summary>
+        /// <returns>IEnumerator</returns>
         private IEnumerator UpdateCoroutine()
         {
             float timeRemaining = timeToGoTitle;
 
             while (timeRemaining > 0)
             {
-                text.text = $"¿ÀÇÁ¶óÀÎ ¸ğµå·Î ÀüÈ¯µÇ¾ú½À´Ï´Ù.\r\n{Mathf.RoundToInt(timeRemaining).ToString()} ÃÊ µÚ Å¸ÀÌÆ²·Î µ¹¾Æ°©´Ï´Ù.\r\nÀÎÅÍ³İ¿¡ ¿¬°á µÉ °æ¿ì\r\n°°ÀÌÇÏ±â ±â´ÉÀ» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.";
+                text.text = $"ì˜¤í”„ë¼ì¸ ëª¨ë“œë¡œ ì „í™˜ë˜ì—ˆìŠµë‹ˆë‹¤.\r\n{Mathf.RoundToInt(timeRemaining).ToString()} ì´ˆ ë’¤ íƒ€ì´í‹€ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.\r\nì¸í„°ë„·ì— ì—°ê²° ë  ê²½ìš°\r\nê°™ì´í•˜ê¸° ê¸°ëŠ¥ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.";
 
                 yield return new WaitForSeconds(1.0f);
 
@@ -43,5 +70,6 @@ namespace TwinTravelers.UI
             networkPanel.SetActive(false);
             Disable();
         }
+        #endregion
     }
 }

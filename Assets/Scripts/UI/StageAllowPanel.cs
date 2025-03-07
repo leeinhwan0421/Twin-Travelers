@@ -5,10 +5,17 @@ using TwinTravelers.Management;
 
 namespace TwinTravelers.UI
 {
+    /// <summary>
+    /// 스테이지 시작 알림 패널
+    /// </summary>
     public class StageAllowPanel : MonoBehaviour
     {
+        /// <summary>
+        /// 스테이지 이름을 출력할 텍스트
+        /// </summary>
         [Header("Preset")]
-        [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] 
+        private TextMeshProUGUI text;
 
         private void Awake()
         {
