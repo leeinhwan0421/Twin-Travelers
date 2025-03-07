@@ -8,17 +8,38 @@ using TwinTravelers.Core.Network;
 
 namespace TwinTravelers.Management
 {
+    /// <summary>
+    /// 플레이어와 아이템을 스폰하고 관리하는 클래스
+    /// 너무 더러운 코드
+    /// </summary>
     public class SpawnManager : MonoBehaviourPunCallbacks
     {
+        #region Fields
         // ======================================================== //
 
-        private string pathOflocalPlayer1P = "Player/Local/Player_Local_1P";               // Resources path
-        private string pathOflocalPlayer2P = "Player/Local/Player_Local_2P";               // Resources path
+        /// <summary>
+        /// 로컬 플레이어 1P 프리펩 경로
+        /// </summary>
+        private readonly string pathOflocalPlayer1P = "Player/Local/Player_Local_1P";
 
-        private string pathOfNetworkPlayer1P = "Player/Network/Player_Network_1P";         // Resources path
-        private string pathOfNetworkPlayer2P = "Player/Network/Player_Network_2P";         // Resources path
+        /// <summary>
+        /// 로컬 플레이어 2P 프리펩 경로
+        /// </summary>
+        private readonly string pathOflocalPlayer2P = "Player/Local/Player_Local_2P";
 
-        // Instance
+        /// <summary>
+        /// 네트워크 플레이어 1P 프리펩 경로
+        /// </summary>
+        private readonly string pathOfNetworkPlayer1P = "Player/Network/Player_Network_1P";
+
+        /// <summary>
+        /// 네트워크 플레이어 2P 프리펩 경로
+        /// </summary>
+        private readonly string pathOfNetworkPlayer2P = "Player/Network/Player_Network_2P";
+
+        /// <summary>
+        /// 생성된 플레이어 리스트
+        /// </summary>
         private List<GameObject> players = new List<GameObject>();
         public List<GameObject> Players
         {
@@ -28,18 +49,44 @@ namespace TwinTravelers.Management
             }
         }
 
+        /// <summary>
+        /// 1P가 생성될 위치
+        /// </summary>
         [Header("Player Spawn Points")]
-        [SerializeField] private Transform spawnPoint1P;                // 1P SpawnPoint
-        [SerializeField] private Transform spawnPoint2P;                // 2P SpawnPoint
+        [Tooltip("1P가 생성될 위치")]
+        [SerializeField]
+        private Transform spawnPoint1P;
+
+        /// <summary>
+        /// 2P가 생성될 위치
+        /// </summary>
+        [Tooltip("2P가 생성될 위치")]
+        [SerializeField]
+        private Transform spawnPoint2P;
 
         // ======================================================== //
 
+        /// <summary>
+        /// 생성될 코인의 부모 트랜스폼
+        /// </summary>
         [Header("Coins")]
-        [SerializeField] private Transform coinsSpawnPointsParent;
+        [Tooltip("생성될 코인의 부모 트랜스폼")]
+        [SerializeField] 
+        private Transform coinsSpawnPointsParent;
 
+        /// <summary>
+        /// 코인 프리펩 경로
+        /// </summary>
         private string coin = "Gimmicks/Coin";
+
+        /// <summary>
+        /// 생성된 코인 리스트
+        /// </summary>
         private List<GameObject> coins = new List<GameObject>();
 
+        /// <summary>
+        /// 생성된 코인의 개수
+        /// </summary>
         public int coinCount
         {
             get
@@ -50,43 +97,127 @@ namespace TwinTravelers.Management
 
         // ======================================================== //
 
+        /// <summary>
+        /// 생성될 박스의 부모 트랜스폼
+        /// </summary>
         [Header("Boxs")]
-        [SerializeField] private Transform boxSpawnPointsParent;
+        [Tooltip("생성될 박스의 부모 트랜스폼")]
+        [SerializeField] 
+        private Transform boxSpawnPointsParent;
 
+        /// <summary>
+        /// 박스 프리펩 경로   
+        /// </summary>
         private string box = "Gimmicks/Moveable/Box";
+
+        /// <summary>
+        /// 생성된 박스 리스트
+        /// </summary>
         private List<GameObject> boxs = new List<GameObject>();
 
         // ======================================================== //
 
+        /// <summary>
+        /// 생성될 배럴의 부모 트랜스폼
+        /// </summary>
         [Header("Barrels")]
-        [SerializeField] private Transform barrelSpawnPointsParent;
+        [Tooltip("생성될 배럴의 부모 트랜스폼")]
+        [SerializeField] 
+        private Transform barrelSpawnPointsParent;
 
+        /// <summary>
+        /// 배럴 프리펩 경로
+        /// </summary>
         private string barrel = "Gimmicks/Moveable/Barrel";
+
+        /// <summary>
+        /// 생성된 배럴 리스트
+        /// </summary>
         private List<GameObject> barrels = new List<GameObject>();
 
         // ======================================================== //
 
+        /// <summary>
+        /// 생성될 달걀의 부모 트랜스폼
+        /// </summary>
         [Header("Eggs")]
-        [SerializeField] private Transform eggSpawnPointsParent;
+        [Tooltip("생성될 달걀의 부모 트랜스폼")]
+        [SerializeField] 
+        private Transform eggSpawnPointsParent;
 
+        /// <summary>
+        /// 달걀 프리펩 경로
+        /// </summary>
         private string egg = "Gimmicks/Moveable/Egg";
+
+        /// <summary>
+        /// 생성된 달걀 리스트
+        /// </summary>
         private List<GameObject> eggs = new List<GameObject>();
 
         // ======================================================== //
 
+        /// <summary>
+        /// 레버 도어 리스트
+        /// </summary>
         [Header("Gimmicks")]
-        [SerializeField] private List<Lever_Door> lever_doors;
-        [SerializeField] private List<Button_Door> button_doors;
-        [SerializeField] private List<Two_Button_Door> two_button_doors;
-        [SerializeField] private List<Key_Door> key_doors;
-        [SerializeField] private List<TrapPlatform> trap_platforms;
+        [Tooltip("레버 도어 리스트")]
+        [SerializeField] 
+        private List<Lever_Door> lever_doors;
 
+        /// <summary>
+        /// 버튼 도어 리스트
+        /// </summary>
+        [Tooltip("버튼 도어 리스트")]
+        [SerializeField] 
+        private List<Button_Door> button_doors;
+
+        /// <summary>
+        /// 투 버튼 도어 리스트
+        /// </summary>
+        [Tooltip("투 버튼 도어 리스트")]
+        [SerializeField]
+        private List<Two_Button_Door> two_button_doors;
+
+        /// <summary>
+        /// 키 도어 리스트
+        /// </summary>
+        [Tooltip("키 도어 리스트")]
+        [SerializeField]
+        private List<Key_Door> key_doors;
+
+        /// <summary>
+        /// 함정 플랫폼 리스트
+        /// </summary>
+        [Tooltip("함정 플랫폼 리스트")]
+        [SerializeField]
+        private List<TrapPlatform> trap_platforms;
+
+        /// <summary>
+        /// 보스 프리펩
+        /// </summary>
         [Header("Boss")]
-        [SerializeField] private GameObject bossPrefab;
-        [SerializeField] private Transform bossPosition;
+        [Tooltip("보스 프리펩")]
+        [SerializeField] 
+        private GameObject bossPrefab;
+
+        /// <summary>
+        /// 보스 생성 위치
+        /// </summary>
+        [Tooltip("보스 생성 위치")]
+        [SerializeField]
+        private Transform bossPosition;
+
+        /// <summary>
+        /// 보스 인스턴스
+        /// </summary>
         private GameObject bossInstance;
+        #endregion
 
         #region Player
+        /// <summary>
+        /// 플레이어 스폰 메서드        
+        /// </summary>
         public void SpawnPlayers()
         {
             if (players.Count > 0)
@@ -136,6 +267,9 @@ namespace TwinTravelers.Management
 
         }
 
+        /// <summary>
+        /// 플레이어 제거 메서드
+        /// </summary>
         public void RemovePlayers()
         {
             for (int i = 0; i < players.Count; i++)
@@ -175,6 +309,9 @@ namespace TwinTravelers.Management
             players.Clear();
         }
 
+        /// <summary>
+        /// 플레이어 제거 메서드 + 죽음 이펙트 생성
+        /// </summary>
         public void RemovePlayersWithDeadEffect()
         {
             for (int i = 0; i < players.Count; i++)
@@ -199,6 +336,11 @@ namespace TwinTravelers.Management
             players.Clear();
         }
 
+        /// <summary>
+        /// 플레이어 속성 업데이트 메서드
+        /// </summary>
+        /// <param name="player">플레이어 오브젝트</param>
+        /// <param name="playerIndex">플레이어 인덱스</param>
         private void UpdatePlayerProperties(GameObject player, int playerIndex)
         {
             ExitGames.Client.Photon.Hashtable playerProperties = PhotonNetwork.CurrentRoom.CustomProperties;
@@ -209,6 +351,10 @@ namespace TwinTravelers.Management
         #endregion
 
         #region Photon Callbacks
+        /// <summary>
+        /// 방 속성 업데이트 콜백
+        /// </summary>
+        /// <param name="propertiesThatChanged">Hashtable</param>
         public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
         {
             foreach (var key in propertiesThatChanged.Keys)
@@ -229,6 +375,12 @@ namespace TwinTravelers.Management
 
         #region Spawn and Remove Items
 
+        /// <summary>
+        /// 아이템 스폰 메서드
+        /// </summary>
+        /// <param name="parent">스폰할 오브젝트의 부모</param>
+        /// <param name="pathOfPrefab">프리펩 경로(Resources 이용)</param>
+        /// <param name="list">참조할 리스트</param>
         private void SpawnItems(Transform parent, string pathOfPrefab, List<GameObject> list)
         {
             RemoveItems(list);
@@ -274,6 +426,10 @@ namespace TwinTravelers.Management
             }
         }
 
+        /// <summary>
+        /// 아이템 제거 메서드
+        /// </summary>
+        /// <param name="list">제거할 아이템 리스트</param>
         private void RemoveItems(List<GameObject> list)
         {
             foreach (var item in list)
@@ -314,6 +470,9 @@ namespace TwinTravelers.Management
 
         #region Gimmick Resets
 
+        /// <summary>
+        /// 모든 기믹 오브젝트 리셋
+        /// </summary>
         public void ResetGimmicks()
         {
             ResetList(lever_doors, door => door.ResetLeverDoor());
@@ -323,6 +482,12 @@ namespace TwinTravelers.Management
             ResetList(trap_platforms, platform => platform.ResetTrapPlatform());
         }
 
+        /// <summary>
+        /// 리스트 리셋
+        /// </summary>
+        /// <typeparam name="T">타입</typeparam>
+        /// <param name="list">타입 리스트</param>
+        /// <param name="resetAction">리셋 시 호출할 이벤트</param>
         private void ResetList<T>(List<T> list, System.Action<T> resetAction)
         {
             foreach (var item in list)
@@ -334,6 +499,9 @@ namespace TwinTravelers.Management
         #endregion
 
         #region Boss
+        /// <summary>
+        /// 보스 리셋
+        /// </summary>
         private void ResetBoss()
         {
             if (bossPrefab == null || bossPosition == null)
@@ -350,6 +518,9 @@ namespace TwinTravelers.Management
         }
         #endregion
 
+        /// <summary>
+        /// 모든 오브젝트 리셋
+        /// </summary>
         public void ResetAll()
         {
             RemovePlayers();

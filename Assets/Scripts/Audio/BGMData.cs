@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TwinTravelers.Audio
 {
     /// <summary>
-    /// BGM µ¥ÀÌÅÍ
+    /// BGM ë°ì´í„°
     /// </summary>
     [CreateAssetMenu(fileName = "New BGM", menuName = "Audio/BGM Source", order = 2)]
     public class BGMData : ScriptableObject
     {
         /// <summary>
-        /// ½ºÅ×ÀÌÁö ÀÌ¸§
+        /// ìŠ¤í…Œì´ì§€ ì´ë¦„
         /// </summary>
         public string stageName;
 
         /// <summary>
-        /// »ç¿ëÇÒ »ç¿îµå Å¬¸³
+        /// ì‚¬ìš©í•  ì‚¬ìš´ë“œ í´ë¦½
         /// </summary>
         public AudioClip clip;
     }

@@ -4,9 +4,12 @@ using UnityEngine;
 
 namespace TwinTravelers.Management
 {
+    /// <summary>
+    /// 화면 해상도를 관리하는 클래스
+    /// </summary>
     public class ResolutionManager : MonoBehaviour
     {
-        #region Properties
+        #region Field
         private static ResolutionManager instance;
         public static ResolutionManager Instance
         {
@@ -14,7 +17,7 @@ namespace TwinTravelers.Management
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<ResolutionManager>(); // �̷��� ����?
+                    instance = FindObjectOfType<ResolutionManager>(); // 이래도 없다?
 
                     if (instance == null)
                     {
@@ -31,6 +34,9 @@ namespace TwinTravelers.Management
             }
         }
 
+        /// <summary>
+        /// 해상도 리스트
+        /// </summary>
         public List<Resolution> resolutions { get; private set; } = new List<Resolution>();
         #endregion
 
@@ -51,7 +57,10 @@ namespace TwinTravelers.Management
         }
         #endregion
 
-        #region Initialize
+        #region Methods
+        /// <summary>
+        /// 초기화 메서드
+        /// </summary>
         private void Initialize()
         {
             // Lists
@@ -71,6 +80,9 @@ namespace TwinTravelers.Management
             ResolutionManager.OnFullScreenChange(SettingManager.IsFullScreen);
         }
 
+        /// <summary>
+        /// 해상도 리스트 초기화
+        /// </summary>
         private void InitializeResolutionList()
         {
             resolutions = Screen.resolutions
@@ -79,6 +91,9 @@ namespace TwinTravelers.Management
                 .ToList();
         }
 
+        /// <summary>
+        /// 화면 해상도 초기화
+        /// </summary>
         private void InitializeScreenResolution()
         {
             if (SettingManager.ResolutionIndex >= 0 && SettingManager.ResolutionIndex < resolutions.Count)
@@ -90,9 +105,12 @@ namespace TwinTravelers.Management
                 OnResolutionChange(resolutions[0], 0);
             }
         }
-        #endregion
 
-        #region static method
+        /// <summary>
+        /// 해상도 변경 시 호출되는 메서드
+        /// </summary>
+        /// <param name="selectedResolution">선택된 해상도</param>
+        /// <param name="resolutionIndex">해상도 인덱스</param>
         public static void OnResolutionChange(Resolution selectedResolution, int resolutionIndex)
         {
             Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreenMode, selectedResolution.refreshRateRatio);
@@ -103,13 +121,17 @@ namespace TwinTravelers.Management
 #endif
         }
 
-        public static void OnFullScreenChange(bool isOn)
+        /// <summary>
+        /// 전체 화면 모드 변경 시 호출되는 메서드
+        /// </summary>
+        /// <param name="isFullScrren">전체화면 활성화 여부</param>
+        public static void OnFullScreenChange(bool isFullScrren)
         {
-            Screen.fullScreenMode = isOn ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
-            SettingManager.SetIsFullScreen(isOn);
+            Screen.fullScreenMode = isFullScrren ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+            SettingManager.SetIsFullScreen(isFullScrren);
 
 #if UNITY_EDITOR
-            Debug.Log($"Screen set to {(isOn ? "FullScreen" : "Windowed")}");
+            Debug.Log($"Screen set to {(isFullScrren ? "FullScreen" : "Windowed")}");
 #endif
         }
         #endregion
