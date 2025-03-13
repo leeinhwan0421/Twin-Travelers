@@ -72,5 +72,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Local Screen Capture Save Root
-/Assets/Snapshots/
-/Assets/Snapshots.meta
+/Assets/ScreenShot/
+/Assets/ScreenShot.meta
