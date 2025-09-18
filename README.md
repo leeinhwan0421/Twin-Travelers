@@ -30,19 +30,19 @@
 # 기믹 오브젝트 설명
 
 | **이름** | **이미지** | **기능** |
-|----------------------|------------|----------|
+|----------|------------|----------|
 | 점프패드 | <img width="213" height="313" alt="image" src="https://github.com/user-attachments/assets/2d3bff33-3e06-44ef-b126-2bbbe9183a01"> | 플레이어의 점프력을 올려주는 오브젝트입니다. |
 | 플로팅 플랫폼 | <img width="155" height="30" alt="shelf_2" src="https://github.com/user-attachments/assets/eecc1dae-fb87-4397-a4c3-e8e2105e96bd" /> | 공중에 떠다니며 일정한 패턴으로 움직이는 플랫폼입니다. |
 | 빛나는 플랫폼 | <img width="155" height="30" alt="shelf_2" src="https://github.com/user-attachments/assets/eecc1dae-fb87-4397-a4c3-e8e2105e96bd" /> | 일정 시간 동안 나타났다 사라지는 플랫폼입니다. |
-| 문 | <img width="474" height="174" alt="image" src="https://github.com/user-attachments/assets/af27085f-c0fc-4802-a308-89f380485419" />| 평시에는 열림/닫힘 상태이나, 상호작용으로 반대 상태로 전환됩니다. |
+| 문 | <img width="250" height="134" alt="image" src="https://github.com/user-attachments/assets/af27085f-c0fc-4802-a308-89f380485419" />| 평시에는 열림/닫힘 상태이나, 상호작용으로 반대 상태로 전환됩니다. |
 | └ 레버 | <img width="232" height="168" alt="image" src="https://github.com/user-attachments/assets/2c970706-3c84-487d-bf0a-c6d5b1440279" /> | 플레이어나 오브젝트가 위에 올라서면 문이 열립니다. |
 | └ 버튼 | <img width="208" height="159" alt="image" src="https://github.com/user-attachments/assets/ccfeff98-7904-4851-b0f8-93bd6782405b" /> | 플레이어나 오브젝트가 위에 올라서면 문이 열립니다. |
 | └ 열쇠 | <img width="174" height="131" alt="image" src="https://github.com/user-attachments/assets/2462e9f0-f570-44c6-b824-7c2161dc11dd" /> | 열쇠를 획득해 문을 열 수 있습니다. |
-| └ 협력 스위치 | <img width="533" height="206" alt="image" src="https://github.com/user-attachments/assets/cea08088-556e-4a35-bd91-3123fdb488de" /> | 두 명이 동시에 스위치를 눌러야 작동하는 장치입니다. |
+| └ 협력 스위치 | <img width="260" height="100" alt="image" src="https://github.com/user-attachments/assets/cea08088-556e-4a35-bd91-3123fdb488de" /> | 두 명이 동시에 스위치를 눌러야 작동하는 장치입니다. |
 | 선풍기 | <img width="153" height="161" alt="image" src="https://github.com/user-attachments/assets/d25bcf6a-fa36-403b-858d-ff02cabfe2c1" /> | 바람으로 범위 내 캐릭터를 밀어내거나 점프 거리를 늘립니다. |
 | 중력 반전 포탈 | <img width="223" height="276" alt="image" src="https://github.com/user-attachments/assets/6360fbff-5b89-4af3-be0a-6f9b68a74c43" /> | 포탈을 통과하면 중력이 반전됩니다. |
 | 마그넷 | <img width="138" height="137" alt="image" src="https://github.com/user-attachments/assets/3c3e4fae-f4e4-4f95-9aa7-9a13fff01fee" /> | 오브젝트를 끌어당기거나 밀어냅니다. |
-| 트램펄린 | <img width="383" height="167" alt="image" src="https://github.com/user-attachments/assets/c8c3a918-d2aa-4c08-a299-9fb2a06fb827" /> | 플레이어를 높은 곳으로 점프시킵니다. |
+| 트램펄린 | <img width="170" height="80" alt="image" src="https://github.com/user-attachments/assets/c8c3a918-d2aa-4c08-a299-9fb2a06fb827" /> | 플레이어를 높은 곳으로 점프시킵니다. |
 | 풍선 타워 | <img width="203" height="330" alt="image" src="https://github.com/user-attachments/assets/408ec057-0446-4dd0-8c09-c4b7bca63aa8" /> | 풍선을 잡고 하늘을 날아 장애물을 피할 수 있습니다. |
 
 # 시연 영상
